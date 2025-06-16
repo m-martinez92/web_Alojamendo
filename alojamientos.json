@@ -1,0 +1,350 @@
+{
+  "alojamientos": [
+    {
+      "nombre": "Casona Zakalik|Sara",
+      "descripcion": "Hermosa casona en Chacras de Coria con jardín y pileta para disfrutar en familia o con amigos.",
+      "ubicacion": "Chacras de Coria, Luján de Cuyo",
+      "imagenes": [
+        "Alojamendo/CasonaSara/CasonaZaralink (1).jpg",
+        "Alojamendo/CasonaSara/CasonaZaralink (2).jpg",
+        "Alojamendo/CasonaSara/CasonaZaralink (3).jpg",
+        "Alojamendo/CasonaSara/CasonaZaralink (4).jpg",
+        "Alojamendo/CasonaSara/CasonaZaralink (5).jpg",
+        "Alojamendo/CasonaSara/CasonaZaralink (6).jpg",
+        "Alojamendo/CasonaSara/CasonaZaralink (7).jpg",
+        "Alojamendo/CasonaSara/CasonaZaralink (8).jpg",
+        "Alojamendo/CasonaSara/CasonaZaralink (9).jpg",
+        "Alojamendo/CasonaSara/CasonaZaralink (10).jpg",
+        "Alojamendo/CasonaSara/CasonaZaralink (11).jpg",
+        "Alojamendo/CasonaSara/CasonaZaralink (12).jpg",
+        "Alojamendo/CasonaSara/CasonaZaralink (13).jpg",
+        "Alojamendo/CasonaSara/CasonaZaralink (14).jpg"
+      ],
+      "whatsapp": "+5492615964732",
+      "activo": true,
+      "redesSociales": {
+        "instagram": "https://www.instagram.com/CasonaZaralink",
+        "web": "https://www.casonazaralink.com.ar"
+      },
+      "detallesAdicionales": {
+        "titulo": "Tu escapada perfecta en Casona Zakalik",
+        "textoExtenso": "Disfrutá de la tranquilidad y el espacio en nuestra casona. Ideal para reuniones familiares o de amigos, con amplios jardines y una refrescante piscina. La cocina está completamente equipada para tus necesidades.",
+        "capacidadMaxima": "12 personas (posibilidad de extender a 16 con un extra de 25 USD por persona por noche)",
+        "servicios": [
+          "Piscina",
+          "Wifi",
+          "Estacionamiento gratuito",
+          "Aire acondicionado"
+        ],
+        "otrosServicios": [
+          "Blancos (sábanas y toallas)",
+          "Cocina completamente equipada",
+          "Calefacción",
+          "Churrasquera",
+          "Fogonera",
+          "Servicio de limpieza diario"
+        ],
+        "amenities": []
+      }
+    },
+    {
+      "nombre": "Casona Zakalik|Aromos",
+      "descripcion": "Ubicada en el corazón de Chacras de Coria, esta magnífica casona te espera con un hermoso jardín y una refrescante pileta, el lugar ideal para el disfrute de toda la familia o un grupo de amigos.",
+      "ubicacion": "Chacras de Coria, Luján de Cuyo",
+      "imagenes": [
+        "Alojamendo/CasonaSara/CasonaZaralink (18).jpg",
+        "https://picsum.photos/id/60/600/400",
+        "https://picsum.photos/id/75/600/400"
+      ],
+      "whatsapp": "",
+      "activo": true,
+      "redesSociales": {
+        "instagram": "",
+        "web": ""
+      },
+      "detallesAdicionales": {
+        "titulo": "Tu Refugio en Chacras de Coria: Casona Aromos",
+        "textoExtenso": "Rodeada de un entorno tranquilo y natural, es el lugar perfecto para una escapada. Precio temporada alta (15 sep - 20 abr y 1-31 jul): $330 USD. Precio temporada baja: $250 USD. Se aplica un cargo único por limpieza de $75 USD.",
+        "capacidadMaxima": "12 personas (posibilidad de extender a 14 con un extra de 25 USD por persona por noche)",
+        "servicios": [
+          "Piscina",
+          "Wifi",
+          "Estacionamiento gratuito"
+        ],
+        "otrosServicios": [
+          "Blancos (sábanas y toallas)",
+          "Cocina completamente equipada",
+          "Calefacción",
+          "Churrasquera",
+          "Fogonera",
+          "Cochera",
+          "Lavandería"
+        ],
+        "amenities": []
+      }
+    },
+    {
+      "nombre": "Casona Sara",
+      "descripcion": "",
+      "precio": "",
+      "ubicacion": "",
+      "imagenes": [],
+      "whatsapp": "",
+      "activo": false,
+      "redesSociales": {
+        "instagram": "",
+        "web": ""
+      },
+      "detallesAdicionales": {
+        "titulo": "",
+        "textoExtenso": "",
+        "capacidadMaxima": "",
+        "servicios": [],
+        "otrosServicios": [],
+        "amenities": []
+      }
+    },
+    {
+      "nombre": "Villa Serena Suites",
+      "descripcion": "Exclusivas suites con vistas panorámicas a los viñedos y la Cordillera de los Andes. Ideal para parejas que buscan romanticismo y tranquilidad.",
+      "precio": "$180 USD/noche",
+      "ubicacion": "Chacras de Coria, Luján de Cuyo",
+      "imagenes": [
+        "https://picsum.photos/id/433/600/400",
+        "https://picsum.photos/id/292/600/400",
+        "https://picsum.photos/id/1070/600/400"
+      ],
+      "whatsapp": "+5492615559876",
+      "activo": true,
+      "redesSociales": {
+        "instagram": "https://www.instagram.com/villaserena_suites",
+        "web": "https://www.villaserena.com.ar"
+      },
+      "detallesAdicionales": {
+        "titulo": "La Experiencia Villa Serena",
+        "textoExtenso": "Sumérgete en un oasis de calma en el corazón de la zona vitivinícola. Nuestras suites de diseño ofrecen confort de lujo, piscina privada y acceso directo a tours de bodegas. Relájate en nuestro spa boutique con tratamientos personalizados.",
+        "capacidadMaxima": "2 personas por suite",
+        "servicios": [
+          "Desayuno incluido",
+          "Piscina",
+          "Wi-Fi",
+          "Aire acondicionado"
+        ],
+        "otrosServicios": [
+          "Spa y masajes (cargo adicional)",
+          "Piscina climatizada exterior",
+          "Clases de yoga",
+          "Alquiler de bicicletas",
+          "Servicio a la habitación 24hs"
+        ],
+        "amenities": [
+          "Cama King Size",
+          "Jacuzzi privado",
+          "Cafetera Nespresso",
+          "Minibar premium",
+          "Smart TV con cable",
+          "Aire acondicionado y calefacción"
+        ]
+      }
+    },
+    {
+      "nombre": "Apart Las Cumbres",
+      "descripcion": "Modernos apartamentos totalmente equipados en el centro de la ciudad, perfectos para estancias cortas o largas. Cerca de comercios y puntos turísticos.",
+      "precio": "$75 USD/noche",
+      "ubicacion": "Ciudad de Mendoza",
+      "imagenes": [
+        "https://picsum.photos/id/1047/600/400",
+        "https://picsum.photos/id/1025/600/400",
+        "https://picsum.photos/id/1039/600/400"
+      ],
+      "whatsapp": "+5492615553333",
+      "activo": true,
+      "redesSociales": {
+        "booking": "https://www.booking.com/apartlascumbres",
+        "facebook": "https://www.facebook.com/apartlascumbresmza"
+      },
+      "detallesAdicionales": {
+        "titulo": "Comodidad en el Corazón de Mendoza",
+        "textoExtenso": "Nuestros apartamentos brindan la independencia de un hogar con los servicios de un hotel. Ideales para familias o grupos, con cocinas completas y espacios amplios. Acceso rápido a las principales avenidas y transportes.",
+        "capacidadMaxima": "4 personas por apartamento",
+        "servicios": [
+          "Wi-Fi",
+          "Estacionamiento",
+          "Recepción 24hs"
+        ],
+        "otrosServicios": [
+          "Servicio de limpieza diario",
+          "Wi-Fi de alta velocidad",
+          "Estacionamiento subterráneo (con cargo)",
+          "Lavandería de autoservicio"
+        ],
+        "amenities": [
+          "Cocina completa (heladera, microondas, anafe)",
+          "Utensilios de cocina",
+          "Zona de estar con sofá cama",
+          "Baño privado",
+          "Secador de pelo"
+        ]
+      }
+    },
+    {
+      "nombre": "Hostel Aventurero",
+      "descripcion": "Hostel vibrante y económico, ideal para viajeros individuales y grupos. Actividades al aire libre y fogones nocturnos.",
+      "precio": "$25 USD/noche (cama en dormitorio)",
+      "ubicacion": "Cacheuta, Luján de Cuyo",
+      "imagenes": [
+        "https://picsum.photos/id/1069/600/400",
+        "https://picsum.photos/id/111/600/400",
+        "https://picsum.photos/id/1053/600/400"
+      ],
+      "whatsapp": "+5492615551122",
+      "activo": true,
+      "redesSociales": {
+        "instagram": "https://www.instagram.com/hostel_aventurero_mza",
+        "facebook": "https://www.facebook.com/hostelaventureromza"
+      },
+      "detallesAdicionales": {
+        "titulo": "Tu Base para la Aventura",
+        "textoExtenso": "Ubicados estratégicamente cerca del Río Mendoza, ofrecemos fácil acceso a rafting, trekking, y escalada. Disfruta de nuestras zonas comunes, cocina compartida y eventos sociales para conocer a otros viajeros.",
+        "capacidadMaxima": "20 personas (4 dormitorios compartidos)",
+        "servicios": [
+          "Desayuno incluido",
+          "Wi-Fi"
+        ],
+        "otrosServicios": [
+          "Desayuno continental simple",
+          "Wi-Fi en áreas comunes",
+          "Alquiler de equipo de montaña",
+          "Organización de excursiones",
+          "Consigna de equipaje"
+        ],
+        "amenities": [
+          "Literas con cortinas de privacidad",
+          "Lockers individuales",
+          "Baños compartidos amplios",
+          "Aire acondicionado en dormitorios",
+          "Ropa de cama básica"
+        ]
+      }
+    },
+    {
+      "nombre": "Estancia Los Nogales",
+      "descripcion": "Caserón histórico rodeado de un parque centenario. Ideal para un escape rural con la elegancia del pasado y confort moderno.",
+      "precio": "$160 USD/noche",
+      "ubicacion": "San Rafael, Mendoza",
+      "imagenes": [
+        "https://picsum.photos/id/1068/600/400",
+        "https://picsum.photos/id/1054/600/400",
+        "https://picsum.photos/id/1074/600/400"
+      ],
+      "whatsapp": "+5492615554455",
+      "activo": false,
+      "mostrarSiInactivo": true,
+      "redesSociales": {
+        "web": "https://www.estancialosnogales.com",
+        "facebook": "https://www.facebook.com/estancialosnogales"
+      },
+      "detallesAdicionales": {
+        "titulo": "Historia y Naturaleza en Los Nogales",
+        "textoExtenso": "Descubre la historia de Mendoza en nuestra estancia restaurada. Pasea por nuestros jardines, disfruta de la gastronomía regional y relájate junto a la piscina. Ofrecemos cabalgatas y visitas guiadas a huertas orgánicas.",
+        "capacidadMaxima": "15 personas (5 habitaciones dobles/triples)",
+        "servicios": [
+          "Piscina",
+          "Desayuno incluido"
+        ],
+        "otrosServicios": [
+          "Pensión completa (desayuno, almuerzo, cena)",
+          "Tours por la propiedad",
+          "Piscina exterior con solárium",
+          "Biblioteca",
+          "Sala de juegos"
+        ],
+        "amenities": [
+          "Decoración de época",
+          "Baño privado en cada habitación",
+          "Vistas al jardín/campo",
+          "Servicio de té y café",
+          "Wi-Fi en áreas comunes"
+        ]
+      }
+    },
+    {
+      "nombre": "Cabañas del Valle Grande",
+      "descripcion": "Cabañas rústicas a orillas del río, perfectas para amantes de la pesca y actividades acuáticas. Entorno natural puro.",
+      "precio": "$110 USD/noche",
+      "ubicacion": "Valle Grande, San Rafael",
+      "imagenes": [
+        "https://picsum.photos/id/1072/600/400",
+        "https://picsum.photos/id/1042/600/400",
+        "https://picsum.photos/id/1060/600/400"
+      ],
+      "whatsapp": "+5492615556677",
+      "activo": true,
+      "redesSociales": {
+        "web": "https://www.cabanasvallegrande.com.ar",
+        "tripadvisor": "https://www.tripadvisor.com/cabanasvallegrande"
+      },
+      "detallesAdicionales": {
+        "titulo": "Aventura en el Corazón del Valle",
+        "textoExtenso": "Nuestras cabañas te conectan directamente con la naturaleza. Acceso exclusivo al río, ideal para pesca o kayak. Organizamos excursiones de rafting y paseos en catamarán. Prepara tus propias comidas en tu cabaña o disfruta de la gastronomía local.",
+        "capacidadMaxima": "Hasta 5 personas por cabaña",
+        "servicios": [
+          "Acceso directo al río",
+          "Parrilla"
+        ],
+        "otrosServicios": [
+          "Zonas de picnic y parrillas",
+          "Alquiler de equipos de pesca",
+          "Wi-Fi limitado",
+          "Recepción de tours"
+        ],
+        "amenities": [
+          "Cocina equipada",
+          "Baño privado",
+          "Calefacción a leña/eléctrica",
+          "Ventiladores de techo",
+          "Balcón con vista al río"
+        ]
+      }
+    },
+    {
+      "nombre": "Hotel Boutique Aromo",
+      "descripcion": "Elegante hotel boutique con diseño moderno y servicio personalizado. Ubicado en una zona tranquila, cerca de la vida nocturna y cultural.",
+      "precio": "$140 USD/noche",
+      "ubicacion": "Chacras de Coria, Luján de Cuyo",
+      "imagenes": [
+        "https://picsum.photos/id/1075/600/400",
+        "https://picsum.photos/id/1077/600/400",
+        "https://picsum.photos/id/1078/600/400"
+      ],
+      "whatsapp": "",
+      "activo": true,
+      "redesSociales": {
+        "instagram": "https://www.instagram.com/hotelaromo_mza",
+        "web": "https://www.hotelaromo.com"
+      },
+      "detallesAdicionales": {
+        "titulo": "Estilo y Confort en Chacras",
+        "textoExtenso": "Descubre la combinación perfecta de lujo y cercanía a los atractivos de Chacras de Coria. Ofrecemos habitaciones temáticas, una piscina en la azotea con vistas, y un bar de vinos con catas diarias. Ideal para una experiencia sofisticada y relajante.",
+        "capacidadMaxima": "2 personas por habitación",
+        "servicios": [
+          "Desayuno incluido",
+          "Piscina en la azotea",
+          "Bar de vinos y tapas"
+        ],
+        "otrosServicios": [
+          "Desayuno a la carta",
+          "Servicio de conserjería",
+          "Estacionamiento gratuito"
+        ],
+        "amenities": [
+          "Cama Queen Size",
+          "Set de té y café premium",
+          "Caja de seguridad",
+          "Toallas de algodón egipcio",
+          "Artículos de baño de lujo"
+        ]
+      }
+    }
+  ]
+}
