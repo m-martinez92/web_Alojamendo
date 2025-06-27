@@ -10,11 +10,19 @@
     <style>
         body {
             font-family: 'Inter', sans-serif;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
         }
-        /* Clase base para todas las tarjetas */
+        main {
+            flex-grow: 1;
+            display: flex;
+            padding-top: 1.5rem;
+            padding-bottom: 3rem;
+        }
         .card {
-            overflow: visible !important; /* Asegura que el contenido pueda salirse de los límites */
-            position: relative; /* Permite que z-index funcione en la tarjeta */
+            overflow: visible !important;
+            position: relative;
         }
         .card-hover:hover {
             transform: translateY(-5px);
@@ -69,7 +77,6 @@
             right: 0.5rem;
         }
 
-        /* Collapsible content styles */
         .collapsible-content {
             max-height: 0;
             overflow: hidden;
@@ -109,7 +116,6 @@
             transform: rotate(180deg);
         }
 
-        /* Dropdown styles */
         .dropdown-container {
             position: relative;
             display: inline-block;
@@ -121,7 +127,7 @@
             background-color: #f9f9f9;
             min-width: 160px;
             box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-            z-index: 1000; /* Elevado para asegurar visibilidad */
+            z-index: 1000;
             border-radius: 0.375rem;
             overflow: hidden;
             width: 100%;
@@ -130,6 +136,7 @@
             transform: translateY(0.25rem);
         }
         .dropdown-content a {
+            display: flex;
             color: black;
             padding: 12px 16px;
             text-decoration: none;
@@ -140,66 +147,99 @@
         .dropdown-content a:hover {
             background-color: #f1f1f1;
         }
+        .dropdown-content a i {
+            margin-right: 0.5rem;
+            width: 1rem;
+        }
         .dropdown-container.open .dropdown-content {
             display: block;
         }
 
-        /* Eleva la tarjeta activa */
         .card.active-card {
-            z-index: 999; /* Asegura que la tarjeta activa esté por encima de sus vecinas */
+            z-index: 999;
         }
         #alojamientosContainer {
             align-items: start;
         }
 
-        /* Specific styles for the filter section */
-        #filterSection {
-            display: flex;
-            flex-direction: column; /* Stacks on small screens */
-            gap: 1rem; /* Space between filter groups */
-            align-items: flex-end; /* Aligns items to the end of the cross axis */
+        /* --- Estilos para la barra lateral y el contenido principal --- */
+        #filterSidebar {
+            width: 280px;
+            min-width: 280px;
+            margin-right: 2rem;
+            padding: 1.5rem;
+            background-color: #ffffff;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 1.5rem;
+            height: fit-content;
+            align-self: flex-start;
         }
-        @media (min-width: 768px) { /* Medium screens and up */
-            #filterSection {
-                flex-direction: row; /* Arranges horizontally on medium screens */
-                justify-content: flex-start; /* Aligns to start when horizontal */
+
+        #contentArea {
+            flex-grow: 1;
+            max-width: calc(100% - 280px - 2rem);
+        }
+
+        /* Ajustes para dispositivos móviles */
+        @media (max-width: 768px) {
+            main {
+                flex-direction: column;
+                align-items: center;
+                padding-left: 1.5rem;
+                padding-right: 1.5rem;
+            }
+            #filterSidebar {
+                width: 100%;
+                max-width: 400px;
+                margin-right: 0;
+                margin-bottom: 2rem;
+                position: static;
+                top: auto;
+            }
+            #contentArea {
+                max-width: 100%;
+            }
+            #alojamientosContainer {
+                grid-template-columns: 1fr;
             }
         }
 
-        .filter-group {
-            flex: 1; /* Allows groups to grow and shrink */
-            min-width: 150px; /* Minimum width for each filter */
+        /* Estilos para los selectores de radio */
+        .radio-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem; /* Espacio entre los radios */
+            padding: 0.5rem 0;
+            border: 1px solid #e5e7eb;
+            border-radius: 0.375rem;
+            background-color: #f9fafb;
         }
 
-        /* Custom dropdown for services */
-        #servicesDropdownContent {
-            padding: 0.75rem;
-            max-height: 200px; /* Limit height for scrollability */
-            overflow-y: auto; /* Enable scrolling for many services */
-            /* Removed grid properties */
-            display: flex; /* Use flexbox for single column */
-            flex-direction: column; /* Stack items vertically */
-            gap: 0.5rem; /* Space between checkboxes */
-        }
-        #servicesDropdownContent .checkbox-item {
+        .radio-item {
             display: flex;
             align-items: center;
-            width: 100%; /* Ensure each item takes full width */
-            padding: 0.25rem 0; /* Add a little vertical padding */
+            padding: 0.25rem 0.75rem;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
         }
-        #servicesDropdownContent .checkbox-item input[type="checkbox"] {
-            /* Ensure uniform checkbox size */
-            flex-shrink: 0; /* Prevent checkbox from shrinking */
-            width: 1rem; /* Standard width */
-            height: 1rem; /* Standard height */
+        .radio-item:hover {
+            background-color: #eff6ff; /* Color de fondo al pasar el mouse */
         }
-        #servicesDropdownContent .checkbox-item label {
-            flex-grow: 1; /* Allow label to take remaining space */
-            margin-left: 0.5rem;
-            /* Ensure label text doesn't wrap unnecessarily tight, but allows it if needed */
-            white-space: normal; /* Allow text to wrap naturally */
+        .radio-item input[type="radio"] {
+            flex-shrink: 0;
+            width: 1.15rem;
+            height: 1.15rem;
+            accent-color: #4f46e5;
         }
-
+        .radio-item label {
+            flex-grow: 1;
+            margin-left: 0.6rem;
+            font-size: 0.925rem;
+            color: #374151;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
@@ -210,42 +250,36 @@
         </div>
     </header>
 
-    <main class="container mx-auto px-6 py-12">
-        <div class="bg-white rounded-lg shadow-md p-6 mb-8 relative">
-            <div id="filterSection" class="flex flex-col md:flex-row md:items-end gap-4 mb-4">
-                <div class="filter-group">
-                    <label for="ubicacionFilter" class="block text-sm font-medium text-gray-700">Ubicación:</label>
-                    <select id="ubicacionFilter" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
-                        <option value="">Todas</option>
-                        </select>
-                </div>
+    <main class="container mx-auto px-6">
+        <div id="filterSidebar">
+            <h2 class="text-2xl font-bold text-gray-800 mb-6 text-center">Filtrar Alojamientos</h2>
 
+            <div id="filterSection" class="flex flex-col gap-4 mb-6">
                 <div class="filter-group">
-                    <label for="capacidadMaximaFilter" class="block text-sm font-medium text-gray-700">Capacidad Máxima:</label>
-                    <input type="number" id="capacidadMaximaFilter" min="1" placeholder="Ej: 4" class="mt-1 block w-full pl-3 pr-3 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
-                </div>
-
-                <div class="filter-group dropdown-container flex-grow">
-                    <label for="servicesFilterButton" class="block text-sm font-medium text-gray-700">Servicios:</label>
-                    <button id="servicesFilterButton" class="w-full bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold py-2 px-4 rounded-lg transition-colors duration-300 text-center flex items-center justify-between mt-1">
-                        Seleccionar Servicios <i class="fas fa-caret-down ml-2"></i>
-                    </button>
-                    <div id="servicesDropdownContent" class="dropdown-content">
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Ubicación:</label>
+                    <div id="ubicacionFilterRadios" class="radio-group">
                         </div>
                 </div>
 
-                <div class="flex gap-2">
+                <div class="filter-group">
+                    <label for="capacidadMaximaFilter" class="block text-sm font-medium text-gray-700 mb-1">Capacidad Máxima:</label>
+                    <input type="number" id="capacidadMaximaFilter" min="1" placeholder="Ej: 4" class="mt-1 block w-full pl-3 pr-3 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
+                </div>
+
+                <div class="flex flex-col gap-2 mt-4">
                     <button id="applyFiltersButton" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-6 rounded-lg transition-colors duration-300 whitespace-nowrap">Aplicar Filtros</button>
-                    <button id="clearFiltersButton" class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-6 rounded-lg transition-colors duration-300 whitespace-nowrap">Limpiar</button>
+                    <button id="clearFiltersButton" class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-6 rounded-lg transition-colors duration-300 whitespace-nowrap">Limpiar Filtros</button>
                 </div>
             </div>
         </div>
 
-        <div id="alojamientosContainer" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div id="contentArea">
+            <div id="alojamientosContainer" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            </div>
+            <div id="loadingMessage" style="display: none;">Cargando alojamientos...</div>
+            <div id="errorMessage" class="text-red-500 text-center mt-4" style="display: none;"></div>
+            <div id="noResultsMessage" class="text-gray-600 text-center mt-4" style="display: none;">No se encontraron alojamientos que coincidan con los filtros aplicados.</div>
         </div>
-        <div id="loadingMessage" style="display: none;">Cargando alojamientos...</div>
-        <div id="errorMessage" class="text-red-500 text-center mt-4" style="display: none;"></div>
-        <div id="noResultsMessage" class="text-gray-600 text-center mt-4" style="display: none;">No se encontraron alojamientos que coincidan con los filtros aplicados.</div>
     </main>
 
     <footer class="bg-gray-800 text-white py-8 mt-12">
@@ -261,45 +295,39 @@
         const errorMessage = document.getElementById('errorMessage');
         const noResultsMessage = document.getElementById('noResultsMessage');
 
-        const ubicacionFilter = document.getElementById('ubicacionFilter');
+        const ubicacionFilterRadios = document.getElementById('ubicacionFilterRadios');
         const capacidadMaximaFilter = document.getElementById('capacidadMaximaFilter');
-        const servicesFilterButton = document.getElementById('servicesFilterButton'); // New: button for services dropdown
-        const servicesDropdownContent = document.getElementById('servicesDropdownContent'); // New: services dropdown content
+        // Eliminar o comentar la siguiente línea, ya no necesitamos la referencia a un elemento HTML que no existe
+        // const sortByRatingRadios = document.getElementById('sortByRatingRadios');
 
         const applyFiltersButton = document.getElementById('applyFiltersButton');
         const clearFiltersButton = document.getElementById('clearFiltersButton');
         const jsonFile = 'alojamientos.json';
 
-        let allAlojamientos = []; // To store all loaded accommodations
+        let allAlojamientos = [];
 
-        // Function to close all dropdowns (services and social media)
         function closeAllDropdowns() {
             document.querySelectorAll('.dropdown-container.open').forEach(openDropdown => {
-                openDropdown.classList.remove('open'); // Removes the 'open' class to hide the dropdown
-                // Check if this is a social media dropdown and remove active-card class
-                const associatedCard = openDropdown.closest('.card'); // Finds the parent card if it's a social media dropdown
+                const associatedCard = openDropdown.closest('.card');
                 if (associatedCard) {
-                    associatedCard.classList.remove('active-card'); // Removes the 'active-card' class
+                    associatedCard.classList.remove('active-card');
                 }
-                // Check if this is the services filter dropdown and revert its arrow
-                if (openDropdown.contains(servicesFilterButton)) { // Checks if the services filter button is inside this dropdown
-                    const icon = servicesFilterButton.querySelector('i'); // Gets the arrow icon
-                    if (icon) {
-                        icon.classList.remove('fa-caret-up'); // Changes arrow to point down
-                        icon.classList.add('fa-caret-down'); // Changes arrow to point down
-                    }
-                }
+                openDropdown.classList.remove('open');
             });
         }
 
-        // Global click listener to close dropdowns when clicking outside
-        // THIS IS THE CORRECTED PART FROM YOUR SNIPPET
         document.addEventListener('click', (e) => {
-            const isClickInsideAnyDropdownContainer = e.target.closest('.dropdown-container'); // Checks if the click was inside any dropdown container
-            if (!isClickInsideAnyDropdownContainer) { // If the click was outside all dropdown containers
-                closeAllDropdowns(); // Close all open dropdowns
+            const isClickInsideAnyDropdownContent = e.target.closest('.dropdown-content');
+            const isClickInsideCollapsibleButton = e.target.closest('.collapsible-button');
+            const isClickInsideDropdownButton = e.target.closest('.dropdown-container button');
+            const isClickInsideRadioGroup = e.target.closest('.radio-group');
+
+            // Asegúrate de que el clic no sea dentro de los radio groups de ubicación
+            if (!isClickInsideAnyDropdownContent && !isClickInsideCollapsibleButton && !isClickInsideDropdownButton && !isClickInsideRadioGroup) {
+                closeAllDropdowns();
             }
         });
+
 
         function crearTarjetaAlojamiento(alojamiento) {
             const tieneWhatsAppValido = alojamiento.whatsapp && alojamiento.whatsapp.trim() !== "" && (alojamiento.activo === undefined || alojamiento.activo === true);
@@ -307,7 +335,6 @@
             const card = document.createElement('div');
             card.className = 'card bg-white rounded-lg shadow-md card-hover transition-all duration-300 flex flex-col';
 
-            // Carousel
             const carouselContainer = document.createElement('div');
             carouselContainer.className = 'carousel-container';
             const carouselImages = document.createElement('div');
@@ -348,7 +375,6 @@
             }
             card.appendChild(carouselContainer);
 
-            // Content div
             const contentDiv = document.createElement('div');
             contentDiv.className = 'p-6 flex flex-col flex-grow';
 
@@ -362,7 +388,6 @@
             descripcion.textContent = alojamiento.descripcion;
             contentDiv.appendChild(descripcion);
 
-            // Collapsible details
             if (alojamiento.detallesAdicionales) {
                 const collapsibleButton = document.createElement('button');
                 collapsibleButton.className = 'collapsible-button';
@@ -447,7 +472,6 @@
                 };
             }
 
-            // Price and location
             const infoDiv = document.createElement('div');
             infoDiv.className = 'flex justify-between items-center mt-auto mb-4';
             const precio = document.createElement('span');
@@ -460,7 +484,6 @@
             infoDiv.appendChild(ubicacion);
             contentDiv.appendChild(infoDiv);
 
-            // Action buttons (Social media dropdown & WhatsApp)
             const buttonsDiv = document.createElement('div');
             buttonsDiv.className = 'grid grid-cols-1 sm:grid-cols-2 gap-2';
 
@@ -468,7 +491,7 @@
             dropdownContainer.className = 'dropdown-container';
             const detallesButton = document.createElement('button');
             detallesButton.className = 'w-full bg-indigo-500 hover:bg-indigo-600 text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-300 text-center flex items-center justify-center';
-            detallesButton.innerHTML = `Redes Sociales <i class="fas fa-caret-down ml-2"></i>`;
+            detallesButton.innerHTML = `Redes Sociales <i class="fas fa-caret-down ml-auto"></i>`;
             const dropdownContent = document.createElement('div');
             dropdownContent.className = 'dropdown-content';
 
@@ -480,7 +503,17 @@
                         socialLink.href = alojamiento.redesSociales[platform];
                         socialLink.target = '_blank';
                         socialLink.rel = 'noopener noreferrer';
-                        socialLink.textContent = platform.charAt(0).toUpperCase() + platform.slice(1);
+                        let iconClass = '';
+                        switch (platform.toLowerCase()) {
+                            case 'facebook': iconClass = 'fab fa-facebook-f'; break;
+                            case 'instagram': iconClass = 'fab fa-instagram'; break;
+                            case 'twitter': iconClass = 'fab fa-twitter'; break;
+                            case 'website': iconClass = 'fas fa-globe'; break;
+                            case 'email': iconClass = 'fas fa-envelope'; break;
+                            default: iconClass = 'fas fa-link';
+                        }
+                        socialLink.innerHTML = `<i class="${iconClass}"></i> ${platform.charAt(0).toUpperCase() + platform.slice(1)}`;
+
                         dropdownContent.appendChild(socialLink);
                         hasSocialMedia = true;
                     }
@@ -493,12 +526,11 @@
                 buttonsDiv.appendChild(dropdownContainer);
 
                 detallesButton.onclick = (e) => {
-                    e.stopPropagation(); // Prevents the click from propagating to the document
-                    // Close all dropdowns, then toggle the current one
-                    if (!dropdownContainer.classList.contains('open')) { // Only close others if this one is not already open
-                        closeAllDropdowns(); // Closes other open dropdowns
+                    e.stopPropagation();
+                    if (!dropdownContainer.classList.contains('open')) {
+                        closeAllDropdowns();
                     }
-                    dropdownContainer.classList.toggle('open'); // Toggles the current social media dropdown
+                    dropdownContainer.classList.toggle('open');
                     if (dropdownContainer.classList.contains('open')) {
                         card.classList.add('active-card');
                     } else {
@@ -514,14 +546,22 @@
                 buttonsDiv.appendChild(noSocialMediaButton);
             }
 
-            if (tieneWhatsAppValido) {
+if (tieneWhatsAppValido) {
                 const whatsappLink = document.createElement('a');
-                whatsappLink.href = `https://wa.me/${alojamiento.whatsapp.replace(/\D/g, '')}`;
+                const numeroLimpio = alojamiento.whatsapp.replace(/\D/g, ''); // Limpiar el número de WhatsApp
+
+                // Codificar el texto del saludo para la URL
+                const saludoCodificado = alojamiento.saludo ? encodeURIComponent(alojamiento.saludo) : '';
+
+                // Construir el enlace de WhatsApp con el texto predefinido
+                whatsappLink.href = `https://wa.me/${numeroLimpio}${saludoCodificado ? `?text=${saludoCodificado}` : ''}`;
+                
                 whatsappLink.target = '_blank';
                 whatsappLink.rel = 'noopener noreferrer';
                 whatsappLink.className = 'w-full bg-green-500 hover:bg-green-600 text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-300 text-center';
                 whatsappLink.textContent = 'WhatsApp';
                 buttonsDiv.appendChild(whatsappLink);
+            
             } else {
                 const noWhatsAppButton = document.createElement('button');
                 noWhatsAppButton.className = 'w-full bg-gray-300 text-gray-500 font-semibold py-2 px-4 rounded-lg cursor-not-allowed';
@@ -536,41 +576,61 @@
         }
 
         function populateFilters(alojamientos) {
-            // Populate Location Filter
             const ubicaciones = new Set(alojamientos.map(a => a.ubicacion).filter(Boolean));
-            ubicacionFilter.innerHTML = '<option value="">Todas</option>'; // Reset
-            Array.from(ubicaciones).sort().forEach(ubicacion => {
-                const option = document.createElement('option');
-                option.value = ubicacion;
-                option.textContent = ubicacion;
-                ubicacionFilter.appendChild(option);
-            });
+            ubicacionFilterRadios.innerHTML = '';
 
-            // Populate Services Filter (inside the dropdown content)
-            const allServices = new Set();
-            alojamientos.forEach(alojamiento => {
-                if (alojamiento.detallesAdicionales && alojamiento.detallesAdicionales.servicios) {
-                    alojamiento.detallesAdicionales.servicios.forEach(servicio => {
-                        allServices.add(servicio);
-                    });
+            const allUbicacionesDiv = document.createElement('div');
+            allUbicacionesDiv.className = 'radio-item';
+            allUbicacionesDiv.onclick = function() {
+                const radio = this.querySelector('input[type="radio"]');
+                if (radio) {
+                    radio.checked = true;
+                    filterAndSortAlojamientos();
                 }
-            });
-            servicesDropdownContent.innerHTML = ''; // Reset
-            Array.from(allServices).sort().forEach(servicio => {
+            };
+            const allUbicacionesInput = document.createElement('input');
+            allUbicacionesInput.type = 'radio';
+            allUbicacionesInput.id = `ubicacion-todas`;
+            allUbicacionesInput.name = 'ubicacionFilter';
+            allUbicacionesInput.value = '';
+            allUbicacionesInput.checked = true;
+            allUbicacionesInput.className = 'h-4 w-4 text-indigo-600 border-gray-300 focus:ring-indigo-500';
+            allUbicacionesInput.addEventListener('click', (e) => e.stopPropagation());
+            const allUbicacionesLabel = document.createElement('label');
+            allUbicacionesLabel.htmlFor = allUbicacionesInput.id;
+            allUbicacionesLabel.className = 'ml-2 block text-sm text-gray-900 cursor-pointer';
+            allUbicacionesLabel.textContent = 'Todas';
+            allUbicacionesDiv.appendChild(allUbicacionesInput);
+            allUbicacionesDiv.appendChild(allUbicacionesLabel);
+            ubicacionFilterRadios.appendChild(allUbicacionesDiv);
+
+
+            Array.from(ubicaciones).sort().forEach(ubicacion => {
                 const div = document.createElement('div');
-                div.className = 'checkbox-item'; // Added a class for consistent styling
+                div.className = 'radio-item';
+                div.onclick = function() {
+                    const radio = this.querySelector('input[type="radio"]');
+                    if (radio) {
+                        radio.checked = true;
+                        filterAndSortAlojamientos();
+                    }
+                };
+
                 const input = document.createElement('input');
-                input.type = 'checkbox';
-                input.id = `servicio-${servicio.replace(/\s/g, '-')}`;
-                input.value = servicio;
-                input.className = 'h-4 w-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500';
+                input.type = 'radio';
+                input.id = `ubicacion-${ubicacion.replace(/\s/g, '-').replace(/[^a-zA-Z0-9-]/g, '')}`;
+                input.name = 'ubicacionFilter';
+                input.value = ubicacion;
+                input.className = 'h-4 w-4 text-indigo-600 border-gray-300 focus:ring-indigo-500';
+                input.addEventListener('click', (e) => e.stopPropagation());
+
                 const label = document.createElement('label');
                 label.htmlFor = input.id;
-                label.className = 'ml-2 block text-sm text-gray-900'; // Removed whitespace-nowrap
-                label.textContent = servicio;
+                label.className = 'ml-2 block text-sm text-gray-900 cursor-pointer';
+                label.textContent = ubicacion;
                 div.appendChild(input);
                 div.appendChild(label);
-                servicesDropdownContent.appendChild(div);
+                ubicacionFilterRadios.appendChild(div);
             });
         }
 
@@ -593,101 +653,96 @@
             }
         }
 
-        function filterAlojamientos() {
-            const selectedUbicacion = ubicacionFilter.value.toLowerCase();
-            const selectedCapacidadMaxima = parseInt(capacidadMaximaFilter.value);
-            // Get selected services from the dropdown content
-            const selectedServices = Array.from(servicesDropdownContent.querySelectorAll('input:checked')).map(cb => cb.value);
+        function filterAndSortAlojamientos() {
+            const selectedUbicacionRadio = document.querySelector('input[name="ubicacionFilter"]:checked');
+            const selectedUbicacion = selectedUbicacionRadio ? selectedUbicacionRadio.value.toLowerCase() : '';
 
-            const filtered = allAlojamientos.filter(alojamiento => {
-                // Filter by Location
+            const selectedCapacidadMaximaInput = capacidadMaximaFilter.value.trim();
+            const selectedCapacidadMaxima = selectedCapacidadMaximaInput === '' ? NaN : parseInt(selectedCapacidadMaximaInput);
+            
+            const selectedServices = []; // No hay filtro de servicios visible
+
+            // --- CAMBIO CLAVE AQUÍ ---
+            // Definimos el orden directamente, sin depender de un selector en el DOM.
+            // Para el administrador, puede cambiar este valor aquí en el código.
+            // Por ejemplo, para ordenar por valoración de mayor a menor:
+            // const sortOrder = 'rating-desc';
+            // O si quieres que por defecto sea "sin orden específico" (manteniendo el orden del JSON si no se especifica):
+            const sortOrder = 'rating-asc'; // o 'rating-desc', 'default' según prefieras el orden por defecto
+
+            let filtered = allAlojamientos.filter(alojamiento => {
                 const matchesUbicacion = selectedUbicacion === '' || (alojamiento.ubicacion && alojamiento.ubicacion.toLowerCase().includes(selectedUbicacion));
 
-                // Filter by Max Capacity
-                const matchesCapacidad = isNaN(selectedCapacidadMaxima) || (alojamiento.detallesAdicionales && alojamiento.detallesAdicionales.capacidadMaxima >= selectedCapacidadMaxima);
+                const capacidadProp = alojamiento.detallesAdicionales.capacidadMaxima;
+                let matchesCapacidad = true;
+                if (!isNaN(selectedCapacidadMaxima)) {
+                    if (capacidadProp) {
+                        const capacidadNumero = parseInt(capacidadProp.match(/\d+/));
+                        matchesCapacidad = capacidadNumero >= selectedCapacidadMaxima;
+                    } else {
+                        matchesCapacidad = false;
+                    }
+                }
 
-                // Filter by Services
-                const matchesServices = selectedServices.length === 0 ||
-                                        (alojamiento.detallesAdicionales && alojamiento.detallesAdicionales.servicios &&
-                                         selectedServices.every(service => alojamiento.detallesAdicionales.servicios.includes(service)));
+                const matchesServices = true; // No hay filtro de servicios
 
                 return matchesUbicacion && matchesCapacidad && matchesServices;
             });
 
-            displayAlojamientos(filtered);
-            // Close the services dropdown after applying filters
-            // This part is called when filters are applied, ensuring it closes.
-            const servicesDropdownContainer = servicesFilterButton.closest('.dropdown-container');
-            if (servicesDropdownContainer) {
-                servicesDropdownContainer.classList.remove('open');
-                servicesFilterButton.querySelector('i').classList.remove('fa-caret-up');
-                servicesFilterButton.querySelector('i').classList.add('fa-caret-down');
+            if (sortOrder === 'rating-desc') {
+                filtered.sort((a, b) => (b.valoracion || 0) - (a.valoracion || 0));
+            } else if (sortOrder === 'rating-asc') {
+                filtered.sort((a, b) => (a.valoracion || 0) - (b.valoracion || 0));
             }
+            // Si sortOrder es 'default', no se aplica ninguna ordenación,
+            // lo que significa que se mantendrá el orden original del JSON.
+
+            displayAlojamientos(filtered);
         }
 
-        async function cargarAlojamientos() {
+        function clearFilters() {
+            const defaultUbicacionRadio = document.getElementById('ubicacion-todas');
+            if (defaultUbicacionRadio) {
+                defaultUbicacionRadio.checked = true;
+            }
+
+            capacidadMaximaFilter.value = '';
+            
+            closeAllDropdowns();
+            filterAndSortAlojamientos();
+        }
+
+        ubicacionFilterRadios.addEventListener('change', filterAndSortAlojamientos);
+        // Eliminar o comentar la siguiente línea, ya no hay un listener para sortByRatingRadios
+        // sortByRatingRadios.addEventListener('change', filterAndSortAlojamientos);
+
+        applyFiltersButton.addEventListener('click', filterAndSortAlojamientos);
+        clearFiltersButton.addEventListener('click', clearFilters);
+        capacidadMaximaFilter.addEventListener('input', filterAndSortAlojamientos);
+
+        async function fetchAlojamientos() {
             loadingMessage.style.display = 'block';
             errorMessage.style.display = 'none';
-            noResultsMessage.style.display = 'none';
-            alojamientosContainer.innerHTML = '';
-
             try {
                 const response = await fetch(jsonFile);
                 if (!response.ok) {
-                    throw new Error(`Error al cargar el archivo JSON: ${response.status} ${response.statusText}`);
+                    throw new Error(`HTTP error! status: ${response.status}`);
                 }
                 const data = await response.json();
-
-                if (data && data.alojamientos && data.alojamientos.length > 0) {
-                    allAlojamientos = data.alojamientos; // Store all accommodations
-                    populateFilters(allAlojamientos); // Populate filters once loaded
-                    displayAlojamientos(allAlojamientos); // Display all initially
-                } else {
-                    errorMessage.textContent = 'No se encontraron alojamientos para mostrar.';
-                    errorMessage.style.display = 'block';
-                }
+                allAlojamientos = data.alojamientos || [];
+                populateFilters(allAlojamientos);
+                filterAndSortAlojamientos();
             } catch (error) {
-                console.error('Error fetching o procesando alojamientos:', error);
-                errorMessage.textContent = `No se pudieron cargar los alojamientos. Por favor, intenta más tarde. (${error.message})`;
+                console.error('Error fetching alojamientos:', error);
+                errorMessage.textContent = 'Error al cargar los alojamientos. Por favor, intenta de nuevo más tarde.';
                 errorMessage.style.display = 'block';
+                alojamientosContainer.innerHTML = '';
             } finally {
                 loadingMessage.style.display = 'none';
             }
         }
 
-        // Event Listener for Services Dropdown Button
-        servicesFilterButton.addEventListener('click', (e) => {
-            e.stopPropagation(); // Prevents the click from propagating to the document
-            const parentDropdown = servicesFilterButton.closest('.dropdown-container');
-
-            // Close all dropdowns first, then toggle the current one
-            if (!parentDropdown.classList.contains('open')) { // Only close others if this one is not already open
-                closeAllDropdowns(); // Closes other open dropdowns (including social media dropdowns)
-            }
-            parentDropdown.classList.toggle('open');
-            const icon = servicesFilterButton.querySelector('i');
-            if (parentDropdown.classList.contains('open')) {
-                icon.classList.remove('fa-caret-down');
-                icon.classList.add('fa-caret-up');
-            } else {
-                icon.classList.remove('fa-caret-up');
-                icon.classList.add('fa-caret-down');
-            }
-        });
-
-        // Event Listeners for Filter Buttons
-        applyFiltersButton.addEventListener('click', filterAlojamientos);
-        clearFiltersButton.addEventListener('click', () => {
-            ubicacionFilter.value = '';
-            capacidadMaximaFilter.value = '';
-            // Uncheck all service checkboxes
-            servicesDropdownContent.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
-                checkbox.checked = false;
-            });
-            filterAlojamientos(); // Re-apply filters with cleared values
-        });
-
-        document.addEventListener('DOMContentLoaded', cargarAlojamientos);
+        fetchAlojamientos();
     </script>
 </body>
 </html>
