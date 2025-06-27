@@ -3,7 +3,7 @@
     {
       "nombre": "Casa Julieta",
       "valoracion": 50,
-      "descripcion": "Un refugio de lujo en Vistalba, Luján de Cuyo, con impresionantes vistas panorámicas a la majestuosa Cordillera de los Andes. Ideal para familias grandes o grupos, ofrece amplios espacios y cercanía a las bodegas más prestigiosas de la región.",
+      "descripcion": "Un refugio de lujo en Vistalba, Luján de Cuyo. Ideal para familias grandes o grupos, ofrece amplios espacios y cercanía a las bodegas más prestigiosas de la región.",
       "ubicacion": "Vistalba, Lujan de Cuyo",
       "imagenes": [
         "Alojamendo/Casa Julieta/casaJulieta (1).jpg",
@@ -26,10 +26,7 @@
       "whatsapp": "+5492612062124",
       "saludo": "¡Hola! Estoy interesado en reservar Casa Julieta.",
       "activo": true,
-      "redesSociales": {
-        "instagram": "https://www.instagram.com/casonas.zakalik",
-        "web": "https://www.casonazakalik.com"
-      },
+      "redesSociales": {},
       "detallesAdicionales": {
         "titulo": "Lujo y vistas en el corazón de Vistalba",
         "textoExtenso": "Casa Julieta te invita a vivir una experiencia inigualable en Mendoza. Con su diseño espacioso y sus amplias ventanas, cada rincón está pensado para que disfrutes de las espectaculares vistas a la Cordillera de los Andes. Relájate en sus cómodas instalaciones, pasea por el extenso jardín y sumérgete en la tranquilidad de Vistalba. Ubicada en un punto estratégico, tendrás fácil acceso a las bodegas más prestigiosas y a las actividades turísticas de la región. Perfecta para quienes buscan combinar lujo, naturaleza y la cultura del vino mendocino. La casa se encuentra en Juan Domingo Perón 2152, Vistalba, Luján de Cuyo (Callejón ubicado frente a Entre Cielos en Calle Guardia Vieja).",
