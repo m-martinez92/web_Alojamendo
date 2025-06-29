@@ -732,7 +732,7 @@
 
             const selectedServices = []; // No hay filtro de servicios visible
 
-            const sortOrder = 'rating-desc'; // or 'rating-asc', 'default'
+            const sortOrder = 'rating-asc'; // or 'rating-desc', 'default'
 
             filteredAlojamientos = allAlojamientos.filter(alojamiento => {
                 const matchesUbicacion = selectedUbicacion === '' || (alojamiento.ubicacion && alojamiento.ubicacion.toLowerCase().includes(selectedUbicacion));
