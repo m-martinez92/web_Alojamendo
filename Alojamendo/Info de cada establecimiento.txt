@@ -1,0 +1,22 @@
+      "nombre": "CASA SARA",
+      "descripcion": "Hermosa casona en Chacras de Coria con jardín y pileta para disfrutar en familia o con amigos.Capacidad: 12 personas con posibilidad de extender a 16.
+",
+      "ubicacion": "Chacras de Coria",
+      "whatsapp": "+54 9 261 596-4732",
+      "redesSociales": {
+        "instagram": "casonas.zakalik",
+        "web": "www.casonazakalik.com"
+      },
+      "detallesAdicionales": {
+        "titulo": "",
+        "textoExtenso": "",
+        "capacidadMaxima": "16 personas",
+        "servicios": [- Blancos (sábanas y toallas)
+- Cocina completamente equipada
+- Wifi
+- Calefacción y aire acondicionado
+- Piscina y churrasquera
+- Fogonera 
+],
+        "amenities": []
+      }
