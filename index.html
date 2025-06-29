@@ -256,14 +256,14 @@
 
             <div id="filterSection" class="flex flex-col gap-4 mb-6">
                 <div class="filter-group">
-                    <label class="block text-sm font-medium text-gray-700 mb-1">Ubicación:</label>
-                    <div id="ubicacionFilterRadios" class="radio-group">
-                        </div>
+                    <label for="capacidadMaximaFilter" class="block text-sm font-medium text-gray-700 mb-1">Personas:</label>
+                    <input type="number" id="capacidadMaximaFilter" min="1" placeholder="Ej: 4" class="mt-1 block w-full pl-3 pr-3 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
                 </div>
 
                 <div class="filter-group">
-                    <label for="capacidadMaximaFilter" class="block text-sm font-medium text-gray-700 mb-1">Capacidad Máxima:</label>
-                    <input type="number" id="capacidadMaximaFilter" min="1" placeholder="Ej: 4" class="mt-1 block w-full pl-3 pr-3 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Ubicación:</label>
+                    <div id="ubicacionFilterRadios" class="radio-group">
+                        </div>
                 </div>
 
                 <div class="flex flex-col gap-2 mt-4">
@@ -388,7 +388,7 @@
             descripcion.textContent = alojamiento.descripcion;
             contentDiv.appendChild(descripcion);
 
-            if (alojamiento.detallesAdicionales) {
+            if (alojamiento.detallesAdicionales || alojamiento.capacidad || (alojamiento.detallesAdicionales && (alojamiento.detallesAdicionales.servicios || alojamiento.detallesAdicionales.amenities))) {
                 const collapsibleButton = document.createElement('button');
                 collapsibleButton.className = 'collapsible-button';
                 collapsibleButton.innerHTML = `Ver más detalles <i class="fas fa-chevron-down"></i>`;
@@ -397,25 +397,26 @@
                 const collapsibleContent = document.createElement('div');
                 collapsibleContent.className = 'collapsible-content';
 
-                if (alojamiento.detallesAdicionales.titulo) {
+                if (alojamiento.detallesAdicionales && alojamiento.detallesAdicionales.titulo) {
                     const detallesTitulo = document.createElement('h4');
                     detallesTitulo.className = 'text-lg font-semibold text-gray-700 mb-2 mt-4';
                     detallesTitulo.textContent = alojamiento.detallesAdicionales.titulo;
                     collapsibleContent.appendChild(detallesTitulo);
                 }
-                if (alojamiento.detallesAdicionales.textoExtenso) {
+                if (alojamiento.detallesAdicionales && alojamiento.detallesAdicionales.textoExtenso) {
                     const textoExtenso = document.createElement('p');
                     textoExtenso.className = 'text-gray-600 text-sm mb-2';
                     textoExtenso.textContent = alojamiento.detallesAdicionales.textoExtenso;
                     collapsibleContent.appendChild(textoExtenso);
                 }
-                if (alojamiento.detallesAdicionales.capacidadMaxima) {
+                // Updated capacity display to use the 'capacidad' array
+                if (alojamiento.capacidad && alojamiento.capacidad.length === 2) {
                     const capacidad = document.createElement('p');
                     capacidad.className = 'text-gray-700 text-sm mb-1';
-                    capacidad.innerHTML = `<strong>Capacidad:</strong> ${alojamiento.detallesAdicionales.capacidadMaxima}`;
+                    capacidad.innerHTML = `<strong>Capacidad:</strong> ${alojamiento.capacidad[0]} - ${alojamiento.capacidad[1]} personas`;
                     collapsibleContent.appendChild(capacidad);
                 }
-                if (alojamiento.detallesAdicionales.servicios && alojamiento.detallesAdicionales.servicios.length > 0) {
+                if (alojamiento.detallesAdicionales && alojamiento.detallesAdicionales.servicios && alojamiento.detallesAdicionales.servicios.length > 0) {
                     const serviciosTitulo = document.createElement('p');
                     serviciosTitulo.className = 'text-gray-700 text-sm font-semibold mt-2 mb-1';
                     serviciosTitulo.textContent = 'Servicios Incluidos:';
@@ -429,7 +430,7 @@
                     });
                     collapsibleContent.appendChild(serviciosList);
                 }
-                if (alojamiento.detallesAdicionales.amenities && alojamiento.detallesAdicionales.amenities.length > 0) {
+                if (alojamiento.detallesAdicionales && alojamiento.detallesAdicionales.amenities && alojamiento.detallesAdicionales.amenities.length > 0) {
                     const amenitiesTitulo = document.createElement('p');
                     amenitiesTitulo.className = 'text-gray-700 text-sm font-semibold mt-2 mb-1';
                     amenitiesTitulo.textContent = 'Comodidades de la habitación:';
@@ -673,13 +674,14 @@ if (tieneWhatsAppValido) {
             let filtered = allAlojamientos.filter(alojamiento => {
                 const matchesUbicacion = selectedUbicacion === '' || (alojamiento.ubicacion && alojamiento.ubicacion.toLowerCase().includes(selectedUbicacion));
 
-                const capacidadProp = alojamiento.detallesAdicionales.capacidadMaxima;
                 let matchesCapacidad = true;
                 if (!isNaN(selectedCapacidadMaxima)) {
-                    if (capacidadProp) {
-                        const capacidadNumero = parseInt(capacidadProp.match(/\d+/));
-                        matchesCapacidad = capacidadNumero >= selectedCapacidadMaxima;
+                    if (alojamiento.capacidad && alojamiento.capacidad.length === 2) {
+                        const minCapacity = alojamiento.capacidad[0];
+                        const maxCapacity = alojamiento.capacidad[1];
+                        matchesCapacidad = selectedCapacidadMaxima >= minCapacity && selectedCapacidadMaxima <= maxCapacity;
                     } else {
+                        // If capacity range is not defined, treat as no match for capacity filter
                         matchesCapacidad = false;
                     }
                 }
