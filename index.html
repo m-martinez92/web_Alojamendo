@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,50 +14,42 @@
             flex-direction: column;
             min-height: 100vh;
         }
-
         main {
             flex-grow: 1;
             display: flex;
             padding-top: 1.5rem;
             padding-bottom: 3rem;
         }
-
         .card {
             overflow: visible !important;
             position: relative;
         }
-
         .card-hover:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
         }
-
         #loadingMessage {
             text-align: center;
             padding: 20px;
             font-size: 1.2em;
             color: #555;
         }
-
         .carousel-container {
             position: relative;
             width: 100%;
             overflow: hidden;
             border-radius: 0.5rem 0.5rem 0 0;
         }
-
         .carousel-images {
             display: flex;
             transition: transform 0.5s ease-in-out;
         }
-
         .carousel-images img {
             width: 100%;
             flex-shrink: 0;
             height: 224px;
             object-fit: cover;
         }
-
         .carousel-button {
             position: absolute;
             top: 50%;
@@ -76,15 +67,12 @@
             width: 3rem;
             height: 3rem;
         }
-
         .carousel-button:hover {
             background-color: rgba(0, 0, 0, 0.7);
         }
-
         .carousel-button.prev {
             left: 0.5rem;
         }
-
         .carousel-button.next {
             right: 0.5rem;
         }
@@ -96,12 +84,10 @@
             padding: 0 1.5rem;
             margin-top: 0.5rem;
         }
-
         .collapsible-content.expanded {
             max-height: 9999px;
             padding-bottom: 1rem;
         }
-
         .collapsible-button {
             width: 100%;
             background-color: #f3f4f6;
@@ -119,16 +105,13 @@
             margin-top: 0.75rem;
             margin-bottom: 0.75rem;
         }
-
         .collapsible-button:hover {
             background-color: #e5e7eb;
         }
-
         .collapsible-button i {
             margin-left: 0.5rem;
             transition: transform 0.3s ease-in-out;
         }
-
         .collapsible-button.active i {
             transform: rotate(180deg);
         }
@@ -138,13 +121,12 @@
             display: inline-block;
             width: 100%;
         }
-
         .dropdown-content {
             display: none;
             position: absolute;
             background-color: #f9f9f9;
             min-width: 160px;
-            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
             z-index: 1000;
             border-radius: 0.375rem;
             overflow: hidden;
@@ -153,7 +135,6 @@
             top: 100%;
             transform: translateY(0.25rem);
         }
-
         .dropdown-content a {
             display: flex;
             color: black;
@@ -163,16 +144,13 @@
             text-align: left;
             transition: background-color 0.2s;
         }
-
         .dropdown-content a:hover {
             background-color: #f1f1f1;
         }
-
         .dropdown-content a i {
             margin-right: 0.5rem;
             width: 1rem;
         }
-
         .dropdown-container.open .dropdown-content {
             display: block;
         }
@@ -180,7 +158,6 @@
         .card.active-card {
             z-index: 999;
         }
-
         #alojamientosContainer {
             align-items: start;
         }
@@ -213,7 +190,6 @@
                 padding-left: 1.5rem;
                 padding-right: 1.5rem;
             }
-
             #filterSidebar {
                 width: 100%;
                 max-width: 400px;
@@ -222,11 +198,9 @@
                 position: static;
                 top: auto;
             }
-
             #contentArea {
                 max-width: 100%;
             }
-
             #alojamientosContainer {
                 grid-template-columns: 1fr;
             }
@@ -236,8 +210,7 @@
         .radio-group {
             display: flex;
             flex-direction: column;
-            gap: 0.5rem;
-            /* Espacio entre los radios */
+            gap: 0.5rem; /* Espacio entre los radios */
             padding: 0.5rem 0;
             border: 1px solid #e5e7eb;
             border-radius: 0.375rem;
@@ -251,19 +224,15 @@
             cursor: pointer;
             transition: background-color 0.2s ease;
         }
-
         .radio-item:hover {
-            background-color: #eff6ff;
-            /* Color de fondo al pasar el mouse */
+            background-color: #eff6ff; /* Color de fondo al pasar el mouse */
         }
-
         .radio-item input[type="radio"] {
             flex-shrink: 0;
             width: 1.15rem;
             height: 1.15rem;
             accent-color: #4f46e5;
         }
-
         .radio-item label {
             flex-grow: 1;
             margin-left: 0.6rem;
@@ -271,14 +240,38 @@
             color: #374151;
             cursor: pointer;
         }
+        .header-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        .header-content img {
+            max-height: 100px; /* Ajusta el tamaño del logo */
+            margin-bottom: 1rem; /* Espacio entre el logo y el texto */
+            filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.5)); /* Sutil sombra para resaltar en fondo oscuro */
+        }
+        /* Ajuste para pantallas más grandes para alinear a la izquierda */
+        @media (min-width: 768px) {
+            .header-content {
+                flex-direction: row;
+                justify-content: center; /* Centra el contenido en pantallas grandes */
+                text-align: left;
+                gap: 1.5rem; /* Espacio entre el logo y el texto */
+            }
+            .header-content img {
+                margin-bottom: 0;
+            }
+        }
     </style>
 </head>
-
 <body>
-    <header class="bg-gradient-to-r from-black to-gray-700 text-white shadow-lg">
-        <div class="container mx-auto px-6 py-8 text-center">
-            <h1 class="text-4xl font-bold">Descubre Alojamientos en Mendoza</h1>
-            <p class="mt-2 text-lg">Encuentra el lugar perfecto para tu estadía en la tierra del sol y el buen vino.</p>
+    <header class="bg-black text-[#c2b64f] shadow-lg">
+        <div class="container mx-auto px-6 py-8 header-content">
+            <img src="img\LogoAloja.jpg" alt="Alojamendo" class="h-24"> <div>
+                <h1 class="text-4xl font-bold">Descubre Alojamientos en Mendoza</h1>
+                <p class="mt-2 text-lg">Encuentra el lugar perfecto para tu estadía en la tierra del sol y el buen vino.</p>
+            </div>
         </div>
     </header>
 
@@ -288,25 +281,19 @@
 
             <div id="filterSection" class="flex flex-col gap-4 mb-6">
                 <div class="filter-group">
-                    <label for="capacidadMaximaFilter"
-                        class="block text-sm font-medium text-gray-700 mb-1">Personas:</label>
-                    <input type="number" id="capacidadMaximaFilter" min="1" placeholder="Ej: 4"
-                        class="mt-1 block w-full pl-3 pr-3 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Ubicación:</label>
+                    <div id="ubicacionFilterRadios" class="radio-group">
+                        </div>
                 </div>
 
                 <div class="filter-group">
-                    <label class="block text-sm font-medium text-gray-700 mb-1">Ubicación:</label>
-                    <div id="ubicacionFilterRadios" class="radio-group">
-                    </div>
+                    <label for="capacidadMaximaFilter" class="block text-sm font-medium text-gray-700 mb-1">Personas:</label>
+                    <input type="number" id="capacidadMaximaFilter" min="1" placeholder="Ej: 4" class="mt-1 block w-full pl-3 pr-3 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
                 </div>
 
                 <div class="flex flex-col gap-2 mt-4">
-                    <button id="applyFiltersButton"
-                        class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-6 rounded-lg transition-colors duration-300 whitespace-nowrap">Aplicar
-                        Filtros</button>
-                    <button id="clearFiltersButton"
-                        class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-6 rounded-lg transition-colors duration-300 whitespace-nowrap">Limpiar
-                        Filtros</button>
+                    <button id="applyFiltersButton" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-6 rounded-lg transition-colors duration-300 whitespace-nowrap">Aplicar Filtros</button>
+                    <button id="clearFiltersButton" class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-6 rounded-lg transition-colors duration-300 whitespace-nowrap">Limpiar Filtros</button>
                 </div>
             </div>
         </div>
@@ -315,13 +302,9 @@
             <div id="alojamientosContainer" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             </div>
             <div id="loadingMessage" style="display: none;">Cargando alojamientos...</div>
-            <div id="noResultsMessage" class="text-gray-600 text-center mt-4" style="display: none;">No se encontraron
-                alojamientos que coincidan con los filtros aplicados.</div>
-            <button id="loadMoreButton"
-                class="bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded-lg mt-8 w-full transition-colors duration-300"
-                style="display: none;">Ver más</button>
-            <div id="endOfResultsMessage" class="text-gray-600 text-center mt-4" style="display: none;">Has llegado al
-                final de los resultados.</div>
+            <div id="noResultsMessage" class="text-gray-600 text-center mt-4" style="display: none;">No se encontraron alojamientos que coincidan con los filtros aplicados.</div>
+            <button id="loadMoreButton" class="bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded-lg mt-8 w-full transition-colors duration-300" style="display: none;">Ver más</button>
+            <div id="endOfResultsMessage" class="text-gray-600 text-center mt-4" style="display: none;">Has llegado al final de los resultados.</div>
         </div>
     </main>
 
@@ -342,7 +325,7 @@
 
         const ubicacionFilterRadios = document.getElementById('ubicacionFilterRadios');
         const capacidadMaximaFilter = document.getElementById('capacidadMaximaFilter');
-
+        
         const applyFiltersButton = document.getElementById('applyFiltersButton');
         const clearFiltersButton = document.getElementById('clearFiltersButton');
         const jsonFile = 'alojamientos.json';
@@ -600,13 +583,13 @@
                 const saludoCodificado = alojamiento.saludo ? encodeURIComponent(alojamiento.saludo) : '';
 
                 whatsappLink.href = `https://wa.me/${numeroLimpio}${saludoCodificado ? `?text=${saludoCodificado}` : ''}`;
-
+                
                 whatsappLink.target = '_blank';
                 whatsappLink.rel = 'noopener noreferrer';
                 whatsappLink.className = 'w-full bg-green-500 hover:bg-green-600 text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-300 text-center';
                 whatsappLink.textContent = 'WhatsApp';
                 buttonsDiv.appendChild(whatsappLink);
-
+            
             } else {
                 const noWhatsAppButton = document.createElement('button');
                 noWhatsAppButton.className = 'w-full bg-gray-300 text-gray-500 font-semibold py-2 px-4 rounded-lg cursor-not-allowed';
@@ -627,7 +610,7 @@
 
             const allUbicacionesDiv = document.createElement('div');
             allUbicacionesDiv.className = 'radio-item';
-            allUbicacionesDiv.onclick = function () {
+            allUbicacionesDiv.onclick = function() {
                 const radio = this.querySelector('input[type="radio"]');
                 if (radio) {
                     radio.checked = true;
@@ -654,7 +637,7 @@
             Array.from(ubicaciones).sort().forEach(ubicacion => {
                 const div = document.createElement('div');
                 div.className = 'radio-item';
-                div.onclick = function () {
+                div.onclick = function() {
                     const radio = this.querySelector('input[type="radio"]');
                     if (radio) {
                         radio.checked = true;
@@ -707,7 +690,7 @@
                     }
                 });
                 console.log(`Rendered ${alojamientosToRender.length} cards. Total rendered so far (approx): ${startIndex + alojamientosToRender.length}`);
-
+                
                 // Check if there are more items to load in filteredAlojamientos
                 if (endIndex < alojamientosToDisplay.length) {
                     loadMoreButton.style.display = 'block'; // Show "Load More" button
@@ -729,7 +712,7 @@
 
             const selectedCapacidadMaximaInput = capacidadMaximaFilter.value.trim();
             const selectedCapacidadMaxima = selectedCapacidadMaximaInput === '' ? NaN : parseInt(selectedCapacidadMaximaInput);
-
+            
             const selectedServices = []; // No hay filtro de servicios visible
 
             const sortOrder = 'rating-asc'; // or 'rating-desc', 'default'
@@ -758,7 +741,7 @@
             } else if (sortOrder === 'rating-asc') {
                 filteredAlojamientos.sort((a, b) => (a.valoracion || 0) - (b.valoracion || 0));
             }
-
+            
             // Reset pagination and display the first batch of filtered results
             displayAlojamientos(filteredAlojamientos, false); // Always reset and display first page after filter/sort
             isLoadingMore = false; // Ensure loading flag is reset after a filter/sort operation
@@ -773,7 +756,7 @@
             }
 
             capacidadMaximaFilter.value = '';
-
+            
             closeAllDropdowns();
             filterAndSortAlojamientos(); // Re-apply filters which will reset pagination
             console.log("Filters cleared.");
@@ -854,5 +837,4 @@
         fetchAlojamientos();
     </script>
 </body>
-
 </html>
