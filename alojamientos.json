@@ -4,7 +4,7 @@
       "nombre": "Casa Julieta",
       "valoracion": 50,
       "descripcion": "Un refugio de lujo en Vistalba, Luján de Cuyo. Ideal para familias grandes o grupos, ofrece amplios espacios y cercanía a las bodegas más prestigiosas de la región.",
-      "ubicacion": "Vistalba, Lujan de Cuyo",
+      "ubicacion": "Vistalba, Luján de Cuyo",
       "imagenes": [
         "Alojamendo/Casa Julieta/casaJulieta (1).jpg",
         "Alojamendo/Casa Julieta/casaJulieta (2).jpg",
@@ -26,7 +26,10 @@
       "whatsapp": "+5492612062124",
       "saludo": "¡Hola! Estoy interesado en reservar Casa Julieta.",
       "activo": true,
-      "capacidad": [8,12],
+      "capacidad": [
+        8,
+        12
+      ],
       "redesSociales": {},
       "detallesAdicionales": {
         "titulo": "Lujo y vistas en el corazón de Vistalba",
@@ -41,7 +44,7 @@
       "nombre": "Cabaña Crena",
       "valoracion": 40,
       "descripcion": "Complejo turístico con hermoso jardín y pileta, ubicada en una de las zonas más lindas de Mendoza, con cercanía a Bodegas y puntos de interés. Destacada por su arquitectura donde priman los materiales nobles como piedra y madera.",
-      "ubicacion": "Chacras de Coria, Lujan de Cuyo",
+      "ubicacion": "Chacras de Coria, Luján de Cuyo",
       "imagenes": [
         "Alojamendo/Cabana Crena/cabanaCrena (1).jpg",
         "Alojamendo/Cabana Crena/cabanaCrena (2).jpg",
@@ -53,7 +56,9 @@
       "whatsapp": "+5492612082586",
       "saludo": "¡Hola! Estoy interesado en reservar Cabaña Crena.",
       "activo": true,
-      "capacidad": [6],
+      "capacidad": [
+        6
+      ],
       "redesSociales": {
         "instagram": "https://www.instagram.com/altochacrascottage",
         "web": "https://www.altochacrascottage.com"
@@ -85,7 +90,7 @@
       "nombre": "Cabaña Potrerillos",
       "valoracion": 70,
       "descripcion": "Disfruta de una escapada única en esta cabaña ecológica en Embalse Potrerillos, con capacidad para 7 personas y vistas espectaculares. Totalmente equipada y autosuficiente, ofrece una experiencia sin preocupaciones en plena naturaleza.",
-      "ubicacion": "Potrerillos, Lujan de Cuyo",
+      "ubicacion": "Potrerillos, Luján de Cuyo",
       "imagenes": [
         "Alojamendo/Cabana Potrerillos/cabanaPotrerillos (1).jpg",
         "Alojamendo/Cabana Potrerillos/cabanaPotrerillos (2).jpg",
@@ -102,7 +107,10 @@
       "whatsapp": "+5492614668127",
       "saludo": "¡Hola! Estoy interesado en reservar Cabaña Potrerillos.",
       "activo": true,
-      "capacidad": [5,7],
+      "capacidad": [
+        5,
+        7
+      ],
       "redesSociales": {
         "airbnb": "https://www.airbnb.mx/rooms/31472665?guests=1&check_in=2024-04-25&adults=1&viralityEntryPoint=1&s=76&source_impression_id=p3_1750296989_P3Tsn3WQ4cKh-GBb"
       },
@@ -125,7 +133,7 @@
       "nombre": "Casa Angelo Di Caneva",
       "valoracion": 80,
       "descripcion": "Descubre el encanto de una hermosa propiedad en la idílica Vistalba, Mendoza. Rodeada de exuberantes jardines, esta casa ofrece un oasis de tranquilidad y confort, ideal para grupos grandes o familias que buscan una experiencia inolvidable en la región vitivinícola.",
-      "ubicacion": "Vistalba, Lujan de Cuyo",
+      "ubicacion": "Vistalba, Luján de Cuyo",
       "imagenes": [
         "Alojamendo/Casa Angelo Di Caneva/casaAngelo (1).jpg",
         "Alojamendo/Casa Angelo Di Caneva/casaAngelo (2).jpg",
@@ -139,7 +147,10 @@
       "whatsapp": "+54261040825",
       "saludo": "¡Hola! Estoy interesado en reservar Casa Angelo Di Caneva.",
       "activo": true,
-      "capacidad": [8,12],
+      "capacidad": [
+        8,
+        12
+      ],
       "redesSociales": {
         "instagram": "https://www.instagram.com/posadaangelodicaneva"
       },
@@ -158,7 +169,7 @@
       "nombre": "Casa Aromos",
       "valoracion": 90,
       "descripcion": "Hermosa casona en Chacras de Coria con jardín y pileta, ideal para disfrutar en familia o con amigos. Espaciosa y confortable, ofrece una experiencia inolvidable en un entorno tranquilo y cercano a las atracciones de la región.",
-      "ubicacion": "Chacras de Coria, Lujan de Cuyo",
+      "ubicacion": "Chacras de Coria, Luján de Cuyo",
       "imagenes": [
         "Alojamendo/Casa Aromos/casaAromos (1).jpg",
         "Alojamendo/Casa Aromos/casaAromos (2).jpg",
@@ -175,13 +186,16 @@
       "whatsapp": "+5492615964732",
       "saludo": "¡Hola! Estoy interesado en reservar Casa Aromos.",
       "activo": true,
-      "capacidad": [10,14],
+      "capacidad": [
+        10,
+        14
+      ],
       "redesSociales": {
         "instagram": "https://www.instagram.com/casonas.zakalik",
         "web": "https://www.casonazakalik.com"
       },
       "detallesAdicionales": {
-        "titulo": "Casa Aromos: Comodidad y Relax en Chacras de Coria",
+        "titulo": "Comodidad y Relax en Chacras de Coria",
         "textoExtenso": "Casa Aromos te espera en el corazón de Chacras de Coria, con un ambiente cálido y acogedor perfecto para grupos grandes. Su jardín y piscina invitan a la relajación, mientras que la churrasquera y la fogonera son ideales para disfrutar de momentos al aire libre. La casa está completamente equipada para tu comodidad, con blancos de calidad, una cocina funcional y servicios como wifi y lavandería. Su excelente ubicación te permite acceder fácilmente a las bodegas, restaurantes y paisajes que hacen de Mendoza un destino único.",
         "servicios": [
           "Blancos (sábanas y toallas)",
@@ -202,7 +216,7 @@
       "nombre": "Casa Edmundo",
       "valoracion": 60,
       "descripcion": "Una majestuosa casona en Chacras de Coria, diseñada para grandes grupos y familias. Cuenta con un extenso jardín, piscina y todas las comodidades para una estadía de lujo y relajación en el corazón de Mendoza.",
-      "ubicacion": "Chacras de Coria, Lujan de Cuyo",
+      "ubicacion": "Chacras de Coria, Luján de Cuyo",
       "imagenes": [
         "Alojamendo/Casa Edmundo/casaEdmundo (1).jpg",
         "Alojamendo/Casa Edmundo/casaEdmundo (2).jpg",
@@ -225,7 +239,10 @@
       "whatsapp": "+5492615964732",
       "saludo": "¡Hola! Estoy interesado en reservar Casa Edmundo.",
       "activo": true,
-      "capacidad": [10,14],
+      "capacidad": [
+        10,
+        14
+      ],
       "redesSociales": {
         "instagram": "https://www.instagram.com/casonas.zakalik",
         "web": "https://www.casonazakalik.com"
@@ -254,7 +271,7 @@
       "nombre": "Casa Medrano",
       "valoracion": 10,
       "descripcion": "Una encantadora casona ideal para familias y grupos de amigos. Disfruta de su hermoso jardín, piscina y todas las comodidades para una estadía relajante y placentera.",
-      "ubicacion": "Chacras de Coria, Lujan de Cuyo",
+      "ubicacion": "Chacras de Coria, Luján de Cuyo",
       "imagenes": [
         "Alojamendo/Casa Medrano/casaMedrano (1).jpg",
         "Alojamendo/Casa Medrano/casaMedrano (2).jpg",
@@ -275,13 +292,16 @@
       "whatsapp": "+5492615964732",
       "saludo": "¡Hola! Estoy interesado en reservar Casa Medrano.",
       "activo": true,
-      "capacidad": [10,14],
+      "capacidad": [
+        10,
+        14
+      ],
       "redesSociales": {
         "instagram": "https://www.instagram.com/casonas.zakalik",
         "web": "https://www.casonazakalik.com"
       },
       "detallesAdicionales": {
-        "titulo": "Casa Medrano: Confort y Relax en Chacras de Coria",
+        "titulo": "Confort y Relax en Chacras de Coria",
         "textoExtenso": "Casa Medrano te ofrece una experiencia inolvidable en el corazón de Chacras de Coria. Relájate en su amplio jardín, disfruta de la piscina y comparte momentos especiales alrededor de la churrasquera y la fogonera. La casa está completamente equipada para tu confort, con blancos de calidad, una cocina funcional y servicios como wifi y lavandería. Su excelente ubicación te permite acceder fácilmente a las bodegas, restaurantes y paisajes que hacen de Mendoza un destino único.",
         "servicios": [
           "Blancos (sábanas y toallas)",
@@ -302,11 +322,14 @@
       "nombre": "Casa Sara",
       "descripcion": "Una magnífica casona en Chacras de Coria, diseñada para ofrecer una experiencia inolvidable a familias y grupos de amigos. Disfrute de su extenso jardín, refrescante pileta y amplios espacios",
       "valoracion": 30,
-      "ubicacion": "Chacras de Coria, Lujan de Cuyo",
+      "ubicacion": "Chacras de Coria, Luján de Cuyo",
       "whatsapp": "+5492615964732",
       "saludo": "¡Hola! Estoy interesado en reservar Casa Sara.",
       "activo": true,
-      "capacidad": [10,16],
+      "capacidad": [
+        10,
+        16
+      ],
       "imagenes": [
         "Alojamendo/Casa Sara/casaSara (1).jpg",
         "Alojamendo/Casa Sara/casaSara (2).jpg",
@@ -334,7 +357,7 @@
         "web": "https://www.casonazakalik.com"
       },
       "detallesAdicionales": {
-        "titulo": "Casa Sara: Espacio y confort en Chacras de Coria",
+        "titulo": "Espacio y confort en Chacras de Coria",
         "textoExtenso": "Disfruta de una estadía inolvidable en esta encantadora casona ubicada en el corazón de Chacras de Coria. Perfecta para grupos grandes o familias, ofrece un amplio jardín, piscina y todas las comodidades necesarias para relajarse y disfrutar del entorno mendocino. Su ubicación privilegiada te permitirá acceder fácilmente a las bodegas, restaurantes y paisajes que hacen de esta región un destino único.",
         "servicios": [
           "Blancos (sábanas y toallas)",
@@ -353,7 +376,7 @@
       "nombre": "Casa Vistalba Scape",
       "valoracion": 20,
       "descripcion": "Acogedor alojamiento para 3 personas en Vistalba, con amplio jardín y piscina. Ideal para una escapada tranquila en pareja o un pequeño grupo.",
-      "ubicacion": "Vistalba, Lujan de Cuyo",
+      "ubicacion": "Vistalba, Luján de Cuyo",
       "imagenes": [
         "Alojamendo/Casa Vistalba Scape/casaScape (1).jpg",
         "Alojamendo/Casa Vistalba Scape/casaScape (2).jpg",
@@ -364,7 +387,10 @@
       "whatsapp": "+5492615372127",
       "saludo": "¡Hola! Estoy interesado/a en Casa Vistalba Scape.",
       "activo": true,
-      "capacidad": [2,3],
+      "capacidad": [
+        2,
+        3
+      ],
       "redesSociales": {
         "instagram": "https://www.instagram.com/vistalbascape"
       },
@@ -390,7 +416,7 @@
       "nombre": "Casa WineHouse",
       "valoracion": 100,
       "descripcion": "Una elegante casona en Chacras de Coria, perfecta para amantes del vino y grupos que buscan comodidad. Cuenta con un hermoso jardín y piscina para disfrutar de la tranquilidad mendocina.",
-      "ubicacion": "Chacras de Coria, Lujan de Cuyo",
+      "ubicacion": "Chacras de Coria, Luján de Cuyo",
       "imagenes": [
         "Alojamendo/Casa WineHouse/casaWine (1).jpg",
         "Alojamendo/Casa WineHouse/casaWine (2).jpg",
@@ -409,13 +435,16 @@
       "whatsapp": "+5492615964732",
       "saludo": "¡Hola! Estoy interesado/a en Casa WineHouse y me gustaría recibir más información sobre disponibilidad y tarifas.",
       "activo": true,
-      "capacidad": [10,12],
+      "capacidad": [
+        10,
+        12
+      ],
       "redesSociales": {
         "instagram": "https://www.instagram.com/casonas.zakalik",
         "web": "https://www.casonazakalik.com"
       },
       "detallesAdicionales": {
-        "titulo": "Casa WineHouse: Experiencia Enoturística y Relax en Chacras de Coria",
+        "titulo": "Experiencia Enoturística y Relax en Chacras de Coria",
         "textoExtenso": "Casa WineHouse te invita a una experiencia única en el corazón de Chacras de Coria, la zona vitivinícola por excelencia. Esta hermosa casona ofrece un ambiente cálido y sofisticado, ideal para grupos de hasta 12 personas. Disfruta de su amplio jardín, refréscate en la piscina y organiza asados memorables en la churrasquera o junto a la fogonera. La casa cuenta con cocina completamente equipada, blancos de alta calidad, wifi y calefacción para tu confort. Su ubicación estratégica te permite explorar fácilmente bodegas de renombre, restaurantes gourmet y todas las atracciones que Mendoza tiene para ofrecer.",
         "servicios": [
           "Blancos (sábanas y toallas)",
@@ -435,7 +464,7 @@
       "nombre": "Departamento Adolfo",
       "valoracion": 110,
       "descripcion": "Acogedor departamento en Luján de Cuyo, ideal para una familia de hasta 4 personas. Disfruta de su enorme jardín, perfecto para el esparcimiento y la diversión al aire libre.",
-      "ubicacion": "Ciudad, Lujan de Cuyo",
+      "ubicacion": "Ciudad, Luján de Cuyo",
       "imagenes": [
         "Alojamendo/Departamento Adolfo/deptoAdolfo (1).jpg",
         "Alojamendo/Departamento Adolfo/deptoAdolfo (2).jpg",
@@ -448,7 +477,10 @@
       ],
       "whatsapp": "+5491132191078",
       "activo": true,
-      "capacidad": [1,4],
+      "capacidad": [
+        1,
+        4
+      ],
       "redesSociales": {},
       "saludo": "¡Hola! Estoy interesado/a en el Departamento Adolfo.",
       "detallesAdicionales": {
@@ -483,12 +515,15 @@
       "whatsapp": "+5492612356611",
       "saludo": "¡Hola! Estoy interesado en Entre Racimos.",
       "activo": true,
-      "capacidad": [1,2],
+      "capacidad": [
+        1,
+        2
+      ],
       "redesSociales": {
         "instagram": "https://www.instagram.com/entreracimos"
       },
       "detallesAdicionales": {
-        "titulo": "Entre Racimos: Glamping entre Viñedos y Experiencias Vinícolas",
+        "titulo": "Glamping entre Viñedos y Experiencias Vinícolas",
         "textoExtenso": "Entre Racimos te invita a vivir una aventura inolvidable en un entorno natural privilegiado, rodeado de viñedos en Luján de Cuyo. Este exclusivo glamping ofrece dos modalidades para adaptarse a tus preferencias: el 'Glamping en Altura' para vistas panorámicas y un toque extra de confort con ducha escocesa, y el 'Glamping a Nivel de los Viñedos' para una conexión íntima con la tierra. Ambos incluyen desayuno, WiFi de alta velocidad, Smart TV, climatización frío/calor y frigobar. Además, tendrás la oportunidad de explorar Bodega Cava Don Tulio, donde podrás sumergirte en el mundo del vino con diversas experiencias y catas. Una opción ideal para parejas o viajeros que buscan una estadía única y memorable en el corazón de la Ruta del Vino mendocina.",
         "servicios": [
           "Desayuno",
@@ -527,13 +562,16 @@
       ],
       "whatsapp": "+5492615711930",
       "activo": true,
-      "capacidad": [4,6],
+      "capacidad": [
+        4,
+        6
+      ],
       "redesSociales": {
         "instagram": "https://www.instagram.com/lasnenciashouses"
       },
       "saludo": "¡Hola! Estoy interesado/a en Casa las Nencias en Valle de Uco y me gustaría consultar por disponibilidad y tarifas.",
       "detallesAdicionales": {
-        "titulo": "Casa las Nencias: Confort y Vistas Panorámicas en el Valle de Uco",
+        "titulo": "Confort y Vistas Panorámicas en el Valle de Uco",
         "textoExtenso": "Sumérgete en la belleza natural del Valle de Uco alojándote en Casa las Nencias, un conjunto de casas diseñadas para tu máximo confort. Cada unidad cuenta con dos habitaciones y dos baños, calefacción central por losa radiante, y ropa de cama y toallas de primera calidad. La cocina está totalmente equipada con vajilla, ollas, fuentes y todo lo necesario para tu estadía. Disfruta de un amplio living-comedor, una galería con impresionantes vistas a la Cordillera, equipada con mesa y juego de sillones, y una parrilla para tus asados. Además, contarás con cochera techada compartida. Por las mañanas, un delicioso desayuno self-service te espera con leche, jugo, café, té, pan y/o tortitas y/o medialunas, manteca, dulce casero, frutos secos y fruta de estación. Un lugar perfecto para desconectar y vivir la experiencia mendocina.",
         "servicios": [
           "2 Habitaciones",
@@ -555,7 +593,7 @@
       "nombre": "Posada Cottage",
       "valoracion": 140,
       "descripcion": "Un encantador complejo turístico en Chacras de Coria que ofrece diversas opciones de alojamiento: habitaciones de posada con baño privado, una acogedora cabaña y una moderna Tiny House, todo en un hermoso entorno con jardín y piscina.",
-      "ubicacion": "Chacras de Coria, Lujan de Cuyo",
+      "ubicacion": "Chacras de Coria, Luján de Cuyo",
       "imagenes": [
         "Alojamendo/Posada Cottage/posadaCottage (1).jpg",
         "Alojamendo/Posada Cottage/posadaCottage (2).jpg",
@@ -566,7 +604,10 @@
       ],
       "whatsapp": "+5492612082586",
       "activo": true,
-      "capacidad": [1,10],
+      "capacidad": [
+        1,
+        10
+      ],
       "redesSociales": {
         "instagram": "https://www.instagram.com/altochacrascottage",
         "web": "https://www.altochacrascottage.com"
@@ -592,7 +633,7 @@
       "nombre": "Tiny House (Posada Cottage)",
       "valoracion": 150,
       "descripcion": "Disfruta de una experiencia única en esta moderna Tiny House en Chacras de Coria, parte de un complejo turístico con jardín y pileta. Ideal para parejas o pequeñas familias, ofrece comodidad y funcionalidad en un espacio acogedor.",
-      "ubicacion": "Chacras de Coria, Lujan de Cuyo",
+      "ubicacion": "Chacras de Coria, Luján de Cuyo",
       "imagenes": [
         "Alojamendo/Tiny House/tinyHouse (1).jpg",
         "Alojamendo/Tiny House/tinyHouse (2).jpg",
@@ -601,14 +642,17 @@
       ],
       "whatsapp": "+5492612082586",
       "activo": true,
-      "capacidad": [1,3],
+      "capacidad": [
+        1,
+        3
+      ],
       "redesSociales": {
         "instagram": "https://www.instagram.com/altochacrascottage",
         "web": "https://www.altochacrascottage.com"
       },
       "saludo": "¡Hola! Estoy interesado/a en la Tiny House de Posada Cottage y me gustaría saber más sobre la disponibilidad y tarifas.",
       "detallesAdicionales": {
-        "titulo": "Tiny House: Encanto y Comodidad en Chacras de Coria",
+        "titulo": "Encanto y Comodidad en Chacras de Coria",
         "textoExtenso": "Experimenta la vida en una Tiny House sin sacrificar el confort en este hermoso complejo turístico de Chacras de Coria. Este alojamiento ingeniosamente diseñado cuenta con una cama doble que puede convertirse en dos individuales, perfecta para 2 adultos y un menor. Disfruta de un espacio funcional con cocina equipada (anafe, horno, pava eléctrica, tostador y vajilla), frigobar, WiFi, TV, aire acondicionado/calefacción y secador de pelo. Tendrás acceso a un hermoso jardín, piscina, fogonero, parrilla y estacionamiento privado. Además, tu estadía incluye desayuno y limpieza diaria, asegurando una experiencia relajante y sin preocupaciones. La combinación perfecta para explorar Mendoza con un toque diferente.",
         "servicios": [
           "Cama doble (opción 2 individuales)",
@@ -631,8 +675,97 @@
         ],
         "otrosServicios": [],
         "amenities": []
+      }
+    },
+    {
+      "nombre": "Casona Vista Alma",
+      "valoracion": 160,
+      "descripcion": "Una elegante casona estilo colonial con capacidad para hasta 10 personas. Sus propios dueños garantizan una cálida estadía, ofreciendo un ambiente acogedor y todas las comodidades para disfrutar de Luján de Cuyo.",
+      "ubicacion": "Vistalba, Luján de Cuyo",
+      "imagenes": [
+        "Alojamendo/Casona Vista Alma/casonaAlma (1).jpg",
+        "Alojamendo/Casona Vista Alma/casonaAlma (2).jpg",
+        "Alojamendo/Casona Vista Alma/casonaAlma (3).jpg",
+        "Alojamendo/Casona Vista Alma/casonaAlma (4).jpg",
+        "Alojamendo/Casona Vista Alma/casonaAlma (5).jpg",
+        "Alojamendo/Casona Vista Alma/casonaAlma (6).jpg",
+        "Alojamendo/Casona Vista Alma/casonaAlma (7).jpg",
+        "Alojamendo/Casona Vista Alma/casonaAlma (8).jpg",
+        "Alojamendo/Casona Vista Alma/casonaAlma (9).jpg",
+        "Alojamendo/Casona Vista Alma/casonaAlma (10).jpg",
+        "Alojamendo/Casona Vista Alma/casonaAlma (11).jpg"
+      ],
+      "whatsapp": "+5492616412419",
+      "saludo": "¡Hola! Estoy interesado en reservar Casona Vista Alma.",
+      "activo": true,
+      "capacidad": [
+        6,
+        10
+      ],
+      "redesSociales": {
+        "instagram": "https://www.instagram.com/casavistaalma",
+        "web": "https://www.vistaalma.com/"
       },
-      "ranking": 8
+      "detallesAdicionales": {
+        "titulo": "Encanto Colonial en Vistalba",
+        "textoExtenso": "Casona Vista Alma te invita a vivir una experiencia inigualable en la pintoresca Vistalba. Atendida por sus dueños, esta casa de estilo colonial combina el encanto tradicional con todas las comodidades modernas. Disfruta de sus amplios espacios, desayuno seco de cortesía, cafetera y servicios pensados para tu relax. Su ubicación privilegiada te acerca a las mejores bodegas y paisajes mendocinos, garantizando una estadía memorable.",
+        "servicios": [
+          "Blancos (sábanas, toallas y toallones para piscina)",
+          "Cocina completamente equipada",
+          "Canasta con desayuno seco",
+          "Café para preparar en cafetera",
+          "Calefacción y aire acondicionado en todas las habitaciones",
+          "Secador de pelo",
+          "Shampoo, acondicionador y jabón líquido en cada baño",
+          "Netflix",
+          "Wifi",
+          "Cochera cubierta",
+          "Alarma"
+        ],
+        "otrosServicios": [],
+        "amenities": []
+      }
+    },
+    {
+      "nombre": "Pistacho Club Eco Lodge",
+      "valoracion": 180,
+      "descripcion": "Descubre un rincón único en Mendoza: Pistacho Club, un íntimo complejo de tres cabañas diseñado para una experiencia inolvidable. Ubicado en Chacras de Coria, es perfecto para aventura o relax, combinando lujo y confort.",
+      "ubicacion": "Chacras de Coria, Luján de Cuyo",
+      "imagenes": [
+        "Alojamendo/Pistacho/pistachoClub (1).jpg",
+        "Alojamendo/Pistacho/pistachoClub (2).jpg",
+        "Alojamendo/Pistacho/pistachoClub (3).jpg",
+        "Alojamendo/Pistacho/pistachoClub (4).jpg",
+        "Alojamendo/Pistacho/pistachoClub (5).jpg",
+        "Alojamendo/Pistacho/pistachoClub (6).jpg",
+        "Alojamendo/Pistacho/pistachoClub (7).jpg",
+        "Alojamendo/Pistacho/pistachoClub (8).jpg",
+        "Alojamendo/Pistacho/pistachoClub (9).jpg"
+      ],
+      "whatsapp": "+5492613357363",
+      "saludo": "¡Hola! Estoy interesado en reservar en Pistacho Club Eco Lodge.",
+      "activo": true,
+      "capacidad": [1,2],
+      "redesSociales": {
+        "instagram": "https://www.instagram.com/pistacho_club"
+      },
+      "detallesAdicionales": {
+        "titulo": "Tu Refugio en Chacras de Coria",
+        "textoExtenso": "Pistacho Club Eco Lodge te invita a vivir una experiencia íntima y memorable en sus tres cabañas, cada una con una vista privilegiada al jardín. Este encantador alojamiento en Chacras de Coria es el punto de partida ideal para explorar bodegas y restaurantes, o simplemente para relajarte en un entorno natural. Disfruta de la comodidad de sus espacios con aire acondicionado, TV con Netflix, cocina equipada y estacionamiento, todo pensado para hacer tu estadía inolvidable.",
+        "servicios": [
+          "Vista al jardín",
+          "Cocina",
+          "Wifi",
+          "Estacionamiento gratis en la propiedad",
+          "Televisión HD con Netflix",
+          "AC: Sistema sin conductos tipo split",
+          "Bañera",
+          "Estufa",
+          "Chimenea"
+        ],
+        "otrosServicios": [],
+        "amenities": []
+      }
     }
   ]
 }
