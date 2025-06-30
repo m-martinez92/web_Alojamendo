@@ -206,7 +206,7 @@
         }
 
         /* Ajustes para dispositivos móviles */
-        @media (max-width: 768px) {
+        @media (max-width: 767px) {
             main {
                 flex-direction: column;
                 align-items: center;
@@ -278,17 +278,15 @@
             flex-direction: column;
             align-items: center;
             text-align: center;
-            position: relative;
-            /* Added for absolute positioning of the credit text */
+            position: relative; /* Asegura que el posicionamiento absoluto de la firma sea relativo a este contenedor */
+            padding-top: 1rem; /* Añade un poco de padding arriba */
+            padding-bottom: 1rem; /* Añade un poco de padding abajo para el contenido */
         }
 
-        .header-content img {
+        .header-content img { /* Logo principal */
             max-height: 100px;
-            /* Ajusta el tamaño del logo */
             margin-bottom: 1rem;
-            /* Espacio entre el logo y el texto */
             filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.5));
-            /* Sutil sombra para resaltar en fondo oscuro */
         }
 
         /* Ajuste para pantallas más grandes para alinear a la izquierda */
@@ -296,40 +294,43 @@
             .header-content {
                 flex-direction: row;
                 justify-content: center;
-                /* Centra el contenido principal del header */
                 text-align: left;
                 gap: 1.5rem;
-                /* Espacio entre el logo y el texto */
+                padding-top: 2rem; /* Más padding para pantallas grandes */
+                padding-bottom: 2rem; /* Más padding para pantallas grandes */
             }
 
-            .header-content img {
+            .header-content img { /* Logo principal */
                 margin-bottom: 0;
             }
         }
 
-        /* NEW STYLE FOR THE CREDIT TEXT */
-        .header-credit {
-            position: absolute;
-            bottom: 1rem;
-            /* Adjust as needed for vertical position from bottom */
-            right: 1.5rem;
-            /* Adjust as needed for horizontal position from right */
-            white-space: nowrap;
-            /* Prevent text wrapping */
+        /* ESTILOS PARA LA IMAGEN DE CRÉDITO (FIRMA) */
+        .header-credit-image {
+            height: 35px; /* Mantener la altura original */
+            position: absolute; /* Posicionamiento absoluto para la firma */
+            z-index: 10; /* Asegura que esté por encima de otros elementos */
         }
 
-        /* Ensure credit text is visible on smaller screens if header-content becomes column */
+        /* Para móviles (pantallas pequeñas) */
         @media (max-width: 767px) {
-            .header-credit {
-                position: static;
-                /* Remove absolute positioning on small screens */
-                margin-top: 2rem;
-                margin-left: auto;
-                margin-right: auto;
-                display: block;
-                /* Add some space if it falls below other content */
-                text-align: center;
-                /* Center the text on small screens */
+            .header-content {
+                /* Ajustamos el padding-top para dejar espacio al logo y la firma */
+                padding-top: 3rem; /* Incrementa el padding superior para evitar superposición con la firma arriba */
+                padding-bottom: 2rem; /* Asegura un espacio adecuado abajo del contenido */
+            }
+            .header-credit-image {
+                top: 5px; /* Posiciona la firma en la parte superior */
+                right: 10px; /* Posiciona la firma a la derecha */
+                transform: none; /* Elimina cualquier transformación si la hubiera */
+            }
+        }
+
+        /* Para pantallas grandes */
+        @media (min-width: 768px) {
+            .header-credit-image {
+                bottom: 3px; /* Posiciona la firma en la parte inferior */
+                right: 10px; /* Posiciona la firma a la derecha */
             }
         }
     </style>
@@ -338,14 +339,13 @@
 <body>
     <header class="bg-black text-[#c2b64f] shadow-lg">
         <div class="container mx-auto px-6 py-8 header-content">
-            <img src="img\LogoAlojamendo.png" alt="Logo Alojamendo" class="h-24">
+            <img src="img\LogoAloja.jpg" alt="Alojamendo" class="h-24">
             <div>
                 <h1 class="text-4xl font-bold">Alojamientos turisticos en Mendoza</h1>
                 <p class="mt-2 text-lg">Contacto directo sin comisiones.
                 </p>
-                <img src="img\SoyArita.png" alt="By SoyArita_"
-                    style="position: absolute; bottom: 3px; right: 10px; height: 35px;" />
             </div>
+            <img src="img\SoyArita.png" alt="By SoyArita_" class="header-credit-image" />
         </div>
     </header>
 
@@ -359,7 +359,7 @@
                 <input type="number" id="capacidadMaximaFilter" min="1" placeholder="Ej: 4"
                     class="mt-1 block w-full pl-3 pr-3 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
             </div>
-
+            
             <div id="filterSection" class="flex flex-col gap-4 mb-6">
                 <div class="filter-group">
                     <label class="block text-sm font-medium text-gray-700 mb-1">Ubicación:</label>
