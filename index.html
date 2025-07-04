@@ -44,7 +44,8 @@
             position: relative;
             width: 100%;
             overflow: hidden;
-            border-radius: 0.5rem 0.5rem 0 0;
+            border-top-left-radius: 0.5rem;
+            border-top-right-radius: 0.5rem;
         }
 
         .carousel-images {
@@ -56,6 +57,8 @@
             width: 100%;
             flex-shrink: 0;
             height: 224px;
+            /* h-56 equivalent */
+            display: block;
             object-fit: cover;
         }
 
@@ -278,12 +281,16 @@
             flex-direction: column;
             align-items: center;
             text-align: center;
-            position: relative; /* Asegura que el posicionamiento absoluto de la firma sea relativo a este contenedor */
-            padding-top: 1rem; /* Añade un poco de padding arriba */
-            padding-bottom: 1rem; /* Añade un poco de padding abajo para el contenido */
+            position: relative;
+            /* Asegura que el posicionamiento absoluto de la firma sea relativo a este contenedor */
+            padding-top: 1rem;
+            /* Añade un poco de padding arriba */
+            padding-bottom: 1rem;
+            /* Añade un poco de padding abajo para el contenido */
         }
 
-        .header-content img { /* Logo principal */
+        .header-content img {
+            /* Logo principal */
             max-height: 100px;
             margin-bottom: 1rem;
             filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.5));
@@ -296,50 +303,117 @@
                 justify-content: center;
                 text-align: left;
                 gap: 1.5rem;
-                padding-top: 2rem; /* Más padding para pantallas grandes */
-                padding-bottom: 2rem; /* Más padding para pantallas grandes */
+                padding-top: 2rem;
+                /* Más padding para pantallas grandes */
+                padding-bottom: 2rem;
+                /* Más padding para pantallas grandes */
             }
 
-            .header-content img { /* Logo principal */
+            .header-content img {
+                /* Logo principal */
                 margin-bottom: 0;
             }
         }
 
         /* ESTILOS PARA LA IMAGEN DE CRÉDITO (FIRMA) */
         .header-credit-image {
-            height: 35px; /* Mantener la altura original */
-            position: absolute; /* Posicionamiento absoluto para la firma */
-            z-index: 10; /* Asegura que esté por encima de otros elementos */
+            height: 35px;
+            /* Mantener la altura original */
+            position: absolute;
+            /* Posicionamiento absoluto para la firma */
+            z-index: 10;
+            /* Asegura que esté por encima de otros elementos */
         }
 
         /* Para móviles (pantallas pequeñas) */
         @media (max-width: 767px) {
             .header-content {
                 /* Ajustamos el padding-top para dejar espacio al logo y la firma */
-                padding-top: 3rem; /* Incrementa el padding superior para evitar superposición con la firma arriba */
-                padding-bottom: 2rem; /* Asegura un espacio adecuado abajo del contenido */
+                padding-top: 3rem;
+                /* Incrementa el padding superior para evitar superposición con la firma arriba */
+                padding-bottom: 2rem;
+                /* Asegura un espacio adecuado abajo del contenido */
             }
+
             .header-credit-image {
-                top: 5px; /* Posiciona la firma en la parte superior */
-                right: 10px; /* Posiciona la firma a la derecha */
-                transform: none; /* Elimina cualquier transformación si la hubiera */
+                top: 5px;
+                /* Posiciona la firma en la parte superior */
+                right: 10px;
+                /* Posiciona la firma a la derecha */
+                transform: none;
+                /* Elimina cualquier transformación si la hubiera */
             }
         }
 
         /* Para pantallas grandes */
         @media (min-width: 768px) {
             .header-credit-image {
-                bottom: 3px; /* Posiciona la firma en la parte inferior */
-                right: 10px; /* Posiciona la firma a la derecha */
+                bottom: 3px;
+                /* Posiciona la firma en la parte inferior */
+                right: 10px;
+                /* Posiciona la firma a la derecha */
             }
+        }
+
+        .radio-group .radio-item {
+            display: flex;
+            align-items: center;
+            padding: 0.5rem;
+            border-radius: 0.375rem;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .radio-group .radio-item:hover {
+            background-color: #F3F4F6;
+        }
+
+        /* Styles for Activity Cards */
+        .card.activity-card {
+            /*border: 2px solid #1450c0; */
+            /* Gray border for activities */
+            background-color: #F3F4F6;
+            /* Lighter background for activities */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+            /* Slightly different shadow */
+        }
+
+        .card.activity-card .text-purple-600 {
+            color: #4f46e5;
+            /* Green price for activities */
+        }
+
+        .card.activity-card .collapsible-button {
+            background-color: #E5E7EB;
+            color: #374151;
+        }
+
+        .card.activity-card .collapsible-button:hover {
+            background-color: #D1D5DB;
+        }
+
+        /* Specific style for activity buttons (only WhatsApp) */
+        .activity-buttons-container {
+            display: flex;
+            justify-content: center;
+            /* Center the WhatsApp button */
+            margin-top: auto;
+            /* Push to bottom */
+            padding-top: 1rem;
+            /* Space above button */
+        }
+
+        .activity-buttons-container .whatsapp-button {
+            width: 100%;
+            /* Make WhatsApp button full width */
         }
     </style>
 </head>
 
-<body>
+<body class="bg-gray-100 text-gray-900">
     <header class="bg-black text-[#c2b64f] shadow-lg">
         <div class="container mx-auto px-6 py-8 header-content">
-            <img src="img\LogoAloja.jpg" alt="Alojamendo" class="h-24">
+            <img src="img\LogoAloja.svg" alt="Alojamendo" class="h-24">
             <div>
                 <h1 class="text-4xl font-bold">Alojamientos turisticos en Mendoza</h1>
                 <p class="mt-2 text-lg">Contacto directo sin comisiones.
@@ -349,53 +423,71 @@
         </div>
     </header>
 
-    <main class="container mx-auto px-6">
-        <div id="filterSidebar">
-            <h2 class="text-2xl font-bold text-gray-800 mb-6 text-center">Filtrar Alojamientos</h2>
+    <main class="container mx-auto px-4">
+        <aside class="w-full md:w-1/4 p-4 md:pr-8">
+            <div class="filter-section mb-6">
+                <h2 class="text-xl font-semibold mb-4 text-gray-800">Filtrar por:</h2>
 
-            <div class="filter-group">
-                <label for="capacidadMaximaFilter"
-                    class="block text-sm font-medium text-gray-700 mb-1">Personas:</label>
-                <input type="number" id="capacidadMaximaFilter" min="1" placeholder="Ej: 4"
-                    class="mt-1 block w-full pl-3 pr-3 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
-            </div>
-            
-            <div id="filterSection" class="flex flex-col gap-4 mb-6">
-                <div class="filter-group">
-                    <label class="block text-sm font-medium text-gray-700 mb-1">Ubicación:</label>
-                    <div id="ubicacionFilterRadios" class="radio-group">
+                <div class="mb-5">
+                    <label for="capacidadPersonas" class="block text-gray-700 text-md font-medium mb-2">
+                        Personas:
+                    </label>
+                    <input type="number" id="capacidadPersonas" placeholder="Ej: 4 personas"
+                        class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                </div>
+
+                <div class="mb-5">
+                    <label class="block text-gray-700 text-md font-medium mb-2">Ubicación:</label>
+                    <div id="ubicacionFilterRadios" class="radio-group space-y-2">
                     </div>
                 </div>
 
 
-                <div class="flex flex-col gap-2 mt-4">
-                    <button id="applyFiltersButton"
-                        class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-6 rounded-lg transition-colors duration-300 whitespace-nowrap">Aplicar
-                        Filtros</button>
+                <div class="text-center">
+                   
+                    <!--
+                    <button id="applyFiltersButton" class="filter-button bg-indigo-600 hover:bg-indigo-700">
+                        <i class="fas fa-filter mr-2"></i>Aplicar Filtros
+                    </button>
+                    -->
+
                     <button id="clearFiltersButton"
-                        class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-6 rounded-lg transition-colors duration-300 whitespace-nowrap">Limpiar
-                        Filtros</button>
+                        class="filter-button bg-blue-600 hover:bg-blue-700 text-white w-full py-2 rounded-lg transition-colors duration-300 text-lg font-semibold">
+                        <i class="fas fa-redo mr-2"></i>Limpiar Filtros
+                    </button>
                 </div>
             </div>
-        </div>
+        </aside>
 
-        <div id="contentArea">
-            <div id="alojamientosContainer" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <section class="w-full md:w-3/4 p-4">
+            <div id="loadingMessage" class="text-center text-gray-600 text-lg mt-8" style="display: none;">
+                Cargando...
             </div>
-            <div id="loadingMessage" style="display: none;">Cargando alojamientos...</div>
-            <div id="noResultsMessage" class="text-gray-600 text-center mt-4" style="display: none;">No se encontraron
-                alojamientos que coincidan con los filtros aplicados.</div>
-            <button id="loadMoreButton"
-                class="bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded-lg mt-8 w-full transition-colors duration-300"
-                style="display: none;">Ver más</button>
-            <div id="endOfResultsMessage" class="text-gray-600 text-center mt-4" style="display: none;">Has llegado al
-                final de los resultados.</div>
-        </div>
+            <div id="errorMessage" class="text-center text-red-600 text-lg mt-8" style="display: none;">
+            </div>
+            <div id="noResultsMessage" class="text-center text-gray-600 text-lg mt-8" style="display: none;">
+                No se encontraron resultados que coincidan con tus criterios de búsqueda.
+            </div>
+
+            <div id="alojamientosContainer" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            </div>
+
+            <div class="text-center mt-8">
+                <button id="loadMoreButton"
+                    class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-6 rounded-lg transition-colors duration-300 text-lg"
+                    style="display: none;">
+                    Ver más
+                </button>
+                <div id="endOfResultsMessage" class="text-center text-gray-600 text-lg mt-8" style="display: none;">
+                    Has llegado al final de los resultados.
+                </div>
+            </div>
+        </section>
     </main>
 
     <footer class="bg-gray-800 text-white py-8 mt-12">
         <div class="container mx-auto px-6 text-center">
-            <p>&copy; 2025 Alojamientos Mendoza. Todos los derechos reservados.</p>
+            <p>&copy; 2025 Alojamendo by SoyArita_. Todos los derechos reservados.</p>
             <p class="mt-1 text-sm">Diseñado con <span class="text-red-500">&hearts;</span> para tu viaje.</p>
         </div>
     </footer>
@@ -403,23 +495,25 @@
     <script>
         const alojamientosContainer = document.getElementById('alojamientosContainer');
         const loadingMessage = document.getElementById('loadingMessage');
-        const errorMessage = document.getElementById('errorMessage'); // Assuming you might have one for fetch errors
+        const errorMessage = document.getElementById('errorMessage');
         const noResultsMessage = document.getElementById('noResultsMessage');
         const endOfResultsMessage = document.getElementById('endOfResultsMessage');
-        const loadMoreButton = document.getElementById('loadMoreButton'); // New button
+        const loadMoreButton = document.getElementById('loadMoreButton');
 
         const ubicacionFilterRadios = document.getElementById('ubicacionFilterRadios');
-        const capacidadMaximaFilter = document.getElementById('capacidadMaximaFilter');
+        const capacidadPersonas = document.getElementById('capacidadPersonas');
 
         const applyFiltersButton = document.getElementById('applyFiltersButton');
         const clearFiltersButton = document.getElementById('clearFiltersButton');
         const jsonFile = 'alojamientos.json';
 
-        let allAlojamientos = [];
-        let filteredAlojamientos = [];
-        let itemsPerPage = 9;
+        let allItems = [];
+        let filteredAccommodations = []; // Separate array for filtered accommodations
+        let allActivities = []; // Separate array for all activities (not filtered by location/capacity)
+        let mixedItemsToDisplay = []; // The final mixed array for display
+        let itemsPerPage = 9; // Number of items to display per "page"
         let currentPage = 1;
-        let isLoadingMore = false; // To prevent multiple loads during scroll
+        let isLoadingMore = false;
 
         function closeAllDropdowns() {
             document.querySelectorAll('.dropdown-container.open').forEach(openDropdown => {
@@ -442,6 +536,167 @@
             }
         });
 
+        function crearTarjetaActividad(actividad) {
+            const tieneWhatsAppValido = actividad.whatsapp && actividad.whatsapp.trim() !== "" && (actividad.activo === undefined || actividad.activo === true);
+
+            const card = document.createElement('div');
+            card.className = 'card activity-card bg-white rounded-lg shadow-md card-hover transition-all duration-300 flex flex-col';
+
+            const carouselContainer = document.createElement('div');
+            carouselContainer.className = 'carousel-container';
+            const carouselImages = document.createElement('div');
+            carouselImages.className = 'carousel-images';
+            let currentImageIndex = 0;
+            const imagesToDisplay = actividad.imagenes && actividad.imagenes.length > 0 ? actividad.imagenes : ['https://placehold.co/600x400/CCCCCC/FFFFFF?text=Imagen+No+Disponible'];
+
+            imagesToDisplay.forEach(imgUrl => {
+                const img = document.createElement('img');
+                img.src = imgUrl;
+                img.alt = `Imagen de ${actividad.nombre}`;
+                img.className = 'w-full h-56 object-cover';
+                img.onerror = () => { img.src = 'https://placehold.co/600x400/CCCCCC/FFFFFF?text=Error+Al+Cargar+Imagen'; };
+                carouselImages.appendChild(img);
+            });
+            carouselContainer.appendChild(carouselImages);
+
+            if (imagesToDisplay.length > 1) {
+                const prevButton = document.createElement('button');
+                prevButton.className = 'carousel-button prev';
+                prevButton.innerHTML = '<i class="fas fa-chevron-left"></i>';
+                prevButton.onclick = (e) => {
+                    e.stopPropagation();
+                    currentImageIndex = (currentImageIndex - 1 + imagesToDisplay.length) % imagesToDisplay.length;
+                    carouselImages.style.transform = `translateX(-${currentImageIndex * 100}%)`;
+                };
+                carouselContainer.appendChild(prevButton);
+
+                const nextButton = document.createElement('button');
+                nextButton.className = 'carousel-button next';
+                nextButton.innerHTML = '<i class="fas fa-chevron-right"></i>';
+                nextButton.onclick = (e) => {
+                    e.stopPropagation();
+                    currentImageIndex = (currentImageIndex + 1) % imagesToDisplay.length;
+                    carouselImages.style.transform = `translateX(-${currentImageIndex * 100}%)`;
+                };
+                carouselContainer.appendChild(nextButton);
+            }
+            card.appendChild(carouselContainer);
+
+            const contentDiv = document.createElement('div');
+            contentDiv.className = 'p-6 flex flex-col flex-grow';
+
+            const nombre = document.createElement('h3');
+            nombre.className = 'text-2xl font-semibold text-gray-800 mb-2';
+            nombre.textContent = actividad.nombre;
+            contentDiv.appendChild(nombre);
+
+            const descripcion = document.createElement('p');
+            descripcion.className = 'text-gray-600 mb-4';
+            descripcion.textContent = actividad.descripcion;
+            contentDiv.appendChild(descripcion);
+
+            if (actividad.detallesAdicionales && (actividad.detallesAdicionales.titulo || actividad.detallesAdicionales.textoExtenso || (actividad.detallesAdicionales.servicios && actividad.detallesAdicionales.servicios.length > 0))) {
+                const collapsibleButton = document.createElement('button');
+                collapsibleButton.className = 'collapsible-button';
+                collapsibleButton.innerHTML = `Ver más detalles <i class="fas fa-chevron-down"></i>`;
+                contentDiv.appendChild(collapsibleButton);
+
+                const collapsibleContent = document.createElement('div');
+                collapsibleContent.className = 'collapsible-content';
+
+                if (actividad.detallesAdicionales.titulo) {
+                    const detallesTitulo = document.createElement('h4');
+                    detallesTitulo.className = 'text-lg font-semibold text-gray-700 mb-2 mt-4';
+                    detallesTitulo.textContent = actividad.detallesAdicionales.titulo;
+                    collapsibleContent.appendChild(detallesTitulo);
+                }
+                if (actividad.detallesAdicionales.textoExtenso) {
+                    const textoExtenso = document.createElement('p');
+                    textoExtenso.className = 'text-gray-600 text-sm mb-2';
+                    textoExtenso.textContent = actividad.detallesAdicionales.textoExtenso;
+                    collapsibleContent.appendChild(textoExtenso);
+                }
+                if (actividad.detallesAdicionales.servicios && actividad.detallesAdicionales.servicios.length > 0) {
+                    const serviciosTitulo = document.createElement('p');
+                    serviciosTitulo.className = 'text-gray-700 text-sm font-semibold mt-2 mb-1';
+                    serviciosTitulo.textContent = 'Detalles adicionales:';
+                    collapsibleContent.appendChild(serviciosTitulo);
+                    const serviciosList = document.createElement('ul');
+                    serviciosList.className = 'list-disc list-inside text-gray-600 text-sm mb-2';
+                    actividad.detallesAdicionales.servicios.forEach(servicio => {
+                        const listItem = document.createElement('li');
+                        listItem.textContent = servicio;
+                        serviciosList.appendChild(listItem);
+                    });
+                    collapsibleContent.appendChild(serviciosList);
+                }
+                // Las actividades no suelen tener capacidad ni amenities de habitación, por lo que estas secciones se omiten aquí.
+
+                contentDiv.appendChild(collapsibleContent);
+
+                collapsibleButton.onclick = () => {
+                    document.querySelectorAll('.collapsible-content.expanded').forEach(openContent => {
+                        if (openContent !== collapsibleContent) {
+                            openContent.classList.remove('expanded');
+                            const relatedButton = openContent.previousElementSibling;
+                            if (relatedButton && relatedButton.classList.contains('collapsible-button')) {
+                                relatedButton.classList.remove('active');
+                                relatedButton.querySelector('i').classList.remove('fa-chevron-up');
+                                relatedButton.querySelector('i').classList.add('fa-chevron-down');
+                            }
+                        }
+                    });
+
+                    collapsibleContent.classList.toggle('expanded');
+                    collapsibleButton.classList.toggle('active');
+                    const icon = collapsibleButton.querySelector('i');
+                    if (collapsibleContent.classList.contains('expanded')) {
+                        icon.classList.remove('fa-chevron-down');
+                        icon.classList.add('fa-chevron-up');
+                    } else {
+                        icon.classList.remove('fa-chevron-up');
+                        icon.classList.add('fa-chevron-down');
+                    }
+                };
+            }
+
+            const infoDiv = document.createElement('div');
+            infoDiv.className = 'flex justify-between items-center mt-auto mb-4';
+            const precio = document.createElement('span');
+            precio.className = 'text-xl font-bold text-purple-600';
+            precio.textContent = actividad.precio;
+            infoDiv.appendChild(precio);
+            const ubicacion = document.createElement('span');
+            ubicacion.className = 'text-sm text-gray-500';
+            ubicacion.textContent = actividad.ubicacion;
+            infoDiv.appendChild(ubicacion);
+            contentDiv.appendChild(infoDiv);
+
+            const buttonsDiv = document.createElement('div');
+            buttonsDiv.className = 'activity-buttons-container';
+
+            if (tieneWhatsAppValido) {
+                const whatsappLink = document.createElement('a');
+                const numeroLimpio = actividad.whatsapp.replace(/\D/g, '');
+                const saludoCodificado = actividad.saludo ? encodeURIComponent(actividad.saludo) : '';
+                whatsappLink.href = `https://wa.me/${numeroLimpio}${saludoCodificado ? `?text=${saludoCodificado}` : ''}`;
+                whatsappLink.target = '_blank';
+                whatsappLink.rel = 'noopener noreferrer';
+                whatsappLink.className = 'whatsapp-button bg-green-500 hover:bg-green-600 text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-300 text-center';
+                whatsappLink.textContent = 'WhatsApp';
+                buttonsDiv.appendChild(whatsappLink);
+            } else {
+                const noWhatsAppButton = document.createElement('button');
+                noWhatsAppButton.className = 'whatsapp-button bg-gray-300 text-gray-500 font-semibold py-2 px-4 rounded-lg cursor-not-allowed';
+                noWhatsAppButton.textContent = 'WhatsApp (No disponible)';
+                noWhatsAppButton.disabled = true;
+                buttonsDiv.appendChild(noWhatsAppButton);
+            }
+
+            contentDiv.appendChild(buttonsDiv);
+            card.appendChild(contentDiv);
+            return card;
+        }
 
         function crearTarjetaAlojamiento(alojamiento) {
             const tieneWhatsAppValido = alojamiento.whatsapp && alojamiento.whatsapp.trim() !== "" && (alojamiento.activo === undefined || alojamiento.activo === true);
@@ -523,7 +778,6 @@
                     textoExtenso.textContent = alojamiento.detallesAdicionales.textoExtenso;
                     collapsibleContent.appendChild(textoExtenso);
                 }
-                // Updated capacity display to use the 'capacidad' array
                 if (alojamiento.capacidad && alojamiento.capacidad.length === 2) {
                     const capacidad = document.createElement('p');
                     capacidad.className = 'text-gray-700 text-sm mb-1';
@@ -605,7 +859,7 @@
             const dropdownContainer = document.createElement('div');
             dropdownContainer.className = 'dropdown-container';
             const detallesButton = document.createElement('button');
-            detallesButton.className = 'w-full bg-indigo-500 hover:bg-indigo-600 text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-300 text-center flex items-center justify-center';
+            detallesButton.className = 'w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-300 text-center flex items-center justify-center';
             detallesButton.innerHTML = `Redes Sociales <i class="fas fa-caret-down ml-auto"></i>`;
             const dropdownContent = document.createElement('div');
             dropdownContent.className = 'dropdown-content';
@@ -620,12 +874,23 @@
                         socialLink.rel = 'noopener noreferrer';
                         let iconClass = '';
                         switch (platform.toLowerCase()) {
-                            case 'facebook': iconClass = 'fab fa-facebook-f'; break;
-                            case 'instagram': iconClass = 'fab fa-instagram'; break;
-                            case 'twitter': iconClass = 'fab fa-twitter'; break;
-                            case 'website': iconClass = 'fas fa-globe'; break;
-                            case 'email': iconClass = 'fas fa-envelope'; break;
-                            default: iconClass = 'fas fa-link';
+                            case 'facebook':
+                                iconClass = 'fab fa-facebook-f';
+                                break;
+                            case 'instagram':
+                                iconClass = 'fab fa-instagram';
+                                break;
+                            case 'twitter':
+                                iconClass = 'fab fa-twitter';
+                                break;
+                            case 'website':
+                                iconClass = 'fas fa-globe';
+                                break;
+                            case 'email':
+                                iconClass = 'fas fa-envelope';
+                                break;
+                            default:
+                                iconClass = 'fas fa-link';
                         }
                         socialLink.innerHTML = `<i class="${iconClass}"></i> ${platform.charAt(0).toUpperCase() + platform.slice(1)}`;
 
@@ -652,7 +917,9 @@
                         card.classList.remove('active-card');
                     }
                 };
-                dropdownContent.addEventListener('click', (e) => { e.stopPropagation(); });
+                dropdownContent.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                });
             } else {
                 const noSocialMediaButton = document.createElement('button');
                 noSocialMediaButton.className = 'w-full bg-gray-300 text-gray-500 font-semibold py-2 px-4 rounded-lg cursor-not-allowed';
@@ -688,9 +955,10 @@
             return card;
         }
 
-        function populateFilters(alojamientos) {
+        function populateFilters(items) {
             console.log("populateFilters called.");
-            const ubicaciones = new Set(alojamientos.map(a => a.ubicacion).filter(Boolean));
+            // Collect all unique locations from accommodations only for the filter dropdown
+            const allUbicaciones = new Set(items.filter(item => item.type === 'accommodation').map(item => item.ubicacion).filter(Boolean));
             ubicacionFilterRadios.innerHTML = '';
 
             const allUbicacionesDiv = document.createElement('div');
@@ -699,7 +967,7 @@
                 const radio = this.querySelector('input[type="radio"]');
                 if (radio) {
                     radio.checked = true;
-                    filterAndSortAlojamientos();
+                    filterAndSortItems();
                 }
             };
             const allUbicacionesInput = document.createElement('input');
@@ -719,14 +987,14 @@
             ubicacionFilterRadios.appendChild(allUbicacionesDiv);
 
 
-            Array.from(ubicaciones).sort().forEach(ubicacion => {
+            Array.from(allUbicaciones).sort().forEach(ubicacion => {
                 const div = document.createElement('div');
                 div.className = 'radio-item';
                 div.onclick = function () {
                     const radio = this.querySelector('input[type="radio"]');
                     if (radio) {
                         radio.checked = true;
-                        filterAndSortAlojamientos();
+                        filterAndSortItems();
                     }
                 };
 
@@ -748,89 +1016,126 @@
             });
         }
 
-        function displayAlojamientos(alojamientosToDisplay, append = false) {
-            console.log("displayAlojamientos called. Append:", append, "Current Page:", currentPage, "Alojamientos to display total:", alojamientosToDisplay.length);
+        // NEW FUNCTION: Mix accommodations and activities
+        function mixItems(accommodations, activities) {
+            const mixed = [];
+            let accommodationIndex = 0;
+            let activityIndex = 0;
+            let countSinceLastActivity = 0;
+            const activitiesCopy = [...activities]; // Create a mutable copy
+
+            while (accommodationIndex < accommodations.length || activityIndex < activitiesCopy.length) {
+                // Add accommodations
+                let numAccommodationsToAdd = Math.floor(Math.random() * (6 - 4 + 1)) + 4; // Random between 4 and 6
+                let addedAccommodations = 0;
+
+                while (addedAccommodations < numAccommodationsToAdd && accommodationIndex < accommodations.length) {
+                    mixed.push(accommodations[accommodationIndex]);
+                    accommodationIndex++;
+                    addedAccommodations++;
+                    countSinceLastActivity++;
+                }
+
+                // Add one activity if available and the condition is met
+                if (activityIndex < activitiesCopy.length && countSinceLastActivity >= 4) {
+                    mixed.push(activitiesCopy[activityIndex]);
+                    activityIndex++;
+                    countSinceLastActivity = 0; // Reset counter after adding an activity
+                } else if (activityIndex < activitiesCopy.length && accommodationIndex >= accommodations.length) {
+                    // If no more accommodations, but activities are left, just add remaining activities
+                    while (activityIndex < activitiesCopy.length) {
+                        mixed.push(activitiesCopy[activityIndex]);
+                        activityIndex++;
+                    }
+                }
+            }
+            return mixed;
+        }
+
+
+        function displayItems(itemsToDisplay, append = false) {
+            console.log("displayItems called. Append:", append, "Current Page:", currentPage);
             noResultsMessage.style.display = 'none';
             endOfResultsMessage.style.display = 'none';
-            loadMoreButton.style.display = 'none'; // Hide button by default until we know it's needed
+            loadMoreButton.style.display = 'none';
 
             if (!append) {
                 alojamientosContainer.innerHTML = '';
-                currentPage = 1; // Reset to first page only if not appending
+                currentPage = 1;
                 console.log("Container cleared, pagination reset.");
             }
 
             const startIndex = (currentPage - 1) * itemsPerPage;
             const endIndex = startIndex + itemsPerPage;
-            const alojamientosToRender = alojamientosToDisplay.slice(startIndex, endIndex);
+            const itemsToRender = itemsToDisplay.slice(startIndex, endIndex);
 
-            if (alojamientosToRender.length > 0) {
-                alojamientosToRender.forEach(alojamiento => {
-                    const debeMostrar = alojamiento.activo === true || alojamiento.mostrarSiInactivo === true;
+            if (itemsToRender.length > 0) {
+                itemsToRender.forEach(item => {
+                    const debeMostrar = item.activo === true || item.activo === undefined;
                     if (debeMostrar) {
-                        const tarjeta = crearTarjetaAlojamiento(alojamiento);
-                        if (tarjeta) {
-                            alojamientosContainer.appendChild(tarjeta);
+                        let card;
+                        if (item.type === 'activity') {
+                            card = crearTarjetaActividad(item);
+                        } else {
+                            card = crearTarjetaAlojamiento(item);
+                        }
+                        if (card) {
+                            alojamientosContainer.appendChild(card);
                         }
                     }
                 });
-                console.log(`Rendered ${alojamientosToRender.length} cards. Total rendered so far (approx): ${startIndex + alojamientosToRender.length}`);
+                console.log(`Rendered ${itemsToRender.length} cards.`);
 
-                // Check if there are more items to load in filteredAlojamientos
-                if (endIndex < alojamientosToDisplay.length) {
-                    loadMoreButton.style.display = 'block'; // Show "Load More" button
+                if (endIndex < itemsToDisplay.length) {
+                    loadMoreButton.style.display = 'block';
                     console.log("More items available, showing 'Ver más' button.");
                 } else {
-                    endOfResultsMessage.style.display = 'block'; // Show end of results message
+                    endOfResultsMessage.style.display = 'block';
                     console.log("End of results reached.");
                 }
-            } else if (!append) { // Only show no results if it's the initial display and nothing was found
+            } else if (!append) { // Only show no results if not appending and no items were found
                 noResultsMessage.style.display = 'block';
                 console.log("No results found for initial display or filter.");
             }
         }
 
-        function filterAndSortAlojamientos() {
-            console.log("filterAndSortAlojamientos called. Applying filters and sorting.");
+
+        function filterAndSortItems() {
+            console.log("filterAndSortItems called. Applying filters and sorting.");
             const selectedUbicacionRadio = document.querySelector('input[name="ubicacionFilter"]:checked');
             const selectedUbicacion = selectedUbicacionRadio ? selectedUbicacionRadio.value.toLowerCase() : '';
 
-            const selectedCapacidadMaximaInput = capacidadMaximaFilter.value.trim();
+            const selectedCapacidadMaximaInput = capacidadPersonas.value.trim();
             const selectedCapacidadMaxima = selectedCapacidadMaximaInput === '' ? NaN : parseInt(selectedCapacidadMaximaInput);
 
-            const selectedServices = []; // No hay filtro de servicios visible
+            // Filter accommodations
+            filteredAccommodations = allItems.filter(item => {
+                if (item.type !== 'accommodation') return false; // Only filter accommodations
 
-            const sortOrder = 'rating-asc'; // or 'rating-desc', 'default'
-
-            filteredAlojamientos = allAlojamientos.filter(alojamiento => {
-                const matchesUbicacion = selectedUbicacion === '' || (alojamiento.ubicacion && alojamiento.ubicacion.toLowerCase().includes(selectedUbicacion));
+                const matchesUbicacion = selectedUbicacion === '' || (item.ubicacion && item.ubicacion.toLowerCase().includes(selectedUbicacion));
 
                 let matchesCapacidad = true;
                 if (!isNaN(selectedCapacidadMaxima)) {
-                    if (alojamiento.capacidad && alojamiento.capacidad.length === 2) {
-                        const minCapacity = alojamiento.capacidad[0];
-                        const maxCapacity = alojamiento.capacidad[1];
+                    if (item.capacidad && item.capacidad.length === 2) {
+                        const minCapacity = item.capacidad[0];
+                        const maxCapacity = item.capacidad[1];
                         matchesCapacidad = selectedCapacidadMaxima >= minCapacity && selectedCapacidadMaxima <= maxCapacity;
                     } else {
                         matchesCapacidad = false;
                     }
                 }
+                return matchesUbicacion && matchesCapacidad;
+            }).sort((a, b) => (b.valoracion || 0) - (a.valoracion || 0)); // Sort filtered accommodations
 
-                const matchesServices = true; // No hay filtro de servicios
+            // Activities are not filtered by location or capacity, so 'allActivities' is used directly
+            // No need to sort activities for now, they will be mixed in randomly
 
-                return matchesUbicacion && matchesCapacidad && matchesServices;
-            });
+            // Mix the filtered accommodations and all activities
+            mixedItemsToDisplay = mixItems(filteredAccommodations, allActivities);
 
-            if (sortOrder === 'rating-desc') {
-                filteredAlojamientos.sort((a, b) => (b.valoracion || 0) - (a.valoracion || 0));
-            } else if (sortOrder === 'rating-asc') {
-                filteredAlojamientos.sort((a, b) => (a.valoracion || 0) - (b.valoracion || 0));
-            }
-
-            // Reset pagination and display the first batch of filtered results
-            displayAlojamientos(filteredAlojamientos, false); // Always reset and display first page after filter/sort
-            isLoadingMore = false; // Ensure loading flag is reset after a filter/sort operation
-            console.log("filterAndSortAlojamientos finished. isLoadingMore set to false.");
+            displayItems(mixedItemsToDisplay, false);
+            isLoadingMore = false;
+            console.log("filterAndSortItems finished. isLoadingMore set to false.");
         }
 
         function clearFilters() {
@@ -840,61 +1145,55 @@
                 defaultUbicacionRadio.checked = true;
             }
 
-            capacidadMaximaFilter.value = '';
+            capacidadPersonas.value = '';
 
             closeAllDropdowns();
-            filterAndSortAlojamientos(); // Re-apply filters which will reset pagination
+            filterAndSortItems();
             console.log("Filters cleared.");
         }
 
-        function loadMoreAlojamientos() {
-            console.log("loadMoreAlojamientos called. isLoadingMore:", isLoadingMore);
+        function loadMoreItems() {
+            console.log("loadMoreItems called. isLoadingMore:", isLoadingMore);
             if (isLoadingMore) {
                 console.log("Already loading more, skipping.");
-                return; // Prevent multiple calls
+                return;
             }
             isLoadingMore = true;
-            loadingMessage.style.display = 'block'; // Show loading message for *more* items
-            loadMoreButton.style.display = 'none'; // Hide "Ver más" button during load
+            loadingMessage.style.display = 'block';
+            loadMoreButton.style.display = 'none';
 
-            currentPage++; // Increment page for the next batch
+            currentPage++;
             console.log("Incrementing currentPage to:", currentPage);
 
-
-            // Use a timeout to simulate async loading and allow UI to update
             setTimeout(() => {
-                console.log("Timeout for loadMoreAlojamientos triggered.");
-                displayAlojamientos(filteredAlojamientos, true); // Append more alojamientos
-                loadingMessage.style.display = 'none'; // Hide loading message
-                isLoadingMore = false; // Allow next scroll to load more
-                console.log("loadMoreAlojamientos finished. isLoadingMore set to false.");
-            }, 500); // Small delay for visual feedback
+                console.log("Timeout for loadMoreItems triggered.");
+                displayItems(mixedItemsToDisplay, true);
+                loadingMessage.style.display = 'none';
+                isLoadingMore = false;
+                console.log("loadMoreItems finished. isLoadingMore set to false.");
+            }, 500);
         }
 
-        // Event listener for infinite scrolling
         window.addEventListener('scroll', () => {
-            // Check if user is near the bottom of the page (e.g., 500px from bottom)
-            // Ensure there are more items to potentially load
-            const hasMoreItems = (currentPage * itemsPerPage) < filteredAlojamientos.length;
+            const hasMoreItems = (currentPage * itemsPerPage) < mixedItemsToDisplay.length;
             if ((window.innerHeight + window.scrollY) >= (document.body.offsetHeight - 500) && !isLoadingMore && hasMoreItems) {
                 console.log("Reached near bottom, attempting to load more.");
-                loadMoreAlojamientos();
+                loadMoreItems();
             }
         });
 
-        // Event listener for the new "Load More" button
-        loadMoreButton.addEventListener('click', loadMoreAlojamientos);
+        loadMoreButton.addEventListener('click', loadMoreItems);
 
-        // Event listeners for filters
-        ubicacionFilterRadios.addEventListener('change', filterAndSortAlojamientos);
-        applyFiltersButton.addEventListener('click', filterAndSortAlojamientos);
+        ubicacionFilterRadios.addEventListener('change', filterAndSortItems);
+        // applyFiltersButton.addEventListener('click', filterAndSortItems);
+        // Comentado: No hay botón "Aplicar filtros", los filtros se aplican automáticamente al cambiar.
         clearFiltersButton.addEventListener('click', clearFilters);
-        capacidadMaximaFilter.addEventListener('input', filterAndSortAlojamientos);
+        capacidadPersonas.addEventListener('input', filterAndSortItems);
 
-        async function fetchAlojamientos() {
-            console.log("fetchAlojamientos called. Showing initial loading message.");
+        async function fetchAllItems() {
+            console.log("fetchAllItems called. Showing initial loading message.");
             loadingMessage.style.display = 'block';
-            if (errorMessage) errorMessage.style.display = 'none'; // Check if errorMessage element exists
+            if (errorMessage) errorMessage.style.display = 'none';
 
             try {
                 const response = await fetch(jsonFile);
@@ -902,24 +1201,40 @@
                     throw new Error(`HTTP error! status: ${response.status}`);
                 }
                 const data = await response.json();
-                allAlojamientos = data.alojamientos || [];
-                console.log("JSON data fetched. Total alojamientos:", allAlojamientos.length);
-                populateFilters(allAlojamientos);
-                filterAndSortAlojamientos(); // Initial display of the first 9 cards
+                allItems = data.alojamientos || [];
+
+                // Separate accommodations and activities
+                allActivities = allItems.filter(item => item.type === 'activity' && (item.activo === true || item.activo === undefined));
+                const rawAccommodations = allItems.filter(item => item.type !== 'activity' && (item.activo === true || item.activo === undefined));
+
+                // Sort accommodations for consistent mixing (e.g., by valoracion descending)
+                rawAccommodations.sort((a, b) => (b.valoracion || 0) - (a.valoracion || 0));
+
+                // No need to re-assign allItems if it's only used for initial splitting
+                // However, keep it if you plan to use it for other purposes later.
+                // For now, `filteredAccommodations` and `allActivities` are the main sources.
+
+                console.log("JSON data fetched. Total items:", allItems.length);
+                console.log("Total accommodations (active):", rawAccommodations.length);
+                console.log("Total activities (active):", allActivities.length);
+
+
+                populateFilters(allItems); // Populate filters based on ALL items (accommodations) to get all locations
+                filterAndSortItems(); // This will now handle the mixing and initial display
             } catch (error) {
-                console.error('Error fetching alojamientos:', error);
-                if (errorMessage) { // Ensure errorMessage element exists before trying to access its properties
-                    errorMessage.textContent = 'Error al cargar los alojamientos. Por favor, intenta de nuevo más tarde.';
+                console.error('Error fetching items:', error);
+                if (errorMessage) {
+                    errorMessage.textContent = 'Error al cargar los alojamientos y actividades. Por favor, intenta de nuevo más tarde.';
                     errorMessage.style.display = 'block';
                 }
                 alojamientosContainer.innerHTML = '';
             } finally {
-                loadingMessage.style.display = 'none'; // Ensure initial loading message is hidden
-                console.log("fetchAlojamientos finished. Hiding initial loading message.");
+                loadingMessage.style.display = 'none';
+                console.log("fetchAllItems finished. Hiding initial loading message.");
             }
         }
 
-        fetchAlojamientos();
+        fetchAllItems();
     </script>
 </body>
 
