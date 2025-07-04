@@ -821,10 +821,10 @@
       "ubicacion": "Avenida Emilio Civit, Ciudad de Mendoza",
       "whatsapp": "+5491132191078",
       "saludo": "Hola, me interesa saber sobre los desayunos en Santa Cafetería.",
-      "activo": true
+      "activo": false
     },
     {
-      "nombre": "Opcion Balma",
+      "nombre": "Alquiler de motocicletas Royal Enfield",
       "type": "activity",
       "valoracion": 200,
       "descripcion": "Animate a la adrenalina de un paseo en motocicletas royal enfield por la montaña. Disfruta de un recorrido guiado por paisajes impresionantes.",
@@ -832,25 +832,45 @@
         "img/opcionB_(1).jpg",
         "img/opcionB_(2).jpg"
       ],
-      "precio": "$86mil por persona",
+      "precio": "$90mil por día",
       "ubicacion": "Chacras de Coria, Luján de Cuyo",
       "whatsapp": "+5491132191078",
       "saludo": "Hola, me gustaría saber más sobre la Opción Balma.",
-      "activo": true
+      "activo": true,
+      "detallesAdicionales": {
+        "titulo": "Aventura sobre dos ruedas",
+        "textoExtenso": "Explora la belleza de Mendoza de una manera única y emocionante con nuestro servicio de alquiler de motocicletas Royal Enfield. Perfecto para los amantes de la aventura y la naturaleza, este recorrido guiado te llevará por paisajes impresionantes, desde montañas hasta valles, mientras disfrutas de la libertad que solo una motocicleta puede ofrecer. Ya sea que busques una escapada romántica o una aventura con amigos, esta experiencia es ideal para todos los que desean explorar Mendoza de una forma diferente.",
+        "servicios": [
+          "Más de 6 Tours disponibles por la montaña",
+          "Equipo de seguridad"
+        ]
+      }
     },
     {
-      "nombre": "Parador Ventura",
+      "nombre": "Parador del Dique",
       "type": "activity",
       "valoracion": 150,
       "descripcion": "Toda la diversion de las actividades nauticas en un entorno majestuoso y todos los servicios de un parador de montaña de primer nivel.",
       "imagenes": [
         "img/paradorVentura_(1).jpg"
       ],
-      "precio": "Desde $20mil por persona",
+      "precio": "Actividades desde $20mil",
       "ubicacion": "Potrerillos, Luján de Cuyo",
       "whatsapp": "+5491132191078",
-      "saludo": "Hola, me interesa ir al Parador Ventura.",
-      "activo": true
+      "saludo": "Hola, me interesa ir al Parador del dique.",
+      "activo": true,
+      "detallesAdicionales": {
+        "titulo": "Diversión y Naturaleza en Potrerillos",
+        "textoExtenso": "Vive una experiencia única en el dique Potrerillos, donde la aventura y la naturaleza se encuentran. Disfruta de actividades acuáticas como kayak, paddle surf y bicinautica. Además, el parador ofrece un ambiente relajante con vistas espectaculares, ideal para disfrutar de un día al aire libre con amigos o familia. Con servicios de primer nivel, este se convierte en el lugar perfecto para desconectar y sumergirte en la belleza natural de Mendoza.",
+        "servicios": [
+          "Actividades acuáticas (kayak, paddle surf, bicinautica)",
+          "Alquiler de equipos",
+          "Restaurante y bar",
+          "Heladeria",
+          "Spots con vistas al dique",
+          "Estacionamiento"
+        ]
+      }
     }
   ]
 }

@@ -661,7 +661,7 @@
             }
 
             const infoDiv = document.createElement('div');
-            infoDiv.className = 'flex justify-between items-center mt-auto mb-4';
+            infoDiv.className = 'flex justify-between items-center mt-auto mb-4 gap-4';
             const precio = document.createElement('span');
             precio.className = 'text-xl font-bold text-purple-600';
             precio.textContent = actividad.precio;
@@ -1127,9 +1127,8 @@
                 return matchesUbicacion && matchesCapacidad;
             }).sort((a, b) => (b.valoracion || 0) - (a.valoracion || 0)); // Sort filtered accommodations
 
-            // Activities are not filtered by location or capacity, so 'allActivities' is used directly
-            // No need to sort activities for now, they will be mixed in randomly
-
+            // Activities are not filtered by location or capacity. Shuffle them randomly.
+            allActivities = allActivities.sort(() => Math.random() - 0.5); // Random sort for activities
             // Mix the filtered accommodations and all activities
             mixedItemsToDisplay = mixItems(filteredAccommodations, allActivities);
 
