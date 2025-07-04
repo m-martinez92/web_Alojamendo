@@ -444,7 +444,7 @@
 
 
                 <div class="text-center">
-                   
+
                     <!--
                     <button id="applyFiltersButton" class="filter-button bg-indigo-600 hover:bg-indigo-700">
                         <i class="fas fa-filter mr-2"></i>Aplicar Filtros
@@ -1207,8 +1207,9 @@
                 allActivities = allItems.filter(item => item.type === 'activity' && (item.activo === true || item.activo === undefined));
                 const rawAccommodations = allItems.filter(item => item.type !== 'activity' && (item.activo === true || item.activo === undefined));
 
-                // Sort accommodations for consistent mixing (e.g., by valoracion descending)
-                rawAccommodations.sort((a, b) => (b.valoracion || 0) - (a.valoracion || 0));
+                // Sort accommodations for consistent mixing 
+                //rawAccommodations.sort((a, b) => (b.valoracion || 0) - (a.valoracion || 0));//(by valoracion descending)
+                rawAccommodations.sort((a, b) => (a.valoracion || 0) - (b.valoracion || 0));//(by valoracion ascending)
 
                 // No need to re-assign allItems if it's only used for initial splitting
                 // However, keep it if you plan to use it for other purposes later.

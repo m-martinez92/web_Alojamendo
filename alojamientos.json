@@ -3,7 +3,7 @@
     {
       "nombre": "Casa Julieta",
       "type": "accommodation",
-      "valoracion": 100,
+      "valoracion": 80,
       "descripcion": "Un refugio de lujo en Vistalba, Luján de Cuyo. Ideal para familias grandes o grupos, ofrece amplios espacios y cercanía a las bodegas más prestigiosas de la región.",
       "ubicacion": "Vistalba, Luján de Cuyo",
       "imagenes": [
@@ -44,7 +44,7 @@
     {
       "nombre": "Cabaña Crena",
       "type": "accommodation",
-      "valoracion": 110,
+      "valoracion": 70,
       "descripcion": "Complejo turístico con hermoso jardín y pileta, ubicada en una de las zonas más lindas de Mendoza, con cercanía a Bodegas y puntos de interés. Destacada por su arquitectura donde priman los materiales nobles como piedra y madera.",
       "ubicacion": "Chacras de Coria, Luján de Cuyo",
       "imagenes": [
@@ -91,7 +91,7 @@
     {
       "nombre": "Cabaña Potrerillos",
       "type": "accommodation",
-      "valoracion": 80,
+      "valoracion": 100,
       "descripcion": "Disfruta de una escapada única en esta cabaña ecológica en Embalse Potrerillos, con capacidad para 7 personas y vistas espectaculares. Totalmente equipada y autosuficiente, ofrece una experiencia sin preocupaciones en plena naturaleza.",
       "ubicacion": "Potrerillos, Luján de Cuyo",
       "imagenes": [
@@ -135,7 +135,7 @@
     {
       "nombre": "Casa Angelo Di Caneva",
       "type": "accommodation",
-      "valoracion": 70,
+      "valoracion": 110,
       "descripcion": "Descubre el encanto de una hermosa propiedad en la idílica Vistalba, Mendoza. Rodeada de exuberantes jardines, esta casa ofrece un oasis de tranquilidad y confort, ideal para grupos grandes o familias que buscan una experiencia inolvidable en la región vitivinícola.",
       "ubicacion": "Vistalba, Luján de Cuyo",
       "imagenes": [
@@ -172,7 +172,7 @@
     {
       "nombre": "Casa Aromos",
       "type": "accommodation",
-      "valoracion": 60,
+      "valoracion": 120,
       "descripcion": "Hermosa casona en Chacras de Coria con jardín y pileta, ideal para disfrutar en familia o con amigos. Espaciosa y confortable, ofrece una experiencia inolvidable en un entorno tranquilo y cercano a las atracciones de la región.",
       "ubicacion": "Chacras de Coria, Luján de Cuyo",
       "imagenes": [
@@ -276,7 +276,7 @@
     {
       "nombre": "Casa Medrano",
       "type": "accommodation",
-      "valoracion": 130,
+      "valoracion": 50,
       "descripcion": "Una encantadora casona ideal para familias y grupos de amigos. Disfruta de su hermoso jardín, piscina y todas las comodidades para una estadía relajante y placentera.",
       "ubicacion": "Chacras de Coria, Luján de Cuyo",
       "imagenes": [
@@ -329,7 +329,7 @@
       "nombre": "Casa Sara",
       "type": "accommodation",
       "descripcion": "Una magnífica casona en Chacras de Coria, diseñada para ofrecer una experiencia inolvidable a familias y grupos de amigos. Disfrute de su extenso jardín, refrescante pileta y amplios espacios",
-      "valoracion": 120,
+      "valoracion": 60,
       "ubicacion": "Chacras de Coria, Luján de Cuyo",
       "whatsapp": "+5492615964732",
       "saludo": "¡Hola! Estoy interesado en reservar Casa Sara.",
@@ -383,7 +383,7 @@
     {
       "nombre": "Casa Vistalba Scape",
       "type": "accommodation",
-      "valoracion": 190,
+      "valoracion": 10,
       "descripcion": "Acogedor alojamiento para 3 personas en Vistalba, con amplio jardín y piscina. Ideal para una escapada tranquila en pareja o un pequeño grupo.",
       "ubicacion": "Vistalba, Luján de Cuyo",
       "imagenes": [
@@ -424,7 +424,7 @@
     {
       "nombre": "Casa WineHouse",
       "type": "accommodation",
-      "valoracion": 140,
+      "valoracion": 40,
       "descripcion": "Una elegante casona en Chacras de Coria, perfecta para amantes del vino y grupos que buscan comodidad. Cuenta con un hermoso jardín y piscina para disfrutar de la tranquilidad mendocina.",
       "ubicacion": "Chacras de Coria, Luján de Cuyo",
       "imagenes": [
@@ -473,7 +473,7 @@
     {
       "nombre": "Departamento Adolfo",
       "type": "accommodation",
-      "valoracion": 11,
+      "valoracion": 180,
       "descripcion": "Acogedor departamento en Luján de Cuyo, ideal para una familia de hasta 4 personas. Disfruta de su enorme jardín, perfecto para el esparcimiento y la diversión al aire libre.",
       "ubicacion": "Ciudad, Luján de Cuyo",
       "imagenes": [
@@ -513,7 +513,7 @@
     {
       "nombre": "Entre Racimos",
       "type": "accommodation",
-      "valoracion": 150,
+      "valoracion": 30,
       "descripcion": "Experimenta la magia de un glamping exclusivo entre viñedos en Luján de Cuyo, una de las regiones más bellas de Mendoza. Disfruta de la fusión perfecta entre naturaleza y lujo, con experiencias vinícolas únicas en Bodega Cava Don Tulio.",
       "ubicacion": "Mayor Drummond, Luján de Cuyo",
       "imagenes": [
@@ -556,7 +556,7 @@
     {
       "nombre": "Casa las Nencias",
       "type": "accommodation",
-      "valoracion": 50,
+      "valoracion": 130,
       "descripcion": "Disfruta de la serenidad del Valle de Uco en estas casas totalmente equipadas, con vistas espectaculares a la Cordillera. Ideal para familias o grupos, ofrece confort y un desayuno self-service con productos caseros.",
       "ubicacion": "La Consulta, San Carlos",
       "imagenes": [
@@ -605,7 +605,7 @@
     {
       "nombre": "Posada Cottage",
       "type": "accommodation",
-      "valoracion": 40,
+      "valoracion": 140,
       "descripcion": "Un encantador complejo turístico en Chacras de Coria que ofrece diversas opciones de alojamiento: habitaciones de posada con baño privado, una acogedora cabaña y una moderna Tiny House, todo en un hermoso entorno con jardín y piscina.",
       "ubicacion": "Chacras de Coria, Luján de Cuyo",
       "imagenes": [
@@ -646,7 +646,7 @@
     {
       "nombre": "Tiny House",
       "type": "accommodation",
-      "valoracion": 160,
+      "valoracion": 20,
       "descripcion": "Disfruta de una experiencia única en esta moderna Tiny House en Chacras de Coria, parte de un complejo turístico con jardín y pileta. Ideal para parejas o pequeñas familias, ofrece comodidad y funcionalidad en un espacio acogedor.",
       "ubicacion": "Chacras de Coria, Luján de Cuyo",
       "imagenes": [
@@ -695,7 +695,7 @@
     {
       "nombre": "Casona Vista Alma",
       "type": "accommodation",
-      "valoracion": 30,
+      "valoracion": 150,
       "descripcion": "Una elegante casona estilo colonial con capacidad para hasta 10 personas. Sus propios dueños garantizan una cálida estadía, ofreciendo un ambiente acogedor y todas las comodidades para disfrutar de Luján de Cuyo.",
       "ubicacion": "Vistalba, Luján de Cuyo",
       "imagenes": [
@@ -744,7 +744,7 @@
     {
       "nombre": "Pistacho Club Eco Lodge",
       "type": "accommodation",
-      "valoracion": 20,
+      "valoracion": 160,
       "descripcion": "Descubre un rincón único en Mendoza: Pistacho Club, un íntimo complejo de tres cabañas diseñado para una experiencia inolvidable. Ubicado en Chacras de Coria, es perfecto para aventura o relax, combinando lujo y confort.",
       "ubicacion": "Chacras de Coria, Luján de Cuyo",
       "imagenes": [
@@ -789,7 +789,7 @@
     {
       "nombre": "Paseo en helicóptero por el dique Potrerillos",
       "type": "activity",
-      "valoracion": 1,
+      "valoracion": 190,
       "descripcion": "Disfruta de vistas aéreas espectaculares del dique Potrerillos. Tiempo de vuelo 15 min aprox, hasta 3 personas.",
       "imagenes": [
         "img/helicoptour_(1).jpg",
@@ -807,11 +807,12 @@
           "Traslado a Potrerillos",
           "Copa de champagne"
         ]
-    }},
+      }
+    },
     {
       "nombre": "Desayunos en Santa Cafetería",
       "type": "activity",
-      "valoracion": 10,
+      "valoracion": 170,
       "descripcion": "Disfruta de un desayuno único en una cafetería escondida con encanto.",
       "imagenes": [
         "https://via.placeholder.com/600x400/D2B48C/000000?text=Cafetería+Escondida"
@@ -820,6 +821,35 @@
       "ubicacion": "Avenida Emilio Civit, Ciudad de Mendoza",
       "whatsapp": "+5491132191078",
       "saludo": "Hola, me interesa saber sobre los desayunos en Santa Cafetería.",
+      "activo": true
+    },
+    {
+      "nombre": "Opcion Balma",
+      "type": "activity",
+      "valoracion": 200,
+      "descripcion": "Animate a la adrenalina de un paseo en motocicletas royal enfield por la montaña. Disfruta de un recorrido guiado por paisajes impresionantes.",
+      "imagenes": [
+        "img/opcionB_(1).jpg",
+        "img/opcionB_(2).jpg"
+      ],
+      "precio": "$86mil por persona",
+      "ubicacion": "Chacras de Coria, Luján de Cuyo",
+      "whatsapp": "+5491132191078",
+      "saludo": "Hola, me gustaría saber más sobre la Opción Balma.",
+      "activo": true
+    },
+    {
+      "nombre": "Parador Ventura",
+      "type": "activity",
+      "valoracion": 150,
+      "descripcion": "Toda la diversion de las actividades nauticas en un entorno majestuoso y todos los servicios de un parador de montaña de primer nivel.",
+      "imagenes": [
+        "img/paradorVentura_(1).jpg"
+      ],
+      "precio": "Desde $20mil por persona",
+      "ubicacion": "Potrerillos, Luján de Cuyo",
+      "whatsapp": "+5491132191078",
+      "saludo": "Hola, me interesa ir al Parador Ventura.",
       "activo": true
     }
   ]
