@@ -278,12 +278,16 @@
             flex-direction: column;
             align-items: center;
             text-align: center;
-            position: relative; /* Asegura que el posicionamiento absoluto de la firma sea relativo a este contenedor */
-            padding-top: 1rem; /* Añade un poco de padding arriba */
-            padding-bottom: 1rem; /* Añade un poco de padding abajo para el contenido */
+            position: relative;
+            /* Asegura que el posicionamiento absoluto de la firma sea relativo a este contenedor */
+            padding-top: 1rem;
+            /* Añade un poco de padding arriba */
+            padding-bottom: 1rem;
+            /* Añade un poco de padding abajo para el contenido */
         }
 
-        .header-content img { /* Logo principal */
+        .header-content img {
+            /* Logo principal */
             max-height: 100px;
             margin-bottom: 1rem;
             filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.5));
@@ -296,44 +300,66 @@
                 justify-content: center;
                 text-align: left;
                 gap: 1.5rem;
-                padding-top: 2rem; /* Más padding para pantallas grandes */
-                padding-bottom: 2rem; /* Más padding para pantallas grandes */
+                padding-top: 2rem;
+                /* Más padding para pantallas grandes */
+                padding-bottom: 2rem;
+                /* Más padding para pantallas grandes */
             }
 
-            .header-content img { /* Logo principal */
+            .header-content img {
+                /* Logo principal */
                 margin-bottom: 0;
             }
         }
 
         /* ESTILOS PARA LA IMAGEN DE CRÉDITO (FIRMA) */
         .header-credit-image {
-            height: 35px; /* Mantener la altura original */
-            position: absolute; /* Posicionamiento absoluto para la firma */
-            z-index: 10; /* Asegura que esté por encima de otros elementos */
+            height: 35px;
+            /* Mantener la altura original */
+            position: absolute;
+            /* Posicionamiento absoluto para la firma */
+            z-index: 10;
+            /* Asegura que esté por encima de otros elementos */
         }
 
         /* Para móviles (pantallas pequeñas) */
         @media (max-width: 767px) {
             .header-content {
                 /* Ajustamos el padding-top para dejar espacio al logo y la firma */
-                padding-top: 3rem; /* Incrementa el padding superior para evitar superposición con la firma arriba */
-                padding-bottom: 2rem; /* Asegura un espacio adecuado abajo del contenido */
+                padding-top: 3rem;
+                /* Incrementa el padding superior para evitar superposición con la firma arriba */
+                padding-bottom: 2rem;
+                /* Asegura un espacio adecuado abajo del contenido */
             }
+
             .header-credit-image {
-                top: 5px; /* Posiciona la firma en la parte superior */
-                right: 10px; /* Posiciona la firma a la derecha */
-                transform: none; /* Elimina cualquier transformación si la hubiera */
+                top: 5px;
+                /* Posiciona la firma en la parte superior */
+                right: 10px;
+                /* Posiciona la firma a la derecha */
+                transform: none;
+                /* Elimina cualquier transformación si la hubiera */
             }
         }
 
         /* Para pantallas grandes */
         @media (min-width: 768px) {
             .header-credit-image {
-                bottom: 3px; /* Posiciona la firma en la parte inferior */
-                right: 10px; /* Posiciona la firma a la derecha */
+                bottom: 3px;
+                /* Posiciona la firma en la parte inferior */
+                right: 10px;
+                /* Posiciona la firma a la derecha */
             }
         }
     </style>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3N5G2W0YE4"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-3N5G2W0YE4');
+    </script>
 </head>
 
 <body>
@@ -359,7 +385,7 @@
                 <input type="number" id="capacidadMaximaFilter" min="1" placeholder="Ej: 4"
                     class="mt-1 block w-full pl-3 pr-3 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
             </div>
-            
+
             <div id="filterSection" class="flex flex-col gap-4 mb-6">
                 <div class="filter-group">
                     <label class="block text-sm font-medium text-gray-700 mb-1">Ubicación:</label>
@@ -438,6 +464,25 @@
             }
         });
 
+        // Nueva función para enviar eventos a Google Analytics
+        function logClickEvent(type, itemName, detail = '') {
+            console.log(`Click Event: ${type} on "${itemName}"${detail ? ` - ${detail}` : ''}`);
+
+            // Enviar el evento a Google Analytics 4
+            if (typeof gtag === 'function') { // Asegurarse de que gtag está disponible
+                gtag('event', 'card_interaction', { // 'card_interaction' es el nombre del evento personalizado
+                    'event_category': 'Interacción con Tarjeta', // Categoría del evento
+                    'event_label': `${type} - ${itemName}`,    // Etiqueta para describir el evento
+                    'item_name': itemName,                      // Nombre del alojamiento/actividad
+                    'click_type': type,                         // Tipo de clic (WhatsApp, Red Social, Más Información)
+                    'click_detail': detail                      // Detalle adicional (ej. nombre de la red social)
+                });
+                console.log(`GA4 Event Sent: card_interaction, Category: Interacción con Tarjeta, Label: ${type} - ${itemName}`);
+            } else {
+                console.warn("gtag function not found. Google Analytics may not be loaded.");
+            }
+        }
+
 
         function crearTarjetaAlojamiento(alojamiento) {
             const tieneWhatsAppValido = alojamiento.whatsapp && alojamiento.whatsapp.trim() !== "" && (alojamiento.activo === undefined || alojamiento.activo === true);
@@ -502,6 +547,31 @@
                 const collapsibleButton = document.createElement('button');
                 collapsibleButton.className = 'collapsible-button';
                 collapsibleButton.innerHTML = `Ver más detalles <i class="fas fa-chevron-down"></i>`;
+                collapsibleButton.onclick = () => { // Evento de click para el botón "Ver más detalles"
+                    logClickEvent('Más Información', alojamiento.nombre); // Registrar clic
+                    document.querySelectorAll('.collapsible-content.expanded').forEach(openContent => {
+                        if (openContent !== collapsibleContent) {
+                            openContent.classList.remove('expanded');
+                            const relatedButton = openContent.previousElementSibling;
+                            if (relatedButton && relatedButton.classList.contains('collapsible-button')) {
+                                relatedButton.classList.remove('active');
+                                relatedButton.querySelector('i').classList.remove('fa-chevron-up');
+                                relatedButton.querySelector('i').classList.add('fa-chevron-down');
+                            }
+                        }
+                    });
+
+                    collapsibleContent.classList.toggle('expanded');
+                    collapsibleButton.classList.toggle('active');
+                    const icon = collapsibleButton.querySelector('i');
+                    if (collapsibleContent.classList.contains('expanded')) {
+                        icon.classList.remove('fa-chevron-down');
+                        icon.classList.add('fa-chevron-up');
+                    } else {
+                        icon.classList.remove('fa-chevron-up');
+                        icon.classList.add('fa-chevron-down');
+                    }
+                };
                 contentDiv.appendChild(collapsibleButton);
 
                 const collapsibleContent = document.createElement('div');
@@ -556,31 +626,6 @@
                 }
 
                 contentDiv.appendChild(collapsibleContent);
-
-                collapsibleButton.onclick = () => {
-                    document.querySelectorAll('.collapsible-content.expanded').forEach(openContent => {
-                        if (openContent !== collapsibleContent) {
-                            openContent.classList.remove('expanded');
-                            const relatedButton = openContent.previousElementSibling;
-                            if (relatedButton && relatedButton.classList.contains('collapsible-button')) {
-                                relatedButton.classList.remove('active');
-                                relatedButton.querySelector('i').classList.remove('fa-chevron-up');
-                                relatedButton.querySelector('i').classList.add('fa-chevron-down');
-                            }
-                        }
-                    });
-
-                    collapsibleContent.classList.toggle('expanded');
-                    collapsibleButton.classList.toggle('active');
-                    const icon = collapsibleButton.querySelector('i');
-                    if (collapsibleContent.classList.contains('expanded')) {
-                        icon.classList.remove('fa-chevron-down');
-                        icon.classList.add('fa-chevron-up');
-                    } else {
-                        icon.classList.remove('fa-chevron-up');
-                        icon.classList.add('fa-chevron-down');
-                    }
-                };
             }
 
             const infoDiv = document.createElement('div');
@@ -624,7 +669,7 @@
                             default: iconClass = 'fas fa-link';
                         }
                         socialLink.innerHTML = `<i class="${iconClass}"></i> ${platform.charAt(0).toUpperCase() + platform.slice(1)}`;
-
+                        socialLink.onclick = () => logClickEvent('Red Social', alojamiento.nombre, platform); // Registrar clic en red social
                         dropdownContent.appendChild(socialLink);
                         hasSocialMedia = true;
                     }
@@ -669,6 +714,7 @@
                 whatsappLink.rel = 'noopener noreferrer';
                 whatsappLink.className = 'w-full bg-green-500 hover:bg-green-600 text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-300 text-center';
                 whatsappLink.textContent = 'WhatsApp';
+                whatsappLink.onclick = () => logClickEvent('WhatsApp', alojamiento.nombre); // Registrar clic en WhatsApp
                 buttonsDiv.appendChild(whatsappLink);
 
             } else {
