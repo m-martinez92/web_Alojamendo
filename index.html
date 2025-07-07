@@ -390,9 +390,8 @@
                 <div class="filter-group">
                     <label class="block text-sm font-medium text-gray-700 mb-1">Ubicación:</label>
                     <div id="ubicacionFilterRadios" class="radio-group">
-                    </div>
+                        </div>
                 </div>
-
 
                 <div class="flex flex-col gap-2 mt-4">
                     <button id="clearFiltersButton"
@@ -404,7 +403,7 @@
 
         <div id="contentArea">
             <div id="alojamientosContainer" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            </div>
+                </div>
             <div id="loadingMessage" style="display: none;">Cargando alojamientos...</div>
             <div id="noResultsMessage" class="text-gray-600 text-center mt-4" style="display: none;">No se encontraron
                 alojamientos que coincidan con los filtros aplicados.</div>
@@ -424,25 +423,27 @@
     </footer>
 
     <script>
+        // Referencias a los elementos del DOM
         const alojamientosContainer = document.getElementById('alojamientosContainer');
         const loadingMessage = document.getElementById('loadingMessage');
-        const errorMessage = document.getElementById('errorMessage'); // Assuming you might have one for fetch errors
+        const errorMessage = document.getElementById('errorMessage'); // Asegúrate de que este elemento existe si lo usas
         const noResultsMessage = document.getElementById('noResultsMessage');
         const endOfResultsMessage = document.getElementById('endOfResultsMessage');
-        const loadMoreButton = document.getElementById('loadMoreButton'); // New button
+        const loadMoreButton = document.getElementById('loadMoreButton');
 
         const ubicacionFilterRadios = document.getElementById('ubicacionFilterRadios');
         const capacidadMaximaFilter = document.getElementById('capacidadMaximaFilter');
-
         const clearFiltersButton = document.getElementById('clearFiltersButton');
-        const jsonFile = 'alojamientos.json';
 
-        let allAlojamientos = [];
-        let filteredAlojamientos = [];
-        let itemsPerPage = 9;
-        let currentPage = 1;
-        let isLoadingMore = false; // To prevent multiple loads during scroll
+        const jsonFile = 'alojamientos.json'; // Archivo JSON con los datos de alojamientos
 
+        let allAlojamientos = []; // Todos los alojamientos cargados del JSON
+        let filteredAlojamientos = []; // Alojamientos después de aplicar filtros
+        let itemsPerPage = 9; // Cantidad de tarjetas a mostrar por página
+        let currentPage = 1; // Página actual para la paginación
+        let isLoadingMore = false; // Bandera para evitar múltiples cargas al hacer scroll
+
+        // Función para cerrar todos los dropdowns abiertos (redes sociales)
         function closeAllDropdowns() {
             document.querySelectorAll('.dropdown-container.open').forEach(openDropdown => {
                 const associatedCard = openDropdown.closest('.card');
@@ -453,6 +454,7 @@
             });
         }
 
+        // Listener global para cerrar dropdowns al hacer clic fuera
         document.addEventListener('click', (e) => {
             const isClickInsideAnyDropdownContent = e.target.closest('.dropdown-content');
             const isClickInsideCollapsibleButton = e.target.closest('.collapsible-button');
@@ -483,13 +485,15 @@
             }
         }
 
-
+        // Función para crear la tarjeta de alojamiento
         function crearTarjetaAlojamiento(alojamiento) {
+            console.log("DEBUG: Intentando crear tarjeta para:", alojamiento.nombre); // DEBUG CONSOLE
             const tieneWhatsAppValido = alojamiento.whatsapp && alojamiento.whatsapp.trim() !== "" && (alojamiento.activo === undefined || alojamiento.activo === true);
 
             const card = document.createElement('div');
             card.className = 'card bg-white rounded-lg shadow-md card-hover transition-all duration-300 flex flex-col';
 
+            // --- Carrusel de imágenes ---
             const carouselContainer = document.createElement('div');
             carouselContainer.className = 'carousel-container';
             const carouselImages = document.createElement('div');
@@ -530,6 +534,7 @@
             }
             card.appendChild(carouselContainer);
 
+            // --- Contenido principal de la tarjeta ---
             const contentDiv = document.createElement('div');
             contentDiv.className = 'p-6 flex flex-col flex-grow';
 
@@ -543,11 +548,13 @@
             descripcion.textContent = alojamiento.descripcion;
             contentDiv.appendChild(descripcion);
 
+            // --- Sección de detalles adicionales (collapsible) ---
             if (alojamiento.detallesAdicionales || alojamiento.capacidad || (alojamiento.detallesAdicionales && (alojamiento.detallesAdicionales.servicios || alojamiento.detallesAdicionales.amenities))) {
                 const collapsibleButton = document.createElement('button');
                 collapsibleButton.className = 'collapsible-button';
                 collapsibleButton.innerHTML = `Ver más detalles <i class="fas fa-chevron-down"></i>`;
-                collapsibleButton.onclick = () => { // Evento de click para el botón "Ver más detalles"
+                console.log("DEBUG: Asignando onclick a 'Más Información' para:", alojamiento.nombre); // DEBUG CONSOLE
+                collapsibleButton.onclick = () => {
                     logClickEvent('Más Información', alojamiento.nombre); // Registrar clic
                     document.querySelectorAll('.collapsible-content.expanded').forEach(openContent => {
                         if (openContent !== collapsibleContent) {
@@ -589,7 +596,6 @@
                     textoExtenso.textContent = alojamiento.detallesAdicionales.textoExtenso;
                     collapsibleContent.appendChild(textoExtenso);
                 }
-                // Updated capacity display to use the 'capacidad' array
                 if (alojamiento.capacidad && alojamiento.capacidad.length === 2) {
                     const capacidad = document.createElement('p');
                     capacidad.className = 'text-gray-700 text-sm mb-1';
@@ -643,6 +649,7 @@
             const buttonsDiv = document.createElement('div');
             buttonsDiv.className = 'grid grid-cols-1 sm:grid-cols-2 gap-2';
 
+            // --- Dropdown de Redes Sociales ---
             const dropdownContainer = document.createElement('div');
             dropdownContainer.className = 'dropdown-container';
             const detallesButton = document.createElement('button');
@@ -669,6 +676,7 @@
                             default: iconClass = 'fas fa-link';
                         }
                         socialLink.innerHTML = `<i class="${iconClass}"></i> ${platform.charAt(0).toUpperCase() + platform.slice(1)}`;
+                        console.log("DEBUG: Asignando onclick a Red Social:", platform, "para", alojamiento.nombre); // DEBUG CONSOLE
                         socialLink.onclick = () => logClickEvent('Red Social', alojamiento.nombre, platform); // Registrar clic en red social
                         dropdownContent.appendChild(socialLink);
                         hasSocialMedia = true;
@@ -702,6 +710,7 @@
                 buttonsDiv.appendChild(noSocialMediaButton);
             }
 
+            // --- Botón de WhatsApp ---
             if (tieneWhatsAppValido) {
                 const whatsappLink = document.createElement('a');
                 const numeroLimpio = alojamiento.whatsapp.replace(/\D/g, '');
@@ -714,6 +723,7 @@
                 whatsappLink.rel = 'noopener noreferrer';
                 whatsappLink.className = 'w-full bg-green-500 hover:bg-green-600 text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-300 text-center';
                 whatsappLink.textContent = 'WhatsApp';
+                console.log("DEBUG: Asignando onclick a WhatsApp para:", alojamiento.nombre); // DEBUG CONSOLE
                 whatsappLink.onclick = () => logClickEvent('WhatsApp', alojamiento.nombre); // Registrar clic en WhatsApp
                 buttonsDiv.appendChild(whatsappLink);
 
@@ -730,11 +740,14 @@
             return card;
         }
 
-        function populateFilters(alojamientos) {
-            console.log("populateFilters called.");
-            const ubicaciones = new Set(alojamientos.map(a => a.ubicacion).filter(Boolean));
-            ubicacionFilterRadios.innerHTML = '';
+        // --- Funciones de Filtrado y Visualización ---
 
+        function populateFilters(alojamientos) {
+            console.log("populateFilters called. Populating unique locations."); // DEBUG CONSOLE
+            const ubicaciones = new Set(alojamientos.map(a => a.ubicacion).filter(Boolean));
+            ubicacionFilterRadios.innerHTML = ''; // Limpiar opciones existentes
+
+            // Opción "Todas"
             const allUbicacionesDiv = document.createElement('div');
             allUbicacionesDiv.className = 'radio-item';
             allUbicacionesDiv.onclick = function () {
@@ -751,7 +764,7 @@
             allUbicacionesInput.value = '';
             allUbicacionesInput.checked = true;
             allUbicacionesInput.className = 'h-4 w-4 text-indigo-600 border-gray-300 focus:ring-indigo-500';
-            allUbicacionesInput.addEventListener('click', (e) => e.stopPropagation());
+            allUbicacionesInput.addEventListener('click', (e) => e.stopPropagation()); // Evitar doble evento
             const allUbicacionesLabel = document.createElement('label');
             allUbicacionesLabel.htmlFor = allUbicacionesInput.id;
             allUbicacionesLabel.className = 'ml-2 block text-sm text-gray-900 cursor-pointer';
@@ -760,7 +773,7 @@
             allUbicacionesDiv.appendChild(allUbicacionesLabel);
             ubicacionFilterRadios.appendChild(allUbicacionesDiv);
 
-
+            // Opciones por cada ubicación única
             Array.from(ubicaciones).sort().forEach(ubicacion => {
                 const div = document.createElement('div');
                 div.className = 'radio-item';
@@ -778,7 +791,7 @@
                 input.name = 'ubicacionFilter';
                 input.value = ubicacion;
                 input.className = 'h-4 w-4 text-indigo-600 border-gray-300 focus:ring-indigo-500';
-                input.addEventListener('click', (e) => e.stopPropagation());
+                input.addEventListener('click', (e) => e.stopPropagation()); // Evitar doble evento
 
                 const label = document.createElement('label');
                 label.htmlFor = input.id;
@@ -791,15 +804,15 @@
         }
 
         function displayAlojamientos(alojamientosToDisplay, append = false) {
-            console.log("displayAlojamientos called. Append:", append, "Current Page:", currentPage, "Alojamientos to display total:", alojamientosToDisplay.length);
+            console.log("DEBUG: displayAlojamientos called. Append:", append, "Current Page:", currentPage, "Alojamientos to display total:", alojamientosToDisplay.length);
             noResultsMessage.style.display = 'none';
             endOfResultsMessage.style.display = 'none';
-            loadMoreButton.style.display = 'none'; // Hide button by default until we know it's needed
+            loadMoreButton.style.display = 'none'; // Ocultar botón por defecto
 
             if (!append) {
-                alojamientosContainer.innerHTML = '';
-                currentPage = 1; // Reset to first page only if not appending
-                console.log("Container cleared, pagination reset.");
+                alojamientosContainer.innerHTML = ''; // Limpiar contenedor si no es un "append"
+                currentPage = 1; // Resetear la página a 1 si se está mostrando un nuevo conjunto de resultados
+                console.log("DEBUG: Container cleared, pagination reset.");
             }
 
             const startIndex = (currentPage - 1) * itemsPerPage;
@@ -816,33 +829,33 @@
                         }
                     }
                 });
-                console.log(`Rendered ${alojamientosToRender.length} cards. Total rendered so far (approx): ${startIndex + alojamientosToRender.length}`);
+                console.log(`DEBUG: Rendered ${alojamientosToRender.length} cards. Total rendered so far (approx): ${startIndex + alojamientosToRender.length}`);
 
-                // Check if there are more items to load in filteredAlojamientos
+                // Verificar si quedan más elementos por cargar en los alojamientos filtrados
                 if (endIndex < alojamientosToDisplay.length) {
-                    loadMoreButton.style.display = 'block'; // Show "Load More" button
-                    console.log("More items available, showing 'Ver más' button.");
+                    loadMoreButton.style.display = 'block'; // Mostrar botón "Ver más"
+                    console.log("DEBUG: More items available, showing 'Ver más' button.");
                 } else {
-                    endOfResultsMessage.style.display = 'block'; // Show end of results message
-                    console.log("End of results reached.");
+                    endOfResultsMessage.style.display = 'block'; // Mostrar mensaje de fin de resultados
+                    console.log("DEBUG: End of results reached.");
                 }
-            } else if (!append) { // Only show no results if it's the initial display and nothing was found
+            } else if (!append) { // Solo mostrar "no results" si es la carga inicial y no se encontró nada
                 noResultsMessage.style.display = 'block';
-                console.log("No results found for initial display or filter.");
+                console.log("DEBUG: No results found for initial display or filter.");
             }
         }
 
         function filterAndSortAlojamientos() {
-            console.log("filterAndSortAlojamientos called. Applying filters and sorting.");
+            console.log("DEBUG: filterAndSortAlojamientos called. Applying filters and sorting.");
             const selectedUbicacionRadio = document.querySelector('input[name="ubicacionFilter"]:checked');
             const selectedUbicacion = selectedUbicacionRadio ? selectedUbicacionRadio.value.toLowerCase() : '';
 
             const selectedCapacidadMaximaInput = capacidadMaximaFilter.value.trim();
             const selectedCapacidadMaxima = selectedCapacidadMaximaInput === '' ? NaN : parseInt(selectedCapacidadMaximaInput);
 
-            const selectedServices = []; // No hay filtro de servicios visible
-
-            const sortOrder = 'rating-asc'; // or 'rating-desc', 'default'
+            // No hay filtro de servicios visible en el HTML actual, se mantiene como true
+            const selectedServices = [];
+            const sortOrder = 'rating-asc'; // Orden de ejemplo, puedes cambiarlo si tienes lógica de ordenamiento
 
             filteredAlojamientos = allAlojamientos.filter(alojamiento => {
                 const matchesUbicacion = selectedUbicacion === '' || (alojamiento.ubicacion && alojamiento.ubicacion.toLowerCase().includes(selectedUbicacion));
@@ -854,88 +867,89 @@
                         const maxCapacity = alojamiento.capacidad[1];
                         matchesCapacidad = selectedCapacidadMaxima >= minCapacity && selectedCapacidadMaxima <= maxCapacity;
                     } else {
-                        matchesCapacidad = false;
+                        matchesCapacidad = false; // Si no tiene el formato de capacidad esperado
                     }
                 }
 
-                const matchesServices = true; // No hay filtro de servicios
+                const matchesServices = true; // Siempre true si no hay filtro por servicios
 
                 return matchesUbicacion && matchesCapacidad && matchesServices;
             });
 
+            // Lógica de ordenamiento (ejemplo, puedes ajustar según necesites)
             if (sortOrder === 'rating-desc') {
                 filteredAlojamientos.sort((a, b) => (b.valoracion || 0) - (a.valoracion || 0));
             } else if (sortOrder === 'rating-asc') {
                 filteredAlojamientos.sort((a, b) => (a.valoracion || 0) - (b.valoracion || 0));
             }
 
-            // Reset pagination and display the first batch of filtered results
-            displayAlojamientos(filteredAlojamientos, false); // Always reset and display first page after filter/sort
-            isLoadingMore = false; // Ensure loading flag is reset after a filter/sort operation
-            console.log("filterAndSortAlojamientos finished. isLoadingMore set to false.");
+            displayAlojamientos(filteredAlojamientos, false); // Siempre resetear y mostrar la primera página después de filtrar/ordenar
+            isLoadingMore = false; // Asegurarse de que el flag de carga se resetea
+            console.log("DEBUG: filterAndSortAlojamientos finished. isLoadingMore set to false.");
         }
 
         function clearFilters() {
-            console.log("clearFilters called.");
+            console.log("DEBUG: clearFilters called.");
             const defaultUbicacionRadio = document.getElementById('ubicacion-todas');
             if (defaultUbicacionRadio) {
                 defaultUbicacionRadio.checked = true;
             }
 
-            capacidadMaximaFilter.value = '';
+            capacidadMaximaFilter.value = ''; // Limpiar el input de capacidad
 
-            closeAllDropdowns();
-            filterAndSortAlojamientos(); // Re-apply filters which will reset pagination
-            console.log("Filters cleared.");
+            closeAllDropdowns(); // Cerrar cualquier dropdown abierto
+            filterAndSortAlojamientos(); // Volver a aplicar filtros (lo que reseteará la paginación)
+            console.log("DEBUG: Filters cleared.");
         }
 
         function loadMoreAlojamientos() {
-            console.log("loadMoreAlojamientos called. isLoadingMore:", isLoadingMore);
+            console.log("DEBUG: loadMoreAlojamientos called. isLoadingMore:", isLoadingMore);
             if (isLoadingMore) {
-                console.log("Already loading more, skipping.");
-                return; // Prevent multiple calls
+                console.log("DEBUG: Already loading more, skipping.");
+                return; // Prevenir llamadas múltiples
             }
             isLoadingMore = true;
-            loadingMessage.style.display = 'block'; // Show loading message for *more* items
-            loadMoreButton.style.display = 'none'; // Hide "Ver más" button during load
+            loadingMessage.style.display = 'block'; // Mostrar mensaje de carga para elementos adicionales
+            loadMoreButton.style.display = 'none'; // Ocultar botón "Ver más" durante la carga
 
-            currentPage++; // Increment page for the next batch
-            console.log("Incrementing currentPage to:", currentPage);
+            currentPage++; // Incrementar la página para el siguiente lote
+            console.log("DEBUG: Incrementing currentPage to:", currentPage);
 
-
-            // Use a timeout to simulate async loading and allow UI to update
+            // Usar un setTimeout para simular carga asíncrona y permitir la actualización de la UI
             setTimeout(() => {
-                console.log("Timeout for loadMoreAlojamientos triggered.");
-                displayAlojamientos(filteredAlojamientos, true); // Append more alojamientos
-                loadingMessage.style.display = 'none'; // Hide loading message
-                isLoadingMore = false; // Allow next scroll to load more
-                console.log("loadMoreAlojamientos finished. isLoadingMore set to false.");
-            }, 500); // Small delay for visual feedback
+                console.log("DEBUG: Timeout for loadMoreAlojamientos triggered.");
+                displayAlojamientos(filteredAlojamientos, true); // Añadir más alojamientos
+                loadingMessage.style.display = 'none'; // Ocultar mensaje de carga
+                isLoadingMore = false; // Permitir la próxima carga
+                console.log("DEBUG: loadMoreAlojamientos finished. isLoadingMore set to false.");
+            }, 500); // Pequeño retraso para feedback visual
         }
 
-        // Event listener for infinite scrolling
+        // --- Event Listeners ---
+
+        // Event listener para el scroll infinito
         window.addEventListener('scroll', () => {
-            // Check if user is near the bottom of the page (e.g., 500px from bottom)
-            // Ensure there are more items to potentially load
             const hasMoreItems = (currentPage * itemsPerPage) < filteredAlojamientos.length;
+            // Si el usuario está cerca del final de la página (ej. 500px desde abajo)
             if ((window.innerHeight + window.scrollY) >= (document.body.offsetHeight - 500) && !isLoadingMore && hasMoreItems) {
-                console.log("Reached near bottom, attempting to load more.");
+                console.log("DEBUG: Reached near bottom, attempting to load more.");
                 loadMoreAlojamientos();
             }
         });
 
-        // Event listener for the new "Load More" button
+        // Event listener para el botón "Ver más"
         loadMoreButton.addEventListener('click', loadMoreAlojamientos);
 
-        // Event listeners for filters
+        // Event listeners para los filtros
         ubicacionFilterRadios.addEventListener('change', filterAndSortAlojamientos);
         clearFiltersButton.addEventListener('click', clearFilters);
         capacidadMaximaFilter.addEventListener('input', filterAndSortAlojamientos);
 
+        // --- Carga inicial de datos ---
         async function fetchAlojamientos() {
-            console.log("fetchAlojamientos called. Showing initial loading message.");
+            console.log("DEBUG: fetchAlojamientos called. Showing initial loading message.");
             loadingMessage.style.display = 'block';
-            if (errorMessage) errorMessage.style.display = 'none'; // Check if errorMessage element exists
+            if (errorMessage) errorMessage.style.display = 'none'; // Asegúrate de que el mensaje de error esté oculto al inicio
 
             try {
                 const response = await fetch(jsonFile);
@@ -944,22 +958,23 @@
                 }
                 const data = await response.json();
                 allAlojamientos = data.alojamientos || [];
-                console.log("JSON data fetched. Total alojamientos:", allAlojamientos.length);
-                populateFilters(allAlojamientos);
-                filterAndSortAlojamientos(); // Initial display of the first 9 cards
+                console.log("DEBUG: JSON data fetched. Total alojamientos:", allAlojamientos.length);
+                populateFilters(allAlojamientos); // Llenar las opciones de filtro
+                filterAndSortAlojamientos(); // Mostrar las primeras tarjetas (y aplicar filtros iniciales)
             } catch (error) {
                 console.error('Error fetching alojamientos:', error);
-                if (errorMessage) { // Ensure errorMessage element exists before trying to access its properties
+                if (errorMessage) {
                     errorMessage.textContent = 'Error al cargar los alojamientos. Por favor, intenta de nuevo más tarde.';
                     errorMessage.style.display = 'block';
                 }
-                alojamientosContainer.innerHTML = '';
+                alojamientosContainer.innerHTML = ''; // Limpiar el contenedor de tarjetas en caso de error
             } finally {
-                loadingMessage.style.display = 'none'; // Ensure initial loading message is hidden
-                console.log("fetchAlojamientos finished. Hiding initial loading message.");
+                loadingMessage.style.display = 'none'; // Ocultar el mensaje de carga inicial
+                console.log("DEBUG: fetchAlojamientos finished. Hiding initial loading message.");
             }
         }
 
+        // Iniciar la carga de alojamientos al cargar la página
         fetchAlojamientos();
     </script>
 </body>
