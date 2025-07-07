@@ -390,7 +390,7 @@
                 <div class="filter-group">
                     <label class="block text-sm font-medium text-gray-700 mb-1">Ubicación:</label>
                     <div id="ubicacionFilterRadios" class="radio-group">
-                        </div>
+                    </div>
                 </div>
 
                 <div class="flex flex-col gap-2 mt-4">
@@ -403,7 +403,7 @@
 
         <div id="contentArea">
             <div id="alojamientosContainer" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                </div>
+            </div>
             <div id="loadingMessage" style="display: none;">Cargando alojamientos...</div>
             <div id="noResultsMessage" class="text-gray-600 text-center mt-4" style="display: none;">No se encontraron
                 alojamientos que coincidan con los filtros aplicados.</div>
@@ -469,6 +469,8 @@
         // Nueva función para enviar eventos a Google Analytics
         function logClickEvent(type, itemName, detail = '') {
             console.log(`Click Event: ${type} on "${itemName}"${detail ? ` - ${detail}` : ''}`);
+
+            console.log("DEBUG: typeof gtag is:", typeof gtag);
 
             // Enviar el evento a Google Analytics 4
             if (typeof gtag === 'function') { // Asegurarse de que gtag está disponible
