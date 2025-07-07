@@ -339,7 +339,7 @@
 <body>
     <header class="bg-black text-[#c2b64f] shadow-lg">
         <div class="container mx-auto px-6 py-8 header-content">
-            <img src="img\LogoAloja.jpg" alt="Alojamendo" class="h-24">
+            <img src="img\LogoAloja.svg" alt="Alojamendo" class="h-24">
             <div>
                 <h1 class="text-4xl font-bold">Alojamientos turisticos en Mendoza</h1>
                 <p class="mt-2 text-lg">Contacto directo sin comisiones.
@@ -369,9 +369,6 @@
 
 
                 <div class="flex flex-col gap-2 mt-4">
-                    <button id="applyFiltersButton"
-                        class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-6 rounded-lg transition-colors duration-300 whitespace-nowrap">Aplicar
-                        Filtros</button>
                     <button id="clearFiltersButton"
                         class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-6 rounded-lg transition-colors duration-300 whitespace-nowrap">Limpiar
                         Filtros</button>
@@ -411,7 +408,6 @@
         const ubicacionFilterRadios = document.getElementById('ubicacionFilterRadios');
         const capacidadMaximaFilter = document.getElementById('capacidadMaximaFilter');
 
-        const applyFiltersButton = document.getElementById('applyFiltersButton');
         const clearFiltersButton = document.getElementById('clearFiltersButton');
         const jsonFile = 'alojamientos.json';
 
@@ -887,7 +883,6 @@
 
         // Event listeners for filters
         ubicacionFilterRadios.addEventListener('change', filterAndSortAlojamientos);
-        applyFiltersButton.addEventListener('click', filterAndSortAlojamientos);
         clearFiltersButton.addEventListener('click', clearFilters);
         capacidadMaximaFilter.addEventListener('input', filterAndSortAlojamientos);
 
