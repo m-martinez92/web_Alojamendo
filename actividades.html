@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actividades en Mendoza - Alojamendo</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        main {
+            flex-grow: 1;
+            display: flex;
+            padding-top: 1.5rem;
+            padding-bottom: 3rem;
+        }
+
+        .card {
+            overflow: visible !important;
+            position: relative;
+        }
+
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        #loadingMessage {
+            text-align: center;
+            padding: 20px;
+            font-size: 1.2em;
+            color: #555;
+        }
+
+        .carousel-container {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+            border-radius: 0.5rem 0.5rem 0 0;
+        }
+
+        .carousel-images {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .carousel-images img {
+            width: 100%;
+            flex-shrink: 0;
+            height: 224px;
+            /* h-56 equivalent */
+            display: block;
+            object-fit: cover;
+        }
+
+        .carousel-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 0.5rem;
+            cursor: pointer;
+            z-index: 10;
+            border-radius: 9999px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 3rem;
+            height: 3rem;
+        }
+
+        .carousel-button:hover {
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+
+        .carousel-button.prev {
+            left: 0.5rem;
+        }
+
+        .carousel-button.next {
+            right: 0.5rem;
+        }
+
+        .collapsible-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+            padding: 0 1.5rem;
+            margin-top: 0.5rem;
+        }
+
+        .collapsible-content.expanded {
+            max-height: 9999px;
+            padding-bottom: 1rem;
+        }
+
+        .collapsible-button {
+            width: 100%;
+            background-color: #f3f4f6;
+            color: #4b5563;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            text-align: center;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 0.2s ease-in-out;
+            border-radius: 0.375rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 0.75rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .collapsible-button:hover {
+            background-color: #e5e7eb;
+        }
+
+        .collapsible-button i {
+            margin-left: 0.5rem;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .collapsible-button.active i {
+            transform: rotate(180deg);
+        }
+
+        .dropdown-container {
+            position: relative;
+            display: inline-block;
+            width: 100%;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            border-radius: 0.375rem;
+            overflow: hidden;
+            width: 100%;
+            left: 0;
+            top: 100%;
+            transform: translateY(0.25rem);
+        }
+
+        .dropdown-content a {
+            display: flex;
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+            transition: background-color 0.2s;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+        }
+
+        .dropdown-content a i {
+            margin-right: 0.5rem;
+            width: 1rem;
+        }
+
+        .dropdown-container.open .dropdown-content {
+            display: block;
+        }
+
+        .card.active-card {
+            z-index: 999;
+        }
+
+        #alojamientosContainer {
+            align-items: start;
+        }
+
+        /* --- Estilos para la barra lateral y el contenido principal --- */
+        #filterSidebar {
+            width: 280px;
+            min-width: 280px;
+            margin-right: 2rem;
+            padding: 1.5rem;
+            background-color: #ffffff;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 1.5rem;
+            height: fit-content;
+            align-self: flex-start;
+        }
+
+        #contentArea {
+            flex-grow: 1;
+            max-width: calc(100% - 280px - 2rem);
+        }
+
+        /* Ajustes para dispositivos móviles */
+        @media (max-width: 767px) {
+            main {
+                flex-direction: column;
+                align-items: center;
+                padding-left: 1.5rem;
+                padding-right: 1.5rem;
+            }
+
+            #filterSidebar {
+                width: 100%;
+                max-width: 400px;
+                margin-right: 0;
+                margin-bottom: 2rem;
+                position: static;
+                top: auto;
+            }
+
+            #contentArea {
+                max-width: 100%;
+            }
+
+            #alojamientosContainer {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Estilos para los selectores de radio */
+        .radio-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            /* Espacio entre los radios */
+            padding: 0.5rem 0;
+            border: 1px solid #e5e7eb;
+            border-radius: 0.375rem;
+            background-color: #f9fafb;
+        }
+
+        .radio-item {
+            display: flex;
+            align-items: center;
+            padding: 0.25rem 0.75rem;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+
+        .radio-item:hover {
+            background-color: #eff6ff;
+            /* Color de fondo al pasar el mouse */
+        }
+
+        .radio-item input[type="radio"] {
+            flex-shrink: 0;
+            width: 1.15rem;
+            height: 1.15rem;
+            accent-color: #4f46e5;
+        }
+
+        .radio-item label {
+            flex-grow: 1;
+            margin-left: 0.6rem;
+            font-size: 0.925rem;
+            color: #374151;
+            cursor: pointer;
+        }
+
+        /* ORIGINAL HEADER-CONTENT STYLES */
+        .header-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            /* Asegura que el posicionamiento absoluto de la firma sea relativo a este contenedor */
+            padding-top: 1rem;
+            /* Añade un poco de padding arriba */
+            padding-bottom: 1rem;
+            /* Añade un poco de padding abajo para el contenido */
+        }
+
+        .header-content img {
+            /* Logo principal */
+            max-height: 100px;
+            margin-bottom: 1rem;
+            filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.5));
+        }
+
+        /* Ajuste para pantallas más grandes para alinear a la izquierda */
+        @media (min-width: 768px) {
+            .header-content {
+                flex-direction: row;
+                justify-content: center;
+                text-align: left;
+                gap: 1.5rem;
+                padding-top: 2rem;
+                /* Más padding para pantallas grandes */
+                padding-bottom: 2rem;
+                /* Más padding para pantallas grandes */
+            }
+
+            .header-content img {
+                /* Logo principal */
+                margin-bottom: 0;
+            }
+        }
+
+        /* ESTILOS PARA LA IMAGEN DE CRÉDITO (FIRMA) */
+        .header-credit-image {
+            height: 35px;
+            /* Mantener la altura original */
+            position: absolute;
+            /* Posicionamiento absoluto para la firma */
+            z-index: 10;
+            /* Asegura que esté por encima de otros elementos */
+        }
+
+        /* Para móviles (pantallas pequeñas) */
+        @media (max-width: 767px) {
+            .header-content {
+                /* Ajustamos el padding-top para dejar espacio al logo y la firma */
+                padding-top: 3rem;
+                /* Incrementa el padding superior para evitar superposición con la firma arriba */
+                padding-bottom: 2rem;
+                /* Asegura un espacio adecuado abajo del contenido */
+            }
+
+            .header-credit-image {
+                top: 5px;
+                /* Posiciona la firma en la parte superior */
+                right: 10px;
+                /* Posiciona la firma a la derecha */
+                transform: none;
+                /* Elimina cualquier transformación si la hubiera */
+            }
+        }
+
+        /* Para pantallas grandes */
+        @media (min-width: 768px) {
+            .header-credit-image {
+                bottom: 3px;
+                /* Posiciona la firma en la parte inferior */
+                right: 10px;
+                /* Posiciona la firma a la derecha */
+            }
+        }
+
+        .radio-group .radio-item {
+            display: flex;
+            align-items: center;
+            padding: 0.5rem;
+            border-radius: 0.375rem;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .radio-group .radio-item:hover {
+            background-color: #F3F4F6;
+        }
+
+        /* Styles for Activity Cards */
+        .card.activity-card {
+            /*border: 2px solid #1450c0; */
+            /* Gray border for activities */
+            background-color: #F3F4F6;
+            /* Lighter background for activities */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+            /* Slightly different shadow */
+        }
+
+        .card.activity-card .text-purple-600 {
+            color: #4f46e5;
+            /* Green price for activities */
+        }
+
+        .card.activity-card .collapsible-button {
+            background-color: #E5E7EB;
+            color: #374151;
+        }
+
+        .card.activity-card .collapsible-button:hover {
+            background-color: #D1D5DB;
+        }
+
+        /* Specific style for activity buttons (only WhatsApp) */
+        .activity-buttons-container {
+            display: flex;
+            justify-content: center;
+            /* Center the WhatsApp button */
+            margin-top: auto;
+            /* Push to bottom */
+            padding-top: 1rem;
+            /* Space above button */
+        }
+
+        .activity-buttons-container .whatsapp-button {
+            width: 100%;
+            /* Make WhatsApp button full width */
+        }
+
+        .experiences-tab {
+            position: fixed;
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%) rotate(-90deg);
+            transform-origin: 0 0;
+            background-color: #4f46e5;
+            color: white;
+            padding: 0.8rem 1.2rem;
+            border-bottom-left-radius: 0.5rem;
+            border-bottom-right-radius: 0.5rem;
+            cursor: pointer;
+            z-index: 999;
+            box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+            text-decoration: none;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            white-space: nowrap;
+            transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out;
+        }
+
+        .experiences-tab:hover {
+            background-color: #3730a3;
+            transform: translateY(-50%) rotate(-90deg) translateX(5px);
+        }
+
+        .experiences-tab.active-tab {
+            background-color: #2563eb;
+            box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.3);
+        }
+    </style>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3N5G2W0YE4"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-3N5G2W0YE4');
+    </script>
+</head>
+
+<body>
+    <a href="index.html" class="experiences-tab" id="experiencesTab">
+        <i class="fas fa-house mr-2"></i> Alojamientos
+    </a>
+    <header class="bg-black text-[#c2b64f] shadow-lg">
+        <div class="container mx-auto px-6 py-8 header-content">
+            <img src="img/LogoAloja.svg" alt="Alojamendo" class="h-24">
+            <div>
+                <h1 class="text-4xl font-bold">Actividades en Mendoza</h1>
+                <p class="mt-2 text-lg">Descubre las mejores experiencias en Mendoza.</p>
+            </div>
+            <img src="img/SoyArita.png" alt="By SoyArita_" class="header-credit-image" />
+        </div>
+    </header>
+
+    <main class="container mx-auto px-6 flex-col items-center">
+        <div id="contentArea" class="p-4 w-full max-w-6xl">
+            <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center"></h2>
+            <div id="loadingMessage" class="text-center text-gray-600 text-lg mt-8">
+                Cargando actividades...
+            </div>
+            <div id="errorMessage" class="text-center text-red-600 text-lg mt-8" style="display: none;">
+            </div>
+            <div id="noResultsMessage" class="text-center text-gray-600 text-lg mt-8" style="display: none;">
+                No se encontraron actividades.
+            </div>
+
+            <div id="activitiesContainer" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            </div>
+            <button id="loadMoreButton"
+                class="bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded-lg mt-8 w-full transition-colors duration-300"
+                style="display: none;">Ver más</button>
+            <div id="endOfResultsMessage" class="text-gray-600 text-center mt-4" style="display: none;">Has
+                llegado al
+                final de las actividades.</div>
+        </div>
+    </main>
+
+    <footer class="bg-gray-800 text-white py-8 mt-12">
+        <div class="container mx-auto px-6 text-center">
+            <p>&copy; 2025 Alojamendo by SoyArita_. Todos los derechos reservados.</p>
+            <p class="mt-1 text-sm">Diseñado con <span class="text-red-500">&hearts;</span> para tu viaje.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Referencias a los elementos del DOM
+        const activitiesContainer = document.getElementById('activitiesContainer'); // Changed from alojamientosContainer
+        const loadingMessage = document.getElementById('loadingMessage');
+        const errorMessage = document.getElementById('errorMessage');
+        const noResultsMessage = document.getElementById('noResultsMessage');
+        const endOfResultsMessage = document.getElementById('endOfResultsMessage');
+        const loadMoreButton = document.getElementById('loadMoreButton');
+
+        const jsonFile = 'alojamientos.json'; // Still use the same JSON file
+
+        let allItems = []; // All items loaded (accommodations and activities)
+        let allActivities = []; // Only activities after initial filter
+
+        let itemsPerPage = 9;
+        let currentPage = 1;
+        let isLoadingMore = false;
+
+        function closeAllDropdowns() {
+            document.querySelectorAll('.dropdown-container.open').forEach(openDropdown => {
+                const associatedCard = openDropdown.closest('.card');
+                if (associatedCard) {
+                    associatedCard.classList.remove('active-card');
+                }
+                openDropdown.classList.remove('open');
+            });
+        }
+
+        document.addEventListener('click', (e) => {
+            const isClickInsideAnyDropdownContent = e.target.closest('.dropdown-content');
+            const isClickInsideCollapsibleButton = e.target.closest('.collapsible-button');
+            const isClickInsideDropdownButton = e.target.closest('.dropdown-container button');
+            const isClickInsideRadioGroup = e.target.closest('.radio-group');
+
+            if (!isClickInsideAnyDropdownContent && !isClickInsideCollapsibleButton && !isClickInsideDropdownButton && !isClickInsideRadioGroup) {
+                closeAllDropdowns();
+            }
+        });
+
+        function logClickEvent(type, itemName, detail = '') {
+            console.log(`Click Event: ${type} on "${itemName}"${detail ? ` - ${detail}` : ''}`);
+            if (typeof gtag === 'function') {
+                gtag('event', 'card_interaction', {
+                    'event_category': 'Interacción con Tarjeta',
+                    'event_label': `${type} - ${itemName}`,
+                    'item_name': itemName,
+                    'click_type': type,
+                    'click_detail': detail
+                });
+            } else {
+                console.warn("gtag function not found. Google Analytics may not be loaded.");
+            }
+        }
+
+        // Reused function for activity cards
+        function crearTarjetaActividad(actividad) {
+            const tieneWhatsAppValido = actividad.whatsapp && actividad.whatsapp.trim() !== "" && (actividad.activo === undefined || actividad.activo === true);
+
+            const card = document.createElement('div');
+            card.className = 'card activity-card bg-white rounded-lg shadow-md card-hover transition-all duration-300 flex flex-col';
+
+            const carouselContainer = document.createElement('div');
+            carouselContainer.className = 'carousel-container';
+            const carouselImages = document.createElement('div');
+            carouselImages.className = 'carousel-images';
+            let currentImageIndex = 0;
+            const imagesToDisplay = actividad.imagenes && actividad.imagenes.length > 0 ? actividad.imagenes : ['https://placehold.co/600x400/CCCCCC/FFFFFF?text=Imagen+No+Disponible'];
+
+            imagesToDisplay.forEach(imgUrl => {
+                const img = document.createElement('img');
+                img.src = imgUrl;
+                img.alt = `Imagen de ${actividad.nombre}`;
+                img.className = 'w-full h-56 object-cover';
+                img.onerror = () => { img.src = 'https://placehold.co/600x400/CCCCCC/FFFFFF?text=Error+Al+Cargar+Imagen'; };
+                carouselImages.appendChild(img);
+            });
+            carouselContainer.appendChild(carouselImages);
+
+            if (imagesToDisplay.length > 1) {
+                const prevButton = document.createElement('button');
+                prevButton.className = 'carousel-button prev';
+                prevButton.innerHTML = '<i class="fas fa-chevron-left"></i>';
+                prevButton.onclick = (e) => {
+                    e.stopPropagation();
+                    currentImageIndex = (currentImageIndex - 1 + imagesToDisplay.length) % imagesToDisplay.length;
+                    carouselImages.style.transform = `translateX(-${currentImageIndex * 100}%)`;
+                };
+                carouselContainer.appendChild(prevButton);
+
+                const nextButton = document.createElement('button');
+                nextButton.className = 'carousel-button next';
+                nextButton.innerHTML = '<i class="fas fa-chevron-right"></i>';
+                nextButton.onclick = (e) => {
+                    e.stopPropagation();
+                    currentImageIndex = (currentImageIndex + 1) % imagesToDisplay.length;
+                    carouselImages.style.transform = `translateX(-${currentImageIndex * 100}%)`;
+                };
+                carouselContainer.appendChild(nextButton);
+            }
+            card.appendChild(carouselContainer);
+
+            const contentDiv = document.createElement('div');
+            contentDiv.className = 'p-6 flex flex-col flex-grow';
+
+            const nombre = document.createElement('h3');
+            nombre.className = 'text-2xl font-semibold text-gray-800 mb-2';
+            nombre.textContent = actividad.nombre;
+            contentDiv.appendChild(nombre);
+
+            const descripcion = document.createElement('p');
+            descripcion.className = 'text-gray-600 mb-4';
+            descripcion.textContent = actividad.descripcion;
+            contentDiv.appendChild(descripcion);
+
+            if (actividad.detallesAdicionales && (actividad.detallesAdicionales.titulo || actividad.detallesAdicionales.textoExtenso || (actividad.detallesAdicionales.servicios && actividad.detallesAdicionales.servicios.length > 0))) {
+                const collapsibleButton = document.createElement('button');
+                collapsibleButton.className = 'collapsible-button';
+                collapsibleButton.innerHTML = `Ver más detalles <i class="fas fa-chevron-down"></i>`;
+                contentDiv.appendChild(collapsibleButton);
+
+                const collapsibleContent = document.createElement('div');
+                collapsibleContent.className = 'collapsible-content';
+
+                if (actividad.detallesAdicionales.titulo) {
+                    const detallesTitulo = document.createElement('h4');
+                    detallesTitulo.className = 'text-lg font-semibold text-gray-700 mb-2 mt-4';
+                    detallesTitulo.textContent = actividad.detallesAdicionales.titulo;
+                    collapsibleContent.appendChild(detallesTitulo);
+                }
+                if (actividad.detallesAdicionales.textoExtenso) {
+                    const textoExtenso = document.createElement('p');
+                    textoExtenso.className = 'text-gray-600 text-sm mb-2';
+                    textoExtenso.textContent = actividad.detallesAdicionales.textoExtenso;
+                    collapsibleContent.appendChild(textoExtenso);
+                }
+                if (actividad.detallesAdicionales.servicios && actividad.detallesAdicionales.servicios.length > 0) {
+                    const serviciosTitulo = document.createElement('p');
+                    serviciosTitulo.className = 'text-gray-700 text-sm font-semibold mt-2 mb-1';
+                    serviciosTitulo.textContent = 'Detalles adicionales:';
+                    collapsibleContent.appendChild(serviciosTitulo);
+                    const serviciosList = document.createElement('ul');
+                    serviciosList.className = 'list-disc list-inside text-gray-600 text-sm mb-2';
+                    actividad.detallesAdicionales.servicios.forEach(servicio => {
+                        const listItem = document.createElement('li');
+                        listItem.textContent = servicio;
+                        serviciosList.appendChild(listItem);
+                    });
+                    collapsibleContent.appendChild(serviciosList);
+                }
+                contentDiv.appendChild(collapsibleContent);
+
+                collapsibleButton.onclick = () => {
+                    logClickEvent('Más Información Actividad', actividad.nombre);
+                    document.querySelectorAll('.collapsible-content.expanded').forEach(openContent => {
+                        if (openContent !== collapsibleContent) {
+                            openContent.classList.remove('expanded');
+                            const relatedButton = openContent.previousElementSibling;
+                            if (relatedButton && relatedButton.classList.contains('collapsible-button')) {
+                                relatedButton.classList.remove('active');
+                                relatedButton.querySelector('i').classList.remove('fa-chevron-up');
+                                relatedButton.querySelector('i').classList.add('fa-chevron-down');
+                            }
+                        }
+                    });
+
+                    collapsibleContent.classList.toggle('expanded');
+                    collapsibleButton.classList.toggle('active');
+                    const icon = collapsibleButton.querySelector('i');
+                    if (collapsibleContent.classList.contains('expanded')) {
+                        icon.classList.remove('fa-chevron-down');
+                        icon.classList.add('fa-chevron-up');
+                    } else {
+                        icon.classList.remove('fa-chevron-up');
+                        icon.classList.add('fa-chevron-down');
+                    }
+                };
+            }
+
+            const infoDiv = document.createElement('div');
+            infoDiv.className = 'flex justify-between items-center mt-auto mb-4 gap-4';
+            const precio = document.createElement('span');
+            precio.className = 'text-xl font-bold text-purple-600';
+            precio.textContent = actividad.precio;
+            infoDiv.appendChild(precio);
+            const ubicacion = document.createElement('span');
+            ubicacion.className = 'text-sm text-gray-500';
+            ubicacion.textContent = actividad.ubicacion;
+            infoDiv.appendChild(ubicacion);
+            contentDiv.appendChild(infoDiv);
+
+            const buttonsDiv = document.createElement('div');
+            buttonsDiv.className = 'activity-buttons-container'; // Usa esta clase para el flex centering
+
+            if (tieneWhatsAppValido) {
+                const whatsappLink = document.createElement('a');
+                const numeroLimpio = actividad.whatsapp.replace(/\D/g, '');
+                const saludoCodificado = actividad.saludo ? encodeURIComponent(actividad.saludo) : '';
+                whatsappLink.href = `https://wa.me/${numeroLimpio}${saludoCodificado ? `?text=${saludoCodificado}` : ''}`;
+                whatsappLink.target = '_blank';
+                whatsappLink.rel = 'noopener noreferrer';
+                whatsappLink.className = 'whatsapp-button bg-green-500 hover:bg-green-600 text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-300 text-center';
+                whatsappLink.textContent = 'WhatsApp';
+                whatsappLink.onclick = () => logClickEvent('WhatsApp Actividad', actividad.nombre);
+                buttonsDiv.appendChild(whatsappLink);
+            } else {
+                const noWhatsAppButton = document.createElement('button');
+                noWhatsAppButton.className = 'whatsapp-button bg-gray-300 text-gray-500 font-semibold py-2 px-4 rounded-lg cursor-not-allowed';
+                noWhatsAppButton.textContent = 'WhatsApp (No disponible)';
+                noWhatsAppButton.disabled = true;
+                buttonsDiv.appendChild(noWhatsAppButton);
+            }
+
+            contentDiv.appendChild(buttonsDiv);
+            card.appendChild(contentDiv);
+            return card;
+        }
+
+        // Adjusted displayItems to render only activities
+        function displayActivities(activitiesToDisplay, append = false) {
+            noResultsMessage.style.display = 'none';
+            endOfResultsMessage.style.display = 'none';
+            loadMoreButton.style.display = 'none';
+
+            if (!append) {
+                activitiesContainer.innerHTML = '';
+                currentPage = 1;
+            }
+
+            const startIndex = (currentPage - 1) * itemsPerPage;
+            const endIndex = startIndex + itemsPerPage;
+            const activitiesToRender = activitiesToDisplay.slice(startIndex, endIndex);
+
+            if (activitiesToRender.length > 0) {
+                activitiesToRender.forEach(activity => {
+                    const debeMostrar = activity.activo === true || activity.activo === undefined;
+                    if (debeMostrar) {
+                        const card = crearTarjetaActividad(activity);
+                        if (card) {
+                            activitiesContainer.appendChild(card);
+                        }
+                    }
+                });
+
+                if (endIndex < activitiesToDisplay.length) {
+                    loadMoreButton.style.display = 'block';
+                } else {
+                    endOfResultsMessage.style.display = 'block';
+                }
+            } else if (!append) {
+                noResultsMessage.style.display = 'block';
+            }
+        }
+
+        function loadMoreItems() {
+            if (isLoadingMore) {
+                return;
+            }
+            isLoadingMore = true;
+            loadingMessage.style.display = 'block';
+            loadMoreButton.style.display = 'none';
+
+            currentPage++;
+
+            setTimeout(() => {
+                displayActivities(allActivities, true); // Use allActivities for pagination
+                loadingMessage.style.display = 'none';
+                isLoadingMore = false;
+            }, 500);
+        }
+
+        window.addEventListener('scroll', () => {
+            const hasMoreItems = (currentPage * itemsPerPage) < allActivities.length;
+            if ((window.innerHeight + window.scrollY) >= (document.body.offsetHeight - 500) && !isLoadingMore && hasMoreItems) {
+                loadMoreItems();
+            }
+        });
+
+        loadMoreButton.addEventListener('click', loadMoreItems);
+
+
+        async function fetchActivities() {
+            loadingMessage.style.display = 'block';
+            if (errorMessage) errorMessage.style.display = 'none';
+
+            try {
+                const response = await fetch(jsonFile);
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                const data = await response.json();
+                allItems = data.items || []; // Load all items
+
+                // Filter to get only activities and sort them randomly
+                allActivities = allItems.filter(item => item.type === 'activity' && (item.activo === true || item.activo === undefined));
+                allActivities.sort(() => Math.random() - 0.5); // Random sort for activities
+
+                displayActivities(allActivities, false); // Display activities
+
+            } catch (error) {
+                console.error('Error fetching activities:', error);
+                if (errorMessage) {
+                    errorMessage.textContent = 'Error al cargar los datos de actividades. Por favor, intenta de nuevo más tarde.';
+                    errorMessage.style.display = 'block';
+                }
+                activitiesContainer.innerHTML = '';
+            } finally {
+                loadingMessage.style.display = 'none';
+            }
+        }
+
+        fetchActivities();
+    </script>
+</body>
+
+</html>

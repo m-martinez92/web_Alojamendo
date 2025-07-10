@@ -407,6 +407,59 @@
             width: 100%;
             /* Make WhatsApp button full width */
         }
+
+        /* NEW CSS FOR THE SIDE TAB */
+        .experiences-tab {
+            position: fixed;
+            top: 50%;
+            /* Adjust to roughly vertical center */
+            left: 0;
+            /* Position on the far left */
+            transform: translateY(-50%) rotate(-90deg);
+            /* Center vertically and rotate */
+            transform-origin: 0 0;
+            /* Rotate from the top-left corner of the element */
+            background-color: #4f46e5;
+            /* Indigo-600, matching your brand colors */
+            color: white;
+            padding: 0.8rem 1.2rem;
+            border-bottom-left-radius: 0.5rem;
+            /* Rounded corner at the bottom of the tab */
+            border-bottom-right-radius: 0.5rem;
+            /* Rounded corner at the top (visually, after rotation) */
+            cursor: pointer;
+            z-index: 999;
+            /* Ensure it's above most content */
+            box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+            text-decoration: none;
+            /* Remove underline */
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            /* Slightly spaced out letters */
+            white-space: nowrap;
+            /* Prevent text from wrapping */
+            transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out;
+        }
+
+        .experiences-tab:hover {
+            background-color: #3730a3;
+            /* Darker indigo on hover */
+            transform: translateY(-50%) rotate(-90deg) translateX(5px);
+            /* Slight pull out effect */
+        }
+
+        /* Active state for the tab */
+        .experiences-tab.active-tab {
+            background-color: #2563eb;
+            /* A distinct blue for active */
+            box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.3);
+            /* Add any other active styles */
+        }
+
+        /* Adjust body padding if the tab covers content (less likely with fixed position) */
+        /* body {
+            padding-left: 20px;
+        } */
     </style>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-3N5G2W0YE4"></script>
     <script>
@@ -418,7 +471,11 @@
     </script>
 </head>
 
-<body>
+<body class="bg-gray-100">
+    <a href="actividades.html" class="experiences-tab" id="experiencesTab">
+        <i class="fas fa-mountain mr-2"></i> Experiencias
+    </a>
+
     <header class="bg-black text-[#c2b64f] shadow-lg">
         <div class="container mx-auto px-6 py-8 header-content">
             <img src="img\LogoAloja.svg" alt="Alojamendo" class="h-24">
@@ -437,7 +494,7 @@
 
             <div class="filter-group">
                 <label for="capacidadMaximaFilter"
-                    class="block text-sm font-medium text-gray-700 mb-1">Personas:</label>
+                    class="block text-sm font-medium text-gray-700 mb-1">Huespedes:</label>
                 <input type="number" id="capacidadMaximaFilter" min="1" placeholder="Ej: 4"
                     class="mt-1 block w-full pl-3 pr-3 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
             </div>
@@ -509,6 +566,29 @@
         let currentPage = 1;
         let isLoadingMore = false;
 
+        // Adjust setActiveNavLink to also handle the side tab
+        function setActiveNavLink() {
+            const path = window.location.pathname;
+            const fileName = path.split('/').pop();
+
+            // Remove 'active-page' from all header nav links
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('active-page');
+            });
+            // Remove 'active-tab' from the side tab
+            document.getElementById('experiencesTab').classList.remove('active-tab');
+
+
+            if (fileName === 'index.html' || fileName === '') {
+                document.getElementById('nav-alojamientos').classList.add('active-page');
+            } else if (fileName === 'actividades.html') {
+                // No header link for activities anymore
+                document.getElementById('experiencesTab').classList.add('active-tab'); // Activate the side tab
+            }
+            // You can add more conditions for other pages (e.g., 'contacto.html')
+        }
+
+        document.addEventListener('DOMContentLoaded', setActiveNavLink);
         function closeAllDropdowns() {
             document.querySelectorAll('.dropdown-container.open').forEach(openDropdown => {
                 const associatedCard = openDropdown.closest('.card');
@@ -1150,6 +1230,24 @@
                 }
                 return matchesUbicacion && matchesCapacidad && (item.activo === true || item.activo === undefined);
             }).sort((a, b) => (b.valoracion || 0) - (a.valoracion || 0)); // Sort accommodations (e.g., by rating descending)
+
+            // Apply subtle shuffle to filtered accommodations (max +/- 2 positions)
+            for (let i = 0; i < filteredAccommodations.length; i++) {
+                // Only shuffle if there are at least 2 items to avoid issues with very small arrays
+                if (filteredAccommodations.length < 2) break;
+
+                // Randomly decide if we should swap this item (e.g., 50% chance)
+                if (Math.random() < 0.5) { // Adjust 0.5 for more/less frequent shuffling
+                    let swapIndexOffset = Math.floor(Math.random() * 5) - 2; // Generates -2, -1, 0, 1, 2
+                    let newIndex = i + swapIndexOffset;
+
+                    // Ensure newIndex is within bounds and not the same as current index
+                    if (newIndex >= 0 && newIndex < filteredAccommodations.length && newIndex !== i) {
+                        // Perform the swap
+                        [filteredAccommodations[i], filteredAccommodations[newIndex]] = [filteredAccommodations[newIndex], filteredAccommodations[i]];
+                    }
+                }
+            }
 
             // Randomize activities (this is the key for your request)
             allActivities = allItems.filter(item => item.type === 'activity' && (item.activo === true || item.activo === undefined));

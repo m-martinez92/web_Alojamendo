@@ -603,7 +603,7 @@
       }
     },
     {
-      "nombre": "Posada Cottage",
+      "nombre": "Posada alto chacras Cottage",
       "type": "accommodation",
       "valoracion": 140,
       "descripcion": "Un encantador complejo turístico en Chacras de Coria que ofrece diversas opciones de alojamiento: habitaciones de posada con baño privado, una acogedora cabaña y una moderna Tiny House, todo en un hermoso entorno con jardín y piscina.",
@@ -644,7 +644,7 @@
       }
     },
     {
-      "nombre": "Tiny House",
+      "nombre": "Tiny House Pimienta",
       "type": "accommodation",
       "valoracion": 20,
       "descripcion": "Disfruta de una experiencia única en esta moderna Tiny House en Chacras de Coria, parte de un complejo turístico con jardín y pileta. Ideal para parejas o pequeñas familias, ofrece comodidad y funcionalidad en un espacio acogedor.",
@@ -665,7 +665,7 @@
         "instagram": "https://www.instagram.com/altochacrascottage",
         "web": "https://www.altochacrascottage.com"
       },
-      "saludo": "¡Hola! Estoy interesado/a en la Tiny House de Posada Cottage y me gustaría saber más sobre la disponibilidad y tarifas.",
+      "saludo": "¡Hola! Estoy interesado/a en la Tiny House Pimienta de Posada Cottage.",
       "detallesAdicionales": {
         "titulo": "Encanto y Comodidad en Chacras de Coria",
         "textoExtenso": "Experimenta la vida en una Tiny House sin sacrificar el confort en este hermoso complejo turístico de Chacras de Coria. Este alojamiento ingeniosamente diseñado cuenta con una cama doble que puede convertirse en dos individuales, perfecta para 2 adultos y un menor. Disfruta de un espacio funcional con cocina equipada (anafe, horno, pava eléctrica, tostador y vajilla), frigobar, WiFi, TV, aire acondicionado/calefacción y secador de pelo. Tendrás acceso a un hermoso jardín, piscina, fogonero, parrilla y estacionamiento privado. Además, tu estadía incluye desayuno y limpieza diaria, asegurando una experiencia relajante y sin preocupaciones. La combinación perfecta para explorar Mendoza con un toque diferente.",
@@ -745,7 +745,7 @@
       "nombre": "Pistacho Club Eco Lodge",
       "type": "accommodation",
       "valoracion": 160,
-      "descripcion": "Descubre un rincón único en Mendoza: Pistacho Club, un íntimo complejo de tres cabañas diseñado para una experiencia inolvidable. Ubicado en Chacras de Coria, es perfecto para aventura o relax, combinando lujo y confort.",
+      "descripcion": "Descubre un rincón único en Mendoza con Pistacho Club Eco Lodge. Un pequeño complejo de tres cabañas pensadas para que vivas momentos inolvidables.",
       "ubicacion": "Chacras de Coria, Luján de Cuyo",
       "imagenes": [
         "img/pistachoClub_(1).jpg",
@@ -770,14 +770,14 @@
       },
       "detallesAdicionales": {
         "titulo": "Tu Refugio en Chacras de Coria",
-        "textoExtenso": "Pistacho Club Eco Lodge te invita a vivir una experiencia íntima y memorable en sus tres cabañas, cada una con una vista privilegiada al jardín. Este encantador alojamiento en Chacras de Coria es el punto de partida ideal para explorar bodegas y restaurantes, o simplemente para relajarte en un entorno natural. Disfruta de la comodidad de sus espacios con aire acondicionado, TV con Netflix, cocina equipada y estacionamiento, todo pensado para hacer tu estadía inolvidable.",
+        "textoExtenso": "Estamos en el corazón de Chacras de Coria, un lugar ideal tanto si tenés ganas de salir a recorrer bodegas, probar la gastronomía local o simplemente relajarte y disfrutar del paisaje. Acá cada detalle está pensado para que te conectes con la naturaleza sin resignar comodidad.",
         "servicios": [
           "Vista al jardín",
-          "Cocina",
+          "Cocina equipada",
           "Wifi",
-          "Estacionamiento gratis en la propiedad",
+          "Estacionamiento en la propiedad",
           "Televisión HD con Netflix",
-          "AC: Sistema sin conductos tipo split",
+          "Aire acondicionado split",
           "Bañera",
           "Estufa",
           "Chimenea"
