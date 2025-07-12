@@ -408,52 +408,60 @@
             /* Make WhatsApp button full width */
         }
 
-        /* NEW CSS FOR THE SIDE TAB */
+/* NEW CSS FOR THE SIDE TAB */
         .experiences-tab {
             position: fixed;
             top: 50%;
-            /* Adjust to roughly vertical center */
             left: 0;
-            /* Position on the far left */
             transform: translateY(-50%) rotate(-90deg);
-            /* Center vertically and rotate */
             transform-origin: 0 0;
-            /* Rotate from the top-left corner of the element */
-            background-color: #4f46e5;
-            /* Indigo-600, matching your brand colors */
-            color: white;
-            padding: 0.8rem 1.2rem;
+            background-color: #000000;
+            color: #c2b64f;
+            /* REMOVE: padding: 0.8rem 1.2rem; de aquí */
             border-bottom-left-radius: 0.5rem;
-            /* Rounded corner at the bottom of the tab */
             border-bottom-right-radius: 0.5rem;
-            /* Rounded corner at the top (visually, after rotation) */
             cursor: pointer;
             z-index: 999;
-            /* Ensure it's above most content */
             box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
             text-decoration: none;
-            /* Remove underline */
             font-weight: 600;
             letter-spacing: 0.05em;
-            /* Slightly spaced out letters */
             white-space: nowrap;
-            /* Prevent text from wrapping */
-            transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out;
+            transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out, padding 0.2s;
         }
 
         .experiences-tab:hover {
-            background-color: #3730a3;
-            /* Darker indigo on hover */
+            background-color: #000000;
             transform: translateY(-50%) rotate(-90deg) translateX(5px);
-            /* Slight pull out effect */
         }
 
         /* Active state for the tab */
         .experiences-tab.active-tab {
-            background-color: #2563eb;
-            /* A distinct blue for active */
+            background-color: #252525;
             box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.3);
-            /* Add any other active styles */
+            /* El padding se heredará de las reglas específicas por dispositivo */
+        }
+
+        /* Desktop styles: padding para PC */
+        @media (min-width: 768px) {
+            .experiences-tab {
+                padding: 0.8rem 1.2rem;
+            }
+            /* Si necesitas un padding diferente para el estado activo en desktop, descomenta y ajusta: */
+            /* .experiences-tab.active-tab {
+                padding: ...;
+            } */
+        }
+
+        /* Mobile styles: padding para dispositivos móviles */
+        @media (max-width: 767px) {
+            .experiences-tab {
+                padding: 0.2rem 1.2rem;
+            }
+            /* Si necesitas un padding diferente para el estado activo en mobile, descomenta y ajusta: */
+            /* .experiences-tab.active-tab {
+                padding: ...;
+            } */
         }
 
         /* Adjust body padding if the tab covers content (less likely with fixed position) */
@@ -555,7 +563,7 @@
         const capacidadMaximaFilter = document.getElementById('capacidadMaximaFilter');
         const clearFiltersButton = document.getElementById('clearFiltersButton');
 
-        const jsonFile = 'alojamientos.json';
+        const jsonFile = 'items.json';
 
         let allItems = []; // Todos los ítems cargados (alojamientos y actividades)
         let filteredAccommodations = []; // Alojamientos después de aplicar filtros

@@ -790,22 +790,20 @@
       "nombre": "Paseo en helicóptero por el dique Potrerillos",
       "type": "activity",
       "valoracion": 190,
-      "descripcion": "Disfruta de vistas aéreas espectaculares del dique Potrerillos. Tiempo de vuelo 15 min aprox, hasta 3 personas.",
+      "descripcion": "Disfruta de vistas aéreas espectaculares del dique Potrerillos. Tiempo de vuelo 10 min, hasta 3 personas por vuelo.",
       "imagenes": [
         "img/helicoptour_(1).jpg",
         "img/helicoptour_(2).jpg"
       ],
-      "precio": "$80mil por persona",
+      "precio": "$88mil por persona",
       "ubicacion": "Dique Potrerillos",
       "whatsapp": "+5491132191078",
       "saludo": "Hola, me interesa el paseo en helicóptero por Potrerillos.",
       "activo": true,
       "detallesAdicionales": {
         "titulo": "Un recuerdo unico en el cielo de Mendoza",
-        "textoExtenso": "///Animate a vivir una experiencia única sobrevolando el dique Potrerillos en helicóptero. Disfruta de vistas panorámicas impresionantes de la cordillera de los Andes y el embalse, mientras te sumerges en la belleza natural de Mendoza desde las alturas. Este paseo es perfecto para parejas, familias o grupos pequeños que buscan una aventura inolvidable. El vuelo dura aproximadamente 15 minutos y puede llevar hasta 3 personas por vez. ¡No te pierdas esta oportunidad de ver Mendoza desde una perspectiva completamente nueva!",
+        "textoExtenso": "Animate a vivir una experiencia única sobrevolando el dique Potrerillos en helicóptero. Disfruta de vistas panorámicas impresionantes de la cordillera de los Andes y el embalse, mientras te sumerges en la belleza natural de Mendoza desde las alturas. Este paseo es perfecto para parejas, familias o grupos pequeños que buscan una aventura inolvidable. El vuelo dura aproximadamente 10 minutos y puede llevar hasta 3 personas por vez. ¡No te pierdas esta oportunidad de ver Mendoza desde una perspectiva completamente nueva!",
         "servicios": [
-          "Traslado a Potrerillos",
-          "Copa de champagne"
         ]
       }
     },
@@ -869,6 +867,32 @@
           "Heladeria",
           "Spots con vistas al dique",
           "Estacionamiento"
+        ]
+      }
+    },
+    {
+      "nombre": "Almuerzo en Bodega Maal",
+      "type": "activity",
+      "valoracion": 180,
+      "descripcion": "Disfruta de un almuerzo gourmet en la prestigiosa Bodega Maal, rodeado de viñedos y con vistas espectaculares de la cordillera.",
+      "imagenes": [
+        "img/bodegaMaal_(1).png",
+        "img/bodegaMaal_(2).jpg"
+      ],
+      "precio": "Desde $18mil por persona",
+      "ubicacion": "Vistalba, Luján de Cuyo",
+      "whatsapp": "+5491132191078",
+      "saludo": "Hola, me gustaría reservar un almuerzo en Bodega Maal.",
+      "activo": true,
+      "detallesAdicionales": {
+        "titulo": "Gastronomía y Vinos en Bodega Maal",
+        "textoExtenso": "Sumérgete en una experiencia culinaria única en Bodega Maal, donde la gastronomía de autor se fusiona con los mejores vinos de la región. Disfruta de un almuerzo gourmet rodeado de viñedos y con vistas espectaculares de la cordillera. Este es el lugar ideal para los amantes del buen comer y del buen beber, ofreciendo una experiencia sensorial completa que combina sabores, aromas y paisajes impresionantes.",
+        "servicios": [
+          "Almuerzo gourmet",
+          "Degustación de vinos de la bodega",
+          "Vistas panorámicas",
+          "Ambiente exclusivo y acogedor",
+          "Opciones vegetarianas y celiacas disponibles"
         ]
       }
     }
