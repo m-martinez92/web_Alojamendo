@@ -577,11 +577,8 @@
             console.log(`Click Event: ${type} on "${itemName}"${detail ? ` - ${detail}` : ''}`);
             if (typeof gtag === 'function') {
                 gtag('event', gaEventName, { // <--- ¡Aquí se usa el nuevo nombre de evento dinámico!
-                    'event_category': 'Interacción con Tarjeta', // Puedes mantener esta categoría o eliminarla si no la necesitas
-                    'event_label_original': eventLabelValue, // Opcional: mantén el valor original como un parámetro si lo quieres para informes más detallados
                     'item_name': itemName,
-                    'click_type': type,
-                    'click_detail': detail
+                    'click_type': type
                 });
             } else {
                 console.warn("gtag function not found. Google Analytics may not be loaded.");
