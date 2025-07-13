@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <!-- version 1.0.0 | actividades y alojamientos separados -->
- 
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -408,7 +408,7 @@
             /* Make WhatsApp button full width */
         }
 
- /* NEW CSS FOR THE SIDE TAB */
+        /* NEW CSS FOR THE SIDE TAB */
         .experiences-tab {
             position: fixed;
             top: 50%;
@@ -447,6 +447,7 @@
             .experiences-tab {
                 padding: 0.8rem 1.2rem;
             }
+
             /* Si necesitas un padding diferente para el estado activo en desktop, descomenta y ajusta: */
             /* .experiences-tab.active-tab {
                 padding: ...;
@@ -458,6 +459,7 @@
             .experiences-tab {
                 padding: 0.2rem 1.2rem;
             }
+
             /* Si necesitas un padding diferente para el estado activo en mobile, descomenta y ajusta: */
             /* .experiences-tab.active-tab {
                 padding: ...;
@@ -559,11 +561,24 @@
         });
 
         function logClickEvent(type, itemName, detail = '') {
+            // 1. Construye el valor de la etiqueta de evento deseada
+            const eventLabelValue = `${type} - ${itemName}`;
+
+            // 2. Transforma eventLabelValue en un nombre de evento válido para GA4
+            // - Convierte a minúsculas
+            // - Reemplaza espacios y caracteres no válidos por guiones bajos
+            // - Limita a 40 caracteres (límite de GA4 para nombres de eventos)
+            const gaEventName = eventLabelValue
+                .toLowerCase()
+                .replace(/[^a-z0-9_]+/g, '_') // Reemplaza cualquier cosa que no sea letra/número/guion bajo con un guion bajo
+                .replace(/^_|_$/g, '')       // Elimina guiones bajos al inicio o al final
+                .substring(0, 40);           // Limita la longitud a 40 caracteres
+
             console.log(`Click Event: ${type} on "${itemName}"${detail ? ` - ${detail}` : ''}`);
             if (typeof gtag === 'function') {
-                gtag('event', 'card_interaction', {
-                    'event_category': 'Interacción con Tarjeta',
-                    'event_label': `${type} - ${itemName}`,
+                gtag('event', gaEventName, { // <--- ¡Aquí se usa el nuevo nombre de evento dinámico!
+                    'event_category': 'Interacción con Tarjeta', // Puedes mantener esta categoría o eliminarla si no la necesitas
+                    'event_label_original': eventLabelValue, // Opcional: mantén el valor original como un parámetro si lo quieres para informes más detallados
                     'item_name': itemName,
                     'click_type': type,
                     'click_detail': detail
