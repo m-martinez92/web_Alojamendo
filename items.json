@@ -803,8 +803,7 @@
       "detallesAdicionales": {
         "titulo": "Un recuerdo unico en el cielo de Mendoza",
         "textoExtenso": "Animate a vivir una experiencia única sobrevolando el dique Potrerillos en helicóptero. Disfruta de vistas panorámicas impresionantes de la cordillera de los Andes y el embalse, mientras te sumerges en la belleza natural de Mendoza desde las alturas. Este paseo es perfecto para parejas, familias o grupos pequeños que buscan una aventura inolvidable. El vuelo dura aproximadamente 10 minutos y puede llevar hasta 3 personas por vez. ¡No te pierdas esta oportunidad de ver Mendoza desde una perspectiva completamente nueva!",
-        "servicios": [
-        ]
+        "servicios": []
       }
     },
     {
@@ -883,7 +882,7 @@
       "ubicacion": "Vistalba, Luján de Cuyo",
       "whatsapp": "+5491132191078",
       "saludo": "Hola, me gustaría reservar un almuerzo en Bodega Maal.",
-      "activo": true,
+      "activo": false,
       "detallesAdicionales": {
         "titulo": "Gastronomía y Vinos en Bodega Maal",
         "textoExtenso": "Sumérgete en una experiencia culinaria única en Bodega Maal, donde la gastronomía de autor se fusiona con los mejores vinos de la región. Disfruta de un almuerzo gourmet rodeado de viñedos y con vistas espectaculares de la cordillera. Este es el lugar ideal para los amantes del buen comer y del buen beber, ofreciendo una experiencia sensorial completa que combina sabores, aromas y paisajes impresionantes.",
