@@ -574,7 +574,7 @@
                 .replace(/^_|_$/g, '')       // Elimina guiones bajos al inicio o al final
                 .substring(0, 40);           // Limita la longitud a 40 caracteres
 
-            console.log(`Click Event: ${type} on "${itemName}"${detail ? ` - ${detail}` : ''}`);
+            console.log(`Click Event: ${type} on "#${itemName}"${detail ? ` - ${detail}` : ''}`);
             if (typeof gtag === 'function') {
                 gtag('event', gaEventName, { // <--- ¡Aquí se usa el nuevo nombre de evento dinámico!
                     'item_name': itemName,
