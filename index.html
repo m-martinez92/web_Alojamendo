@@ -586,20 +586,20 @@
             const fileName = path.split('/').pop();
 
             // Remove 'active-page' from all header nav links
+            // This part is no longer strictly necessary if there are no other nav-links in the header
+            // but can be kept if you plan to add more later.
             document.querySelectorAll('.nav-link').forEach(link => {
                 link.classList.remove('active-page');
             });
+
             // Remove 'active-tab' from the side tab
             document.getElementById('experiencesTab').classList.remove('active-tab');
 
-
-            if (fileName === 'index.html' || fileName === '') {
-                document.getElementById('nav-alojamientos').classList.add('active-page');
-            } else if (fileName === 'actividades.html') {
-                // No header link for activities anymore
+            // Only activate the 'experiencesTab' if on actividades.html
+            if (fileName === 'actividades.html') {
                 document.getElementById('experiencesTab').classList.add('active-tab'); // Activate the side tab
             }
-            // You can add more conditions for other pages (e.g., 'contacto.html')
+            // No longer need a condition for index.html as there's no corresponding active class to set for it
         }
 
         document.addEventListener('DOMContentLoaded', setActiveNavLink);
@@ -640,7 +640,7 @@
 
             console.log(`Click Event: ${type} on "${itemName}"${detail ? ` - ${detail}` : ''}`);
             if (typeof gtag === 'function') {
-                gtag('event', gaEventName, { 
+                gtag('event', gaEventName, {
                     'item_name': itemName,
                     'click_type': type
                 });
