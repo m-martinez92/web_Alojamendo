@@ -894,6 +894,34 @@
           "Opciones vegetarianas y celiacas disponibles"
         ]
       }
+    },
+    {
+      "nombre": "Parque aventura en altura Euca Mendoza",
+      "type": "activity",
+      "valoracion": 200,
+      "descripcion": "Un parque de aventuras con actividades para toda la familia. Disfruta de tirolesas, escalada y mucho más en un entorno natural impresionante.",
+      "imagenes": [
+        "img/eucaMendoza_(1).jpg",
+        "img/eucaMendoza_(2).jpg",
+        "img/eucaMendoza_(3).jpg"
+      ],
+      "precio": "$23mil niños       $27mil adultos",
+      "ubicacion": "Cipolletti, Luján de Cuyo",
+      "whatsapp": "+542615999327",
+      "saludo": "Hola, los vi en alojamendo. Me gustaría saber más sobre Euca Mendoza.",
+      "activo": true,
+      "detallesAdicionales": {
+        "titulo": "Aventura y Diversión en altura",
+        "textoExtenso": "Euca Mendoza es el destino perfecto para los amantes de la aventura y la naturaleza. Con una amplia gama de actividades al aire libre, desde tirolesas hasta escalada, este parque ofrece diversión para toda la familia. Disfruta de un día lleno de adrenalina en un entorno natural impresionante, ideal para desconectar y disfrutar de momentos únicos con amigos y seres queridos. Y no dejes de visitar su restaurante, cafetería y bar para relajarte después de un día lleno de emociones.",
+        "servicios": [
+          "Tirolesas",
+          "Escalada",
+          "Circuitos de aventura",
+          "Actividades para niños y adultos",
+          "Áreas de descanso",
+          "Restaurante, cafeteria y bar"
+        ]
+      }
     }
   ]
 }
