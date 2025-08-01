@@ -922,6 +922,98 @@
           "Restaurante, cafeteria y bar"
         ]
       }
+    },
+    {
+      "nombre": "La Julia casa de campo",
+      "type": "accommodation",
+      "valoracion": 220,
+      "descripcion": "Sumérgete en la serenidad de La Crucesita en esta casa de campo ecológica y sustentable, perfecta para hasta 14 personas. Disfruta de un ambiente cálido y acogedor entre las montañas.",
+      "ubicacion": "La Crucesita, Luján de Cuyo",
+      "imagenes": [
+        "img/laJulia_(1).jpg",
+        "img/laJulia_(2).jpg",
+        "img/laJulia_(3).jpg",
+        "img/laJulia_(4).jpg",
+        "img/laJulia_(5).jpg",
+        "img/laJulia_(6).jpg",
+        "img/laJulia_(7).jpg",
+        "img/laJulia_(8).jpg",
+        "img/laJulia_(9).jpg",
+        "img/laJulia_(10).jpg"
+      ],
+      "whatsapp": "+5492613629508",
+      "saludo": "Hola, los vi en alojamendo. Me gustaría saber más sobre La Julia casa de campo.",
+      "activo": true,
+      "capacidad": [
+        4,
+        14
+      ],
+      "redesSociales": {
+        "instagram": "https://www.instagram.com/lajulia.casadecampo"
+      },
+      "detallesAdicionales": {
+        "titulo": "Confort ecológico entre montañas en La Crucesita",
+        "textoExtenso": "La Julia casa de campo te invita a desconectar y recargar energías en un entorno natural privilegiado. Esta propiedad, diseñada bajo principios ecológicos y sustentables, utiliza paneles solares para la energía, ofreciendo una experiencia consciente con el medio ambiente. Para las noches frescas, encontrarás opciones de calefacción como hogar a leña, salamandra y estufas con garrafas, garantizando un ambiente cálido y acogedor. Con capacidad para albergar cómodamente hasta 14 personas, es el refugio ideal para familias o grupos de amigos. Disfruta de la proximidad a las majestuosas montañas, relájate al aire libre con la parrilla disponible y aprovecha la cocina completamente equipada y el WiFi para una estadía placentera. La casa incluye ropa blanca de calidad (sábanas y toallas) para tu conveniencia.",
+        "servicios": [
+          "Energía eléctrica sustentable con paneles solares",
+          "Calefacción con hogar a leña, salamandra y estufas con garrafas",
+          "Ropa blanca (sábanas y toallas)",
+          "Cercania a la montaña",
+          "Parrilla",
+          "Cocina equipada",
+          "Wifi"
+        ],
+        "otrosServicios": [],
+        "amenities": []
+      }
+    },
+    {
+      "nombre": "Domos Uspallata",
+      "type": "accommodation",
+      "valoracion": 200,
+      "descripcion": "Una propuesta de glamping sustentable en plena cordillera andina, ideal para reconectar con la naturaleza sin resignar confort. Cada domo ofrece privacidad, vistas directas a la montaña y una experiencia única de descanso y desconexión.",
+      "ubicacion": "Uspallata, Las Heras",
+      "imagenes": [
+        "img/domosUspallata_(1).jpg",
+        "img/domosUspallata_(2).jpg",
+        "img/domosUspallata_(3).jpg",
+        "img/domosUspallata_(4).jpg",
+        "img/domosUspallata_(5).jpg"
+      ],
+      "whatsapp": "+5492617190735",
+      "saludo": "¡Hola! Los vi en alojamendo.Estoy interesado en los Domos.",
+      "activo": true,
+      "capacidad": [
+        1,
+        2
+      ],
+      "redesSociales": {
+        "instagram": "https://www.instagram.com/domos.uspallata",
+        "web": "https://www.domosuspallata.com.ar"
+      },
+      "detallesAdicionales": {
+        "titulo": "Glamping de Lujo en la Cordillera Andina",
+        "textoExtenso": "Domos Uspallata es una experiencia de glamping diseñada para quienes buscan la armonía entre la naturaleza y el confort. Ubicados estratégicamente en la cordillera andina, cada domo brinda un espacio privado con impresionantes vistas a la montaña, promoviendo el silencio y la desconexión total. La infraestructura combina un diseño ecológico con todas las comodidades modernas: salamandra para las noches frescas, aire acondicionado portátil, baño privado con amenities biodegradables, y una cocina completa. El predio ofrece una piscina de temporada para refrescarse, bicicletas de uso libre para explorar los alrededores, una zona de fogón para compartir momentos, y una huerta con productos frescos. Disfruta de un menú casero con ingredientes locales y un delicioso desayuno entregado directamente en tu domo. Además, para complementar tu estadía, puedes contratar actividades adicionales como cabalgatas, trekking y sesiones de masajes.",
+        "servicios": [
+          "Salamandra",
+          "Aire acondicionado portátil",
+          "Baño privado",
+          "Amenities biodegradables",
+          "Cocina completa",
+          "Piscina de temporada",
+          "Bicicletas de uso libre",
+          "Zona de fogón",
+          "Huerta",
+          "Menú casero con productos locales",
+          "Servicio de desayuno en el domo"
+        ],
+        "otrosServicios": [
+          "Cabalgatas (costo adicional)",
+          "Trekking (costo adicional)",
+          "Sesión de masajes (costo adicional)"
+        ],
+        "amenities": []
+      }
     }
   ]
 }
