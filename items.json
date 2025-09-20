@@ -150,7 +150,7 @@
       ],
       "whatsapp": "+54261040825",
       "saludo": "¡Hola! Estoy interesado en reservar Casa Angelo Di Caneva.",
-      "activo": true,
+      "activo": false,
       "capacidad": [
         6,
         10
