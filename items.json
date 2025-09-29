@@ -1,7 +1,6 @@
 {
   "items": [
-    {
-      "nombre": "Casa Julieta",
+    {"nombre": "Casa Julieta",
       "type": "accommodation",
       "valoracion": 91,
       "descripcion": "Un refugio de lujo en Vistalba, Luján de Cuyo. Ideal para familias grandes o grupos, ofrece amplios espacios y cercanía a las bodegas más prestigiosas de la región.",
@@ -41,8 +40,7 @@
       },
       "ranking": 10
     },
-    {
-      "nombre": "Casa Angelo Di Caneva",
+    {"nombre": "Casa Angelo Di Caneva",
       "type": "accommodation",
       "valoracion": 120,
       "descripcion": "Descubre el encanto de una hermosa propiedad en la idílica Vistalba, Mendoza. Rodeada de exuberantes jardines, esta casa ofrece un oasis de tranquilidad y confort, ideal para grupos grandes o familias que buscan una experiencia inolvidable en la región vitivinícola.",
@@ -99,7 +97,7 @@
       ],
       "whatsapp": "+5492615964732",
       "saludo": "¡Hola! Estoy interesado en reservar Casa Aromos.",
-      "activo": true,
+      "activo": false,
       "capacidad": [
         10,
         14
@@ -153,7 +151,7 @@
       ],
       "whatsapp": "+5492615964732",
       "saludo": "¡Hola! Estoy interesado en reservar Casa Edmundo.",
-      "activo": true,
+      "activo": false,
       "capacidad": [
         10,
         14
@@ -207,7 +205,7 @@
       ],
       "whatsapp": "+5492615964732",
       "saludo": "¡Hola! Estoy interesado en reservar Casa Medrano.",
-      "activo": true,
+      "activo": false,
       "capacidad": [
         10,
         14
@@ -242,7 +240,7 @@
       "ubicacion": "Chacras de Coria, Luján de Cuyo",
       "whatsapp": "+5492615964732",
       "saludo": "¡Hola! Estoy interesado en reservar Casa Sara.",
-      "activo": true,
+      "activo": false,
       "capacidad": [
         10,
         16
@@ -353,7 +351,7 @@
       ],
       "whatsapp": "+5492615964732",
       "saludo": "¡Hola! Estoy interesado/a en Casa WineHouse y me gustaría recibir más información sobre disponibilidad y tarifas.",
-      "activo": true,
+      "activo": false,
       "capacidad": [
         10,
         12
@@ -785,7 +783,8 @@
       "descripcion": "Disfruta de un almuerzo gourmet en la prestigiosa Bodega Maal, rodeado de viñedos y con vistas espectaculares de la cordillera.",
       "imagenes": [
         "img/bodegaMaal_(1).png",
-        "img/bodegaMaal_(2).jpg"
+        "img/bodegaMaal_(2).jpg",
+        "img/bodegaMaal_(3).jpg"
       ],
       "precio": "Desde $18mil por persona",
       "ubicacion": "Vistalba, Luján de Cuyo",
@@ -1032,7 +1031,7 @@
       ],
       "whatsapp": "+5492615695867",
       "saludo": "¡Hola! Vi tu alojamiento en una pagina que tiene contacto directo con propietarios, te queria consultar por el Departamento de Las Leñas.",
-      "activo": true,
+      "activo": false,
       "capacidad": [
         2,
         7
