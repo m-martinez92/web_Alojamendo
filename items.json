@@ -1,6 +1,7 @@
 {
   "items": [
-    {"nombre": "Casa Julieta",
+    {
+      "nombre": "Casa Julieta",
       "type": "accommodation",
       "valoracion": 91,
       "descripcion": "Un refugio de lujo en Vistalba, Luján de Cuyo. Ideal para familias grandes o grupos, ofrece amplios espacios y cercanía a las bodegas más prestigiosas de la región.",
@@ -38,9 +39,11 @@
         "otrosServicios": [],
         "amenities": []
       },
-      "ranking": 10
+      "ranking": 10,
+      "precio": ""
     },
-    {"nombre": "Casa Angelo Di Caneva",
+    {
+      "nombre": "Casa Angelo Di Caneva",
       "type": "accommodation",
       "valoracion": 120,
       "descripcion": "Descubre el encanto de una hermosa propiedad en la idílica Vistalba, Mendoza. Rodeada de exuberantes jardines, esta casa ofrece un oasis de tranquilidad y confort, ideal para grupos grandes o familias que buscan una experiencia inolvidable en la región vitivinícola.",
@@ -97,7 +100,7 @@
       ],
       "whatsapp": "+5492615964732",
       "saludo": "¡Hola! Estoy interesado en reservar Casa Aromos.",
-      "activo": false,
+      "activo": true,
       "capacidad": [
         10,
         14
@@ -151,7 +154,7 @@
       ],
       "whatsapp": "+5492615964732",
       "saludo": "¡Hola! Estoy interesado en reservar Casa Edmundo.",
-      "activo": false,
+      "activo": true,
       "capacidad": [
         10,
         14
@@ -205,7 +208,7 @@
       ],
       "whatsapp": "+5492615964732",
       "saludo": "¡Hola! Estoy interesado en reservar Casa Medrano.",
-      "activo": false,
+      "activo": true,
       "capacidad": [
         10,
         14
@@ -240,7 +243,7 @@
       "ubicacion": "Chacras de Coria, Luján de Cuyo",
       "whatsapp": "+5492615964732",
       "saludo": "¡Hola! Estoy interesado en reservar Casa Sara.",
-      "activo": false,
+      "activo": true,
       "capacidad": [
         10,
         16
@@ -351,7 +354,7 @@
       ],
       "whatsapp": "+5492615964732",
       "saludo": "¡Hola! Estoy interesado/a en Casa WineHouse y me gustaría recibir más información sobre disponibilidad y tarifas.",
-      "activo": false,
+      "activo": true,
       "capacidad": [
         10,
         12
@@ -714,18 +717,22 @@
       }
     },
     {
-      "nombre": "Desayunos en Santa Cafetería",
+      "nombre": "Descuento en Santa Cafetería Civit",
       "type": "activity",
       "valoracion": 190,
-      "descripcion": "Disfruta de un desayuno único en una cafetería escondida con encanto.",
+      "descripcion": "¿Reservaste por alguno de los alojamientos que recomendamos? Avisanos y te pasamos de regalo código de descuentos para que disfrutes en Mendoza!",
       "imagenes": [
-        "https://via.placeholder.com/600x400/D2B48C/000000?text=Cafetería+Escondida"
+        "img/cafeSanta_(1).jpg",
+        "img/cafeSanta_(2).jpg",
+        "img/cafeSanta_(3).jpg",
+        "img/cafeSanta_(4).jpg",
+        "img/cafeSanta_(5).jpg"
       ],
-      "precio": "Consultar precios",
+      "precio": "Consultar descuentos",
       "ubicacion": "Avenida Emilio Civit, Ciudad de Mendoza",
       "whatsapp": "+5491132191078",
       "saludo": "Hola, me interesa saber sobre los desayunos en Santa Cafetería.",
-      "activo": false
+      "activo": true
     },
     {
       "nombre": "Alquiler de motocicletas Royal Enfield",
@@ -786,11 +793,11 @@
         "img/bodegaMaal_(2).jpg",
         "img/bodegaMaal_(3).jpg"
       ],
-      "precio": "Desde $18mil por persona",
+      "precio": "Consultar",
       "ubicacion": "Vistalba, Luján de Cuyo",
       "whatsapp": "+5491132191078",
-      "saludo": "Hola, me gustaría reservar un almuerzo en Bodega Maal.",
-      "activo": false,
+      "saludo": "Hola, me gustaría reservar en Bodega Maal.",
+      "activo": true,
       "detallesAdicionales": {
         "titulo": "Gastronomía y Vinos en Bodega Maal",
         "textoExtenso": "Sumérgete en una experiencia culinaria única en Bodega Maal, donde la gastronomía de autor se fusiona con los mejores vinos de la región. Disfruta de un almuerzo gourmet rodeado de viñedos y con vistas espectaculares de la cordillera. Este es el lugar ideal para los amantes del buen comer y del buen beber, ofreciendo una experiencia sensorial completa que combina sabores, aromas y paisajes impresionantes.",
@@ -817,7 +824,7 @@
       "ubicacion": "Cipolletti, Luján de Cuyo",
       "whatsapp": "+542615999327",
       "saludo": "Hola, los vi en alojamendo. Me gustaría saber más sobre Euca Mendoza.",
-      "activo": true,
+      "activo": false,
       "detallesAdicionales": {
         "titulo": "Aventura y Diversión en altura",
         "textoExtenso": "Euca Mendoza es el destino perfecto para los amantes de la aventura y la naturaleza. Con una amplia gama de actividades al aire libre, desde tirolesas hasta escalada, este parque ofrece diversión para toda la familia. Disfruta de un día lleno de adrenalina en un entorno natural impresionante, ideal para desconectar y disfrutar de momentos únicos con amigos y seres queridos. Y no dejes de visitar su restaurante, cafetería y bar para relajarte después de un día lleno de emociones.",
@@ -1059,6 +1066,98 @@
         ],
         "otrosServicios": [],
         "amenities": []
+      }
+    },
+    {
+      "nombre": "Noi Lodge",
+      "type": "accommodation",
+      "valoracion": 300,
+      "descripcion": "En el corazón de La Consulta, donde los viñedos se funden con la montaña y la calma se convierte en un estilo de vida, te espera una experiencia única. NOI Lodge es un refugio exclusivo diseñado para quienes buscan conectar con la naturaleza, disfrutar del buen vino y descansar en un entorno íntimo y acogedor.",
+      "ubicacion": "La Consulta, San Carlos",
+      "imagenes": [
+        "img/noilodge_(1).jpg",
+        "img/noilodge_(2).jpg",
+        "img/noilodge_(3).jpg",
+        "img/noilodge_(4).jpg",
+        "img/noilodge_(5).jpg",
+        "img/noilodge_(6).jpg"
+      ],
+      "whatsapp": "+5492622341842",
+      "saludo": "¡Hola! Estoy interesado en reservar en Noi Lodge.",
+      "activo": true,
+      "capacidad": [
+        2,
+        4
+      ],
+      "redesSociales": {
+        "instagram": "https://www.instagram.com/noilodge"
+      },
+      "detallesAdicionales": {
+        "titulo": "Un refugio de lujo en La Consulta",
+        "textoExtenso": "Nuestras habitaciones han sido pensadas para ofrecer el equilibrio perfecto entre comodidad, diseño y conexión con el entorno",
+        "servicios": [
+          "Losa radiante",
+          "Aire acondicionado",
+          "Smart TV",
+          "Wifi",
+          "Frigobar",
+          "Secador de pelo",
+          "Toallas y toallones",
+          "Desayuno Mendocino",
+          "Vino de bienvenida"
+        ]
+      }
+    },
+    {
+      "nombre": "Alquiler de autos de confianza",
+      "type": "activity",
+      "valoracion": 140,
+      "descripcion": "Alquila un auto con la confianza de un servicio personalizado y atención directa. Flota de vehículos modernos y en excelente estado, con opciones para todos los gustos y necesidades.",
+      "imagenes": [
+        "img/rentCar_(1).jpg"
+      ],
+      "precio": "Desde $15mil por día",
+      "ubicacion": "Ciudad de Mendoza",
+      "whatsapp": "+5491132191078",
+      "saludo": "Hola, me interesa el servicio de alquiler de autos de confianza.",
+      "activo": true,
+      "detallesAdicionales": {
+        "titulo": "Viaja con comodidad y seguridad",
+        "textoExtenso": "Disfruta de la libertad de explorar Mendoza a tu propio ritmo con nuestro servicio de alquiler de autos. Ofrecemos una flota de vehículos modernos y en excelente estado, adaptados a todas tus necesidades.",
+        "servicios": [
+          "Flota de vehículos modernos",
+          "Atención personalizada",
+          "Soporte durante el alquiler",
+          "Entrega y devolución flexibles"
+        ]
+      }
+    },
+    {
+      "nombre": "Patio Godoy",
+      "type": "activity",
+      "valoracion": 130,
+      "descripcion": "Un espacio en el corazón de Godoy Cruz con la mejor comida para empezar el dia o cortar la tarde. Ideal para desayunar, almorzar o merendar con unos sabores que enamoran.",
+      "imagenes": [
+        "img/patioGodoy_(1).jpg",
+        "img/patioGodoy_(2).jpg",
+        "img/patioGodoy_(3).jpg",
+        "img/patioGodoy_(4).jpg"
+      ],
+      "precio": "Consultar beneficios",
+      "ubicacion": "Godoy Cruz, Mendoza",
+      "whatsapp": "+5491132191078",
+      "saludo": "Hola, me interesa saber sobre Patio Godoy",
+      "activo": true,
+      "detallesAdicionales": {
+        "titulo": "Sabores que enamoran en Godoy Cruz",
+        "textoExtenso": "Patio Godoy es el lugar perfecto para disfrutar de momentos especiales con amigos y familiares. Con una oferta gastronómica variada y deliciosa, este espacio se ha convertido en un punto de encuentro para quienes buscan calidad y buen ambiente. Ya sea para un desayuno energético, un almuerzo relajado o una merienda con estilo, Patio Godoy ofrece opciones que se adaptan a todos los gustos.",
+        "servicios": [
+          "Desayunos",
+          "Almuerzos",
+          "Meriendas",
+          "Ambiente acogedor",
+          "Wifi"
+        ]
       }
     }
   ]

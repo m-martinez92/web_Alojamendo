@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Administración - Alojamendo</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .item-card {
+            transition: all 0.3s ease;
+        }
+        .item-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+        }
+        .inactive-item {
+            opacity: 0.6;
+            background-color: #f3f4f6;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            overflow-y: auto;
+        }
+        .modal-content {
+            background-color: white;
+            margin: 2% auto;
+            padding: 20px;
+            border-radius: 8px;
+            width: 90%;
+            max-width: 900px;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+        .close-modal {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .close-modal:hover {
+            color: #000;
+        }
+        .image-preview {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 8px;
+            border: 2px solid #e5e7eb;
+        }
+        .image-item {
+            position: relative;
+            display: inline-block;
+        }
+        .remove-image {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background-color: #ef4444;
+            color: white;
+            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        .remove-image:hover {
+            background-color: #dc2626;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <header class="bg-black text-yellow-500 shadow-lg">
+        <div class="container mx-auto px-6 py-6">
+            <h1 class="text-3xl font-bold">Panel de Administración - Alojamendo</h1>
+            <p class="mt-2">Gestiona tus alojamientos y actividades</p>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-6 py-8">
+        <div class="bg-white rounded-lg shadow-md p-6 mb-6">
+            <div class="flex flex-wrap gap-4 items-center justify-between">
+                <div class="flex gap-2">
+                    <button id="filterAll" class="px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition">
+                        Todos (<span id="countAll">0</span>)
+                    </button>
+                    <button id="filterAccommodation" class="px-4 py-2 bg-gray-200 text-gray-800 rounded-lg hover:bg-gray-300 transition">
+                        Alojamientos (<span id="countAccommodation">0</span>)
+                    </button>
+                    <button id="filterActivity" class="px-4 py-2 bg-gray-200 text-gray-800 rounded-lg hover:bg-gray-300 transition">
+                        Actividades (<span id="countActivity">0</span>)
+                    </button>
+                </div>
+                <div class="flex gap-2 items-center">
+                    <input type="text" id="searchInput" placeholder="Buscar por nombre..." 
+                           class="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                    <button id="addNewItem" class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition">
+                        <i class="fas fa-plus mr-2"></i>Nuevo Item
+                    </button>
+                    <button id="saveJson" class="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition">
+                        <i class="fas fa-save mr-2"></i>Guardar Cambios
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div id="itemsContainer" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        </div>
+    </main>
+
+    <div id="editModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2 class="text-2xl font-bold mb-4" id="modalTitle">Editar Item</h2>
+            <form id="editForm" class="space-y-4">
+                <input type="hidden" id="editIndex">
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-sm font-medium mb-1">Nombre:</label>
+                        <input type="text" id="editNombre" class="w-full px-3 py-2 border rounded-lg" required>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium mb-1">Tipo:</label>
+                        <select id="editType" class="w-full px-3 py-2 border rounded-lg">
+                            <option value="accommodation">Alojamiento</option>
+                            <option value="activity">Actividad</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-medium mb-1">Descripción:</label>
+                    <textarea id="editDescripcion" rows="3" class="w-full px-3 py-2 border rounded-lg" required></textarea>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-sm font-medium mb-1">Ubicación:</label>
+                        <input type="text" id="editUbicacion" class="w-full px-3 py-2 border rounded-lg" required>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium mb-1">Precio:</label>
+                        <input type="text" id="editPrecio" class="w-full px-3 py-2 border rounded-lg">
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-sm font-medium mb-1">WhatsApp:</label>
+                        <input type="text" id="editWhatsapp" class="w-full px-3 py-2 border rounded-lg">
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium mb-1">Valoración (orden):</label>
+                        <input type="number" id="editValoracion" class="w-full px-3 py-2 border rounded-lg" min="0">
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-medium mb-1">Saludo WhatsApp:</label>
+                    <input type="text" id="editSaludo" class="w-full px-3 py-2 border rounded-lg">
+                </div>
+
+                <div id="capacidadSection" class="grid grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-sm font-medium mb-1">Capacidad Mínima:</label>
+                        <input type="number" id="editCapacidadMin" class="w-full px-3 py-2 border rounded-lg">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium mb-1">Capacidad Máxima:</label>
+                        <input type="number" id="editCapacidadMax" class="w-full px-3 py-2 border rounded-lg">
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-medium mb-1">Estado:</label>
+                    <select id="editActivo" class="w-full px-3 py-2 border rounded-lg">
+                        <option value="true">Activo</option>
+                        <option value="false">Inactivo</option>
+                    </select>
+                </div>
+
+                <div class="border-t pt-4">
+                    <label class="block text-sm font-medium mb-2">Imágenes:</label>
+                    <div id="imagePreviewContainer" class="flex flex-wrap gap-3 mb-3">
+                    </div>
+                    <div class="flex gap-2">
+                        <input type="text" id="newImageUrl" placeholder="URL de la imagen" class="flex-1 px-3 py-2 border rounded-lg">
+                        <button type="button" id="addImageBtn" class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">
+                            <i class="fas fa-plus"></i> Agregar
+                        </button>
+                    </div>
+                </div>
+
+                <div class="flex gap-2 pt-4">
+                    <button type="submit" class="flex-1 bg-indigo-600 text-white py-2 rounded-lg hover:bg-indigo-700">
+                        Guardar Cambios
+                    </button>
+                    <button type="button" id="cancelEdit" class="flex-1 bg-gray-300 text-gray-800 py-2 rounded-lg hover:bg-gray-400">
+                        Cancelar
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        let items = [];
+        let currentFilter = 'all';
+        let currentSearch = '';
+        let currentEditingImages = [];
+
+        const modal = document.getElementById('editModal');
+        const closeModal = document.querySelector('.close-modal');
+        const editForm = document.getElementById('editForm');
+        const cancelEdit = document.getElementById('cancelEdit');
+        const imagePreviewContainer = document.getElementById('imagePreviewContainer');
+        const newImageUrlInput = document.getElementById('newImageUrl');
+        const addImageBtn = document.getElementById('addImageBtn');
+
+        async function loadItems() {
+            try {
+                const response = await fetch('items.json');
+                const data = await response.json();
+                items = data.items || [];
+                updateCounts();
+                renderItems();
+            } catch (error) {
+                console.error('Error loading items:', error);
+                alert('Error al cargar los datos. Por favor, recarga la página.');
+            }
+        }
+
+        function updateCounts() {
+            const all = items.length;
+            const accommodations = items.filter(i => i.type === 'accommodation').length;
+            const activities = items.filter(i => i.type === 'activity').length;
+            
+            document.getElementById('countAll').textContent = all;
+            document.getElementById('countAccommodation').textContent = accommodations;
+            document.getElementById('countActivity').textContent = activities;
+        }
+
+        function filterItems() {
+            let filtered = items;
+            
+            if (currentFilter === 'accommodation') {
+                filtered = items.filter(i => i.type === 'accommodation');
+            } else if (currentFilter === 'activity') {
+                filtered = items.filter(i => i.type === 'activity');
+            }
+            
+            if (currentSearch) {
+                filtered = filtered.filter(i => 
+                    i.nombre.toLowerCase().includes(currentSearch.toLowerCase())
+                );
+            }
+            
+            return filtered;
+        }
+
+        function renderItems() {
+            const container = document.getElementById('itemsContainer');
+            const filtered = filterItems();
+            
+            if (filtered.length === 0) {
+                container.innerHTML = '<div class="col-span-full text-center text-gray-500 py-8">No se encontraron items</div>';
+                return;
+            }
+            
+            container.innerHTML = filtered.map((item, index) => {
+                const isActive = item.activo === undefined || item.activo === true;
+                const typeLabel = item.type === 'activity' ? 'Actividad' : 'Alojamiento';
+                const typeBadge = item.type === 'activity' ? 'bg-purple-100 text-purple-800' : 'bg-blue-100 text-blue-800';
+                const firstImage = item.imagenes && item.imagenes.length > 0 ? item.imagenes[0] : 'https://placehold.co/600x400/CCCCCC/FFFFFF?text=Sin+Imagen';
+                
+                return `
+                    <div class="item-card bg-white rounded-lg shadow-md overflow-hidden ${!isActive ? 'inactive-item' : ''}">
+                        <img src="${firstImage}" alt="${item.nombre}" class="w-full h-48 object-cover" onerror="this.src='https://placehold.co/600x400/CCCCCC/FFFFFF?text=Error+Imagen'">
+                        <div class="p-6">
+                            <div class="flex justify-between items-start mb-3">
+                                <span class="px-3 py-1 ${typeBadge} text-xs font-semibold rounded-full">${typeLabel}</span>
+                                <span class="px-3 py-1 ${isActive ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'} text-xs font-semibold rounded-full">
+                                    ${isActive ? 'Activo' : 'Inactivo'}
+                                </span>
+                            </div>
+                            
+                            <h3 class="text-xl font-bold mb-2 text-gray-800">${item.nombre}</h3>
+                            <p class="text-sm text-gray-600 mb-2">${item.descripcion.substring(0, 100)}${item.descripcion.length > 100 ? '...' : ''}</p>
+                            <p class="text-sm text-gray-500 mb-1"><i class="fas fa-map-marker-alt mr-1"></i>${item.ubicacion}</p>
+                            ${item.precio ? `<p class="text-sm font-semibold text-purple-600 mb-2">${item.precio}</p>` : ''}
+                            <p class="text-xs text-gray-400 mb-3">Orden: ${item.valoracion || 0}</p>
+                            
+                            <div class="flex gap-2 mt-4">
+                                <button onclick="editItem(${items.indexOf(item)})" class="flex-1 bg-indigo-600 text-white py-2 rounded-lg hover:bg-indigo-700 transition">
+                                    <i class="fas fa-edit mr-1"></i>Editar
+                                </button>
+                                <button onclick="toggleActive(${items.indexOf(item)})" class="flex-1 ${isActive ? 'bg-red-600 hover:bg-red-700' : 'bg-green-600 hover:bg-green-700'} text-white py-2 rounded-lg transition">
+                                    <i class="fas fa-${isActive ? 'eye-slash' : 'eye'} mr-1"></i>${isActive ? 'Ocultar' : 'Mostrar'}
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        function renderImagePreviews() {
+            imagePreviewContainer.innerHTML = currentEditingImages.map((url, index) => `
+                <div class="image-item">
+                    <img src="${url}" class="image-preview" onerror="this.src='https://placehold.co/100x100/CCCCCC/FFFFFF?text=Error'">
+                    <span class="remove-image" onclick="removeImage(${index})">×</span>
+                </div>
+            `).join('');
+        }
+
+        function removeImage(index) {
+            currentEditingImages.splice(index, 1);
+            renderImagePreviews();
+        }
+
+        addImageBtn.addEventListener('click', () => {
+            const url = newImageUrlInput.value.trim();
+            if (url) {
+                currentEditingImages.push(url);
+                renderImagePreviews();
+                newImageUrlInput.value = '';
+            }
+        });
+
+        function editItem(index) {
+            const item = items[index];
+            document.getElementById('modalTitle').textContent = 'Editar Item';
+            document.getElementById('editIndex').value = index;
+            document.getElementById('editNombre').value = item.nombre;
+            document.getElementById('editType').value = item.type;
+            document.getElementById('editDescripcion').value = item.descripcion;
+            document.getElementById('editUbicacion').value = item.ubicacion;
+            document.getElementById('editPrecio').value = item.precio || '';
+            document.getElementById('editWhatsapp').value = item.whatsapp || '';
+            document.getElementById('editSaludo').value = item.saludo || '';
+            document.getElementById('editActivo').value = item.activo === false ? 'false' : 'true';
+            document.getElementById('editValoracion').value = item.valoracion || 0;
+            
+            if (item.capacidad && item.capacidad.length === 2) {
+                document.getElementById('editCapacidadMin').value = item.capacidad[0];
+                document.getElementById('editCapacidadMax').value = item.capacidad[1];
+            } else {
+                document.getElementById('editCapacidadMin').value = '';
+                document.getElementById('editCapacidadMax').value = '';
+            }
+            
+            currentEditingImages = item.imagenes ? [...item.imagenes] : [];
+            renderImagePreviews();
+            
+            modal.style.display = 'block';
+        }
+
+        function addNewItem() {
+            document.getElementById('modalTitle').textContent = 'Nuevo Item';
+            document.getElementById('editIndex').value = '-1';
+            document.getElementById('editForm').reset();
+            document.getElementById('editActivo').value = 'true';
+            document.getElementById('editValoracion').value = items.length > 0 ? Math.max(...items.map(i => i.valoracion || 0)) + 10 : 10;
+            currentEditingImages = [];
+            renderImagePreviews();
+            modal.style.display = 'block';
+        }
+
+        function toggleActive(index) {
+            const item = items[index];
+            item.activo = !(item.activo === undefined || item.activo === true);
+            renderItems();
+        }
+
+        editForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const index = parseInt(document.getElementById('editIndex').value);
+            
+            const itemData = {
+                nombre: document.getElementById('editNombre').value,
+                type: document.getElementById('editType').value,
+                descripcion: document.getElementById('editDescripcion').value,
+                ubicacion: document.getElementById('editUbicacion').value,
+                precio: document.getElementById('editPrecio').value,
+                whatsapp: document.getElementById('editWhatsapp').value,
+                saludo: document.getElementById('editSaludo').value,
+                activo: document.getElementById('editActivo').value === 'true',
+                valoracion: parseInt(document.getElementById('editValoracion').value) || 0,
+                imagenes: [...currentEditingImages]
+            };
+            
+            const minCap = document.getElementById('editCapacidadMin').value;
+            const maxCap = document.getElementById('editCapacidadMax').value;
+            if (minCap && maxCap) {
+                itemData.capacidad = [parseInt(minCap), parseInt(maxCap)];
+            }
+            
+            if (index === -1) {
+                // Nuevo item - agregar campos adicionales necesarios
+                itemData.redesSociales = {};
+                itemData.detallesAdicionales = {
+                    titulo: "",
+                    textoExtenso: "",
+                    servicios: [],
+                    otrosServicios: [],
+                    amenities: []
+                };
+                items.push(itemData);
+            } else {
+                // Editar item existente - preservar campos adicionales
+                Object.assign(items[index], itemData);
+            }
+            
+            modal.style.display = 'none';
+            updateCounts();
+            renderItems();
+            alert('Cambios realizados. Recuerda hacer clic en "Guardar Cambios" para aplicarlos permanentemente.');
+        });
+
+        document.getElementById('addNewItem').addEventListener('click', addNewItem);
+
+        document.getElementById('saveJson').addEventListener('click', async () => {
+            if (!confirm('¿Estás seguro de guardar los cambios? Se creará un backup del archivo original.')) {
+                return;
+            }
+            
+            const jsonData = JSON.stringify({ items }, null, 2);
+            
+            try {
+                const response = await fetch('save_json.php', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: jsonData
+                });
+                
+                const result = await response.json();
+                
+                if (result.success) {
+                    alert('Cambios guardados exitosamente. Backup creado: ' + result.backup);
+                } else {
+                    alert('Error al guardar: ' + result.error);
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('Error al conectar con el servidor. Descargando JSON como alternativa...');
+                
+                // Fallback: descargar JSON
+                const blob = new Blob([jsonData], { type: 'application/json' });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = 'items.json';
+                a.click();
+                URL.revokeObjectURL(url);
+            }
+        });
+
+        closeModal.onclick = () => modal.style.display = 'none';
+        cancelEdit.onclick = () => modal.style.display = 'none';
+        
+        window.onclick = (e) => {
+            if (e.target === modal) modal.style.display = 'none';
+        };
+
+        document.getElementById('filterAll').addEventListener('click', function() {
+            currentFilter = 'all';
+            updateFilterButtons(this);
+            renderItems();
+        });
+
+        document.getElementById('filterAccommodation').addEventListener('click', function() {
+            currentFilter = 'accommodation';
+            updateFilterButtons(this);
+            renderItems();
+        });
+
+        document.getElementById('filterActivity').addEventListener('click', function() {
+            currentFilter = 'activity';
+            updateFilterButtons(this);
+            renderItems();
+        });
+
+        function updateFilterButtons(activeBtn) {
+            document.querySelectorAll('[id^="filter"]').forEach(btn => {
+                btn.classList.remove('bg-indigo-600', 'text-white');
+                btn.classList.add('bg-gray-200', 'text-gray-800');
+            });
+            activeBtn.classList.remove('bg-gray-200', 'text-gray-800');
+            activeBtn.classList.add('bg-indigo-600', 'text-white');
+        }
+
+        document.getElementById('searchInput').addEventListener('input', (e) => {
+            currentSearch = e.target.value;
+            renderItems();
+        });
+
+        loadItems();
+    </script>
+</body>
+</html>
