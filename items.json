@@ -3,7 +3,7 @@
     {
       "nombre": "Casa Julieta",
       "type": "accommodation",
-      "valoracion": 91,
+      "valoracion": 220,
       "descripcion": "Un refugio de lujo en Vistalba, Luján de Cuyo. Ideal para familias grandes o grupos, ofrece amplios espacios y cercanía a las bodegas más prestigiosas de la región.",
       "ubicacion": "Vistalba, Luján de Cuyo",
       "imagenes": [
@@ -45,7 +45,7 @@
     {
       "nombre": "Casa Angelo Di Caneva",
       "type": "accommodation",
-      "valoracion": 120,
+      "valoracion": 190,
       "descripcion": "Descubre el encanto de una hermosa propiedad en la idílica Vistalba, Mendoza. Rodeada de exuberantes jardines, esta casa ofrece un oasis de tranquilidad y confort, ideal para grupos grandes o familias que buscan una experiencia inolvidable en la región vitivinícola.",
       "ubicacion": "Vistalba, Luján de Cuyo",
       "imagenes": [
@@ -82,7 +82,7 @@
     {
       "nombre": "Casa Aromos",
       "type": "accommodation",
-      "valoracion": 130,
+      "valoracion": 170,
       "descripcion": "Hermosa casona en Chacras de Coria con jardín y pileta, ideal para disfrutar en familia o con amigos. Espaciosa y confortable, ofrece una experiencia inolvidable en un entorno tranquilo y cercano a las atracciones de la región.",
       "ubicacion": "Chacras de Coria, Luján de Cuyo",
       "imagenes": [
@@ -130,7 +130,7 @@
     {
       "nombre": "Casa Edmundo",
       "type": "accommodation",
-      "valoracion": 100,
+      "valoracion": 210,
       "descripcion": "Una majestuosa casona en Chacras de Coria, diseñada para grandes grupos y familias. Cuenta con un extenso jardín, piscina y todas las comodidades para una estadía de lujo y relajación en el corazón de Mendoza.",
       "ubicacion": "Chacras de Coria, Luján de Cuyo",
       "imagenes": [
@@ -186,7 +186,7 @@
     {
       "nombre": "Casa Medrano",
       "type": "accommodation",
-      "valoracion": 50,
+      "valoracion": 260,
       "descripcion": "Una encantadora casona ideal para familias y grupos de amigos. Disfruta de su hermoso jardín, piscina y todas las comodidades para una estadía relajante y placentera.",
       "ubicacion": "Chacras de Coria, Luján de Cuyo",
       "imagenes": [
@@ -239,7 +239,7 @@
       "nombre": "Casa Sara",
       "type": "accommodation",
       "descripcion": "Una magnífica casona en Chacras de Coria, diseñada para ofrecer una experiencia inolvidable a familias y grupos de amigos. Disfrute de su extenso jardín, refrescante pileta y amplios espacios",
-      "valoracion": 60,
+      "valoracion": 250,
       "ubicacion": "Chacras de Coria, Luján de Cuyo",
       "whatsapp": "+5492615964732",
       "saludo": "¡Hola! Estoy interesado en reservar Casa Sara.",
@@ -293,7 +293,7 @@
     {
       "nombre": "Casa Vistalba Scape",
       "type": "accommodation",
-      "valoracion": 10,
+      "valoracion": 300,
       "descripcion": "Acogedor alojamiento para 3 personas en Vistalba, con amplio jardín y piscina. Ideal para una escapada tranquila en pareja o un pequeño grupo.",
       "ubicacion": "Vistalba, Luján de Cuyo",
       "imagenes": [
@@ -334,7 +334,7 @@
     {
       "nombre": "Casa WineHouse",
       "type": "accommodation",
-      "valoracion": 40,
+      "valoracion": 270,
       "descripcion": "Una elegante casona en Chacras de Coria, perfecta para amantes del vino y grupos que buscan comodidad. Cuenta con un hermoso jardín y piscina para disfrutar de la tranquilidad mendocina.",
       "ubicacion": "Chacras de Coria, Luján de Cuyo",
       "imagenes": [
@@ -383,7 +383,7 @@
     {
       "nombre": "Departamento Adolfo",
       "type": "accommodation",
-      "valoracion": 210,
+      "valoracion": 8,
       "descripcion": "Acogedor departamento en Luján de Cuyo, ideal para una familia de hasta 4 personas. Disfruta de su enorme jardín, perfecto para el esparcimiento y la diversión al aire libre.",
       "ubicacion": "Ciudad, Luján de Cuyo",
       "imagenes": [
@@ -423,7 +423,7 @@
     {
       "nombre": "Entre Racimos",
       "type": "accommodation",
-      "valoracion": 30,
+      "valoracion": 280,
       "descripcion": "Experimenta la magia de un glamping exclusivo entre viñedos en Luján de Cuyo, una de las regiones más bellas de Mendoza. Disfruta de la fusión perfecta entre naturaleza y lujo, con experiencias vinícolas únicas en Bodega Cava Don Tulio.",
       "ubicacion": "Mayor Drummond, Luján de Cuyo",
       "imagenes": [
@@ -466,7 +466,7 @@
     {
       "nombre": "Casa las Nencias",
       "type": "accommodation",
-      "valoracion": 140,
+      "valoracion": 150,
       "descripcion": "Disfruta de la serenidad del Valle de Uco en estas casas totalmente equipadas, con vistas espectaculares a la Cordillera. Ideal para familias o grupos, ofrece confort y un desayuno self-service con productos caseros.",
       "ubicacion": "La Consulta, San Carlos",
       "imagenes": [
@@ -515,7 +515,7 @@
     {
       "nombre": "Posada alto chacras Cottage",
       "type": "accommodation",
-      "valoracion": 150,
+      "valoracion": 140,
       "descripcion": "Un encantador complejo turístico en Chacras de Coria que ofrece diversas opciones de alojamiento: habitaciones de posada con baño privado, una acogedora cabaña y una moderna Tiny House, todo en un hermoso entorno con jardín y piscina.",
       "ubicacion": "Chacras de Coria, Luján de Cuyo",
       "imagenes": [
@@ -556,7 +556,7 @@
     {
       "nombre": "Tiny House Pimienta",
       "type": "accommodation",
-      "valoracion": 20,
+      "valoracion": 290,
       "descripcion": "Disfruta de una experiencia única en esta moderna Tiny House en Chacras de Coria, parte de un complejo turístico con jardín y pileta. Ideal para parejas o pequeñas familias, ofrece comodidad y funcionalidad en un espacio acogedor.",
       "ubicacion": "Chacras de Coria, Luján de Cuyo",
       "imagenes": [
@@ -605,7 +605,7 @@
     {
       "nombre": "Casona Vista Alma",
       "type": "accommodation",
-      "valoracion": 170,
+      "valoracion": 120,
       "descripcion": "Una elegante casona estilo colonial con capacidad para hasta 10 personas. Sus propios dueños garantizan una cálida estadía, ofreciendo un ambiente acogedor y todas las comodidades para disfrutar de Luján de Cuyo.",
       "ubicacion": "Vistalba, Luján de Cuyo",
       "imagenes": [
@@ -654,7 +654,7 @@
     {
       "nombre": "Pistacho Club Eco Lodge",
       "type": "accommodation",
-      "valoracion": 180,
+      "valoracion": 110,
       "descripcion": "Descubre un rincón único en Mendoza con Pistacho Club Eco Lodge. Un pequeño complejo de tres cabañas pensadas para que vivas momentos inolvidables.",
       "ubicacion": "Chacras de Coria, Luján de Cuyo",
       "imagenes": [
@@ -699,7 +699,7 @@
     {
       "nombre": "Paseo en helicóptero por el dique Potrerillos",
       "type": "activity",
-      "valoracion": 220,
+      "valoracion": 70,
       "descripcion": "Disfruta de vistas aéreas espectaculares del dique Potrerillos. Tiempo de vuelo 10 min, hasta 3 personas por vuelo.",
       "imagenes": [
         "img/helicoptour_(1).jpg",
@@ -719,7 +719,7 @@
     {
       "nombre": "Descuento en Santa Cafetería Civit",
       "type": "activity",
-      "valoracion": 190,
+      "valoracion": 100,
       "descripcion": "¿Reservaste por alguno de los alojamientos que recomendamos? Avisanos y te pasamos de regalo código de descuentos para que disfrutes en Mendoza!",
       "imagenes": [
         "img/cafeSanta_(1).jpg",
@@ -737,7 +737,7 @@
     {
       "nombre": "Alquiler de motocicletas Royal Enfield",
       "type": "activity",
-      "valoracion": 70,
+      "valoracion": 240,
       "descripcion": "Animate a la adrenalina de un paseo en motocicletas royal enfield por la montaña. Disfruta de un recorrido guiado por paisajes impresionantes.",
       "imagenes": [
         "img/opcionB_(1).jpg",
@@ -760,7 +760,7 @@
     {
       "nombre": "Parador del Dique",
       "type": "activity",
-      "valoracion": 160,
+      "valoracion": 130,
       "descripcion": "Toda la diversion de las actividades nauticas en un entorno majestuoso y todos los servicios de un parador de montaña de primer nivel.",
       "imagenes": [
         "img/paradorVentura_(1).jpg"
@@ -786,7 +786,7 @@
     {
       "nombre": "Almuerzo en Bodega Maal",
       "type": "activity",
-      "valoracion": 200,
+      "valoracion": 90,
       "descripcion": "Disfruta de un almuerzo gourmet en la prestigiosa Bodega Maal, rodeado de viñedos y con vistas espectaculares de la cordillera.",
       "imagenes": [
         "img/bodegaMaal_(1).png",
@@ -813,7 +813,7 @@
     {
       "nombre": "Parque aventura en altura Euca Mendoza",
       "type": "activity",
-      "valoracion": 240,
+      "valoracion": 50,
       "descripcion": "Un parque de aventuras con actividades para toda la familia. Disfruta de tirolesas, escalada y mucho más en un entorno natural impresionante.",
       "imagenes": [
         "img/eucaMendoza_(1).jpg",
@@ -841,7 +841,7 @@
     {
       "nombre": "La Julia casa de campo",
       "type": "accommodation",
-      "valoracion": 260,
+      "valoracion": 30,
       "descripcion": "Sumérgete en la serenidad de La Crucesita en esta casa de campo ecológica y sustentable, perfecta para hasta 14 personas. Disfruta de un ambiente cálido y acogedor entre las montañas.",
       "ubicacion": "La Crucesita, Luján de Cuyo",
       "imagenes": [
@@ -858,7 +858,7 @@
       ],
       "whatsapp": "+5492613629508",
       "saludo": "Hola, los vi en alojamendo. Me gustaría saber más sobre La Julia casa de campo.",
-      "activo": true,
+      "activo": false,
       "capacidad": [
         4,
         14
@@ -885,7 +885,7 @@
     {
       "nombre": "Cabaña Crena",
       "type": "accommodation",
-      "valoracion": 80,
+      "valoracion": 230,
       "descripcion": "Complejo turístico con hermoso jardín y pileta, ubicada en una de las zonas más lindas de Mendoza, con cercanía a Bodegas y puntos de interés. Destacada por su arquitectura donde priman los materiales nobles como piedra y madera.",
       "ubicacion": "Chacras de Coria, Luján de Cuyo",
       "imagenes": [
@@ -932,7 +932,7 @@
     {
       "nombre": "Cabaña Potrerillos",
       "type": "accommodation",
-      "valoracion": 110,
+      "valoracion": 200,
       "descripcion": "Disfruta de una escapada única en esta cabaña ecológica en Embalse Potrerillos, con capacidad para 7 personas y vistas espectaculares. Totalmente equipada y autosuficiente, ofrece una experiencia sin preocupaciones en plena naturaleza.",
       "ubicacion": "Potrerillos, Luján de Cuyo",
       "imagenes": [
@@ -976,7 +976,7 @@
     {
       "nombre": "Domos Uspallata",
       "type": "accommodation",
-      "valoracion": 230,
+      "valoracion": 60,
       "descripcion": "Una propuesta de glamping sustentable en plena cordillera andina, ideal para reconectar con la naturaleza sin resignar confort. Cada domo ofrece privacidad, vistas directas a la montaña y una experiencia única de descanso y desconexión.",
       "ubicacion": "Uspallata, Las Heras",
       "imagenes": [
@@ -1024,7 +1024,7 @@
     {
       "nombre": "Departamento en Las Leñas",
       "type": "accommodation",
-      "valoracion": 250,
+      "valoracion": 40,
       "descripcion": "Hermoso departamento ubicado en Las Leñas, en el edificio Laquir, con vista excepcional a pistas y frente al supermercado. A solo 150 mts de la telesilla Vesta.",
       "ubicacion": "Valle de Las Leñas, Malargüe",
       "imagenes": [
@@ -1071,7 +1071,7 @@
     {
       "nombre": "Noi Lodge",
       "type": "accommodation",
-      "valoracion": 300,
+      "valoracion": 10,
       "descripcion": "En el corazón de La Consulta, donde los viñedos se funden con la montaña y la calma se convierte en un estilo de vida, te espera una experiencia única. NOI Lodge es un refugio exclusivo diseñado para quienes buscan conectar con la naturaleza, disfrutar del buen vino y descansar en un entorno íntimo y acogedor.",
       "ubicacion": "La Consulta, San Carlos",
       "imagenes": [
@@ -1111,7 +1111,7 @@
     {
       "nombre": "Alquiler de autos de confianza",
       "type": "activity",
-      "valoracion": 140,
+      "valoracion": 160,
       "descripcion": "Alquila un auto con la confianza de un servicio personalizado y atención directa. Flota de vehículos modernos y en excelente estado, con opciones para todos los gustos y necesidades.",
       "imagenes": [
         "img/rentCar_(1).jpg"
@@ -1135,7 +1135,7 @@
     {
       "nombre": "Patio Godoy",
       "type": "activity",
-      "valoracion": 130,
+      "valoracion": 180,
       "descripcion": "Un espacio en el corazón de Godoy Cruz con la mejor comida para empezar el dia o cortar la tarde. Ideal para desayunar, almorzar o merendar con unos sabores que enamoran.",
       "imagenes": [
         "img/patioGodoy_(1).jpg",
@@ -1159,6 +1159,49 @@
           "Wifi"
         ]
       }
+    },
+    {
+      "nombre": "La Mira Lodge",
+      "type": "accommodation",
+      "valoracion": 20,
+      "descripcion": "Alojamiento de montaña con vista plena al Dique Potrerillos y al Cordón del Plata. Lodges modernos, confortables y pensados para desconectar y disfrutar la naturaleza con estilo.",
+      "ubicacion": "Potrerillos, Luján de Cuyo",
+      "imagenes": [
+        "img/lamiraLodge_(1).jpg",
+        "img/lamiraLodge_(2).jpg",
+        "img/lamiraLodge_(3).jpg",
+        "img/lamiraLodge_(4).jpg",
+        "img/lamiraLodge_(5).jpg"
+      ],
+      "whatsapp": "+5492615658764",
+      "saludo": "¡Hola! Los encontré en la sección de alojamientos. Me gustaría consultar disponibilidad en La Mira Lodge.",
+      "activo": true,
+      "capacidad": [
+        2,
+        4
+      ],
+      "redesSociales": {
+        "instagram": "https://www.instagram.com/lamira.lodge",
+        "web": "https://linktr.ee/lamira.lodge"
+      },
+      "detallesAdicionales": {
+        "titulo": "Vistas inigualables al Dique Potrerillos",
+        "textoExtenso": "La Mira Lodge ofrece modernos y confortables lodges de montaña con una vista espectacular al Dique Potrerillos y al majestuoso Cordón del Plata. Cada unidad está completamente equipada para asegurar una estadía placentera y de total desconexión. Disfruta de la tranquilidad del entorno, la comodidad de una cocina completa y la calidez del fogonero con parrilla para una experiencia completa en la naturaleza. Además, su ubicación estratégica te permite un acceso rápido a las actividades y gastronomía de Potrerillos.",
+        "servicios": [
+          "Lodges equipados",
+          "Aire acondicionado",
+          "Calefacción",
+          "Wi-Fi",
+          "Cocina completa",
+          "Fogonero con parrilla",
+          "Estacionamiento",
+          "Acceso rápido al perilago",
+          "Asesoramiento sobre experiencias y actividades"
+        ],
+        "otrosServicios": [],
+        "amenities": []
+      },
+      "direccion": "Kilómetro 1094, Ruta Nacional 7"
     }
   ]
 }
