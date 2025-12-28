@@ -98,14 +98,15 @@
         "img/casaAromos_(10).jpg",
         "img/casaAromos_(11).jpg"
       ],
-      "whatsapp": "+5492615964732",
+      "whatsapp2": "+5492615964732",
+      "whatsapp": "+5491132191078",
       "saludo": "¡Hola! Estoy interesado en reservar Casa Aromos.",
       "activo": true,
       "capacidad": [
         10,
         14
       ],
-      "redesSociales": {
+      "redesSociales2": {
         "instagram": "https://www.instagram.com/casonas.zakalik",
         "web": "https://www.casonazakalik.com"
       },
@@ -152,14 +153,15 @@
         "img/casaEdmundo_(16).jpg",
         "img/casaEdmundo_(17).jpg"
       ],
-      "whatsapp": "+5492615964732",
+      "whatsapp": "+5491132191078",
+      "whatsapp2": "+5492615964732",
       "saludo": "¡Hola! Estoy interesado en reservar Casa Edmundo.",
       "activo": true,
       "capacidad": [
         10,
         14
       ],
-      "redesSociales": {
+      "redesSociales2": {
         "instagram": "https://www.instagram.com/casonas.zakalik",
         "web": "https://www.casonazakalik.com"
       },
@@ -206,14 +208,15 @@
         "img/casaMedrano_(14).jpg",
         "img/casaMedrano_(15).jpg"
       ],
-      "whatsapp": "+5492615964732",
+      "whatsapp2": "+5492615964732",
+      "whatsapp": "+5491132191078",
       "saludo": "¡Hola! Estoy interesado en reservar Casa Medrano.",
       "activo": true,
       "capacidad": [
         10,
         14
       ],
-      "redesSociales": {
+      "redesSociales2": {
         "instagram": "https://www.instagram.com/casonas.zakalik",
         "web": "https://www.casonazakalik.com"
       },
@@ -241,7 +244,8 @@
       "descripcion": "Una magnífica casona en Chacras de Coria, diseñada para ofrecer una experiencia inolvidable a familias y grupos de amigos. Disfrute de su extenso jardín, refrescante pileta y amplios espacios",
       "valoracion": 250,
       "ubicacion": "Chacras de Coria, Luján de Cuyo",
-      "whatsapp": "+5492615964732",
+      "whatsapp": "+5491132191078",
+      "whatsapp2": "+5492615964732",
       "saludo": "¡Hola! Estoy interesado en reservar Casa Sara.",
       "activo": true,
       "capacidad": [
@@ -270,7 +274,7 @@
         "img/casaSara_(19).jpg",
         "img/casaSara_(20).jpg"
       ],
-      "redesSociales": {
+      "redesSociales2": {
         "instagram": "https://www.instagram.com/casonas.zakalik",
         "web": "https://www.casonazakalik.com"
       },
@@ -352,14 +356,15 @@
         "img/casaWine_(12).jpg",
         "img/casaWine_(13).jpg"
       ],
-      "whatsapp": "+5492615964732",
+      "whatsapp": "+5491132191078",
+      "whatsapp2": "+5492615964732",
       "saludo": "¡Hola! Estoy interesado/a en Casa WineHouse y me gustaría recibir más información sobre disponibilidad y tarifas.",
       "activo": true,
       "capacidad": [
         10,
         12
       ],
-      "redesSociales": {
+      "redesSociales2": {
         "instagram": "https://www.instagram.com/casonas.zakalik",
         "web": "https://www.casonazakalik.com"
       },
